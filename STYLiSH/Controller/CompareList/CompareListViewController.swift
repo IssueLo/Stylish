@@ -10,17 +10,24 @@ import UIKit
 
 class CompareListViewController: UIViewController {
     
-    @IBOutlet weak var collevtionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView! {
+        didSet {
+        
+            collectionView.delegate = self
+            
+            collectionView.dataSource = self
+        }
+    }
     
     var orders: [LSOrder] = [] {
         
         didSet {
             
-            collevtionView.reloadData()
+            collectionView.reloadData()
             
             if orders.count == 0 {
                 
-                collevtionView.isHidden = true
+                collectionView.isHidden = true
                 
 //                checkoutBtn.isEnabled = false
 //
@@ -28,7 +35,7 @@ class CompareListViewController: UIViewController {
                 
             } else {
                 
-                collevtionView.isHidden = false
+                collectionView.isHidden = false
                 
 //                checkoutBtn.isEnabled = true
 //
@@ -44,8 +51,14 @@ class CompareListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collevtionView.lk_registerCellWithNib(identifier: String(describing: CompareListCell.self), bundle: nil)
-
+        collectionView.lk_registerCellWithNib(identifier: String(describing: CompareListCell.self), bundle: nil)
+        
+        collectionView.contentInset = UIEdgeInsets(top: 0,
+                                                   left: 16,
+                                                   bottom: UIScreen.height - 468 ,
+                                                   right: 16)
+        
+        
         fetchData()
     }
     
@@ -104,8 +117,8 @@ class CompareListViewController: UIViewController {
 extension CompareListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return 2
+        print(orders.count)
+        return orders.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -117,8 +130,32 @@ extension CompareListViewController: UICollectionViewDelegate, UICollectionViewD
         
         guard let compareCell = cell as? CompareListCell else { return cell }
         
+        compareCell.titleLabel.text = orders[indexPath.row].seletedColor
+        
         return compareCell
         
     }
     
 }
+
+//class CompareListFlowLayout: UICollectionViewFlowLayout {
+//    
+//    override var collectionViewContentSize: CGSize {
+//        
+//        let newSize: CGSize = CGSize(width: 3 * 154, height: 404)
+//        return newSize
+//    }
+//    
+//    override var estimatedItemSize: CGSize {
+//        
+//        let newSize: CGSize = CGSize(width: 154, height: 404)
+//        return newSize
+//    }
+//    
+//}
+
+
+
+//extension CompareListViewController: UICollectionViewFlowLayout {
+//
+//}

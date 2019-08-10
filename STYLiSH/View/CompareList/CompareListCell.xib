@@ -10,27 +10,26 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTV-IL-0wX" customClass="CompareListCell" customModule="STYLiSH" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="139" height="404"/>
-            <autoresizingMask key="autoresizingMask"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CompareListCell" id="gTV-IL-0wX" customClass="CompareListCell" customModule="STYLiSH" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="154" height="404"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="139" height="404"/>
+                <rect key="frame" x="0.0" y="0.0" width="154" height="404"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyu-dA-O9C" userLabel="Content View">
-                        <rect key="frame" x="0.0" y="0.0" width="139" height="404"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyu-dA-O9C" userLabel="Content View">
+                        <rect key="frame" x="0.0" y="0.0" width="154" height="404"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wV1-X5-XHy">
-                                <rect key="frame" x="8" y="23" width="123" height="165"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="wV1-X5-XHy">
+                                <rect key="frame" x="15.5" y="23" width="123" height="165"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="165" id="jRL-Bq-lfF"/>
                                     <constraint firstAttribute="width" constant="123" id="zka-DK-Nqc"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZh-Li-QX2">
-                                <rect key="frame" x="8" y="212" width="123" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="厚實毛呢格子外套" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZh-Li-QX2">
+                                <rect key="frame" x="13" y="212" width="128" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="123" id="f5f-SP-wFT"/>
                                     <constraint firstAttribute="height" constant="24" id="xjb-TA-e1d"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
@@ -38,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoO-Hp-9Pi">
-                                <rect key="frame" x="8" y="260" width="123" height="24"/>
+                                <rect key="frame" x="15.5" y="260" width="123" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="123" id="7uh-3M-hBY"/>
                                     <constraint firstAttribute="height" constant="24" id="N7M-PO-Yf2"/>
@@ -48,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="material" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eih-21-xeb">
-                                <rect key="frame" x="8" y="308" width="123" height="24"/>
+                                <rect key="frame" x="15.5" y="308" width="123" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="N7B-Ip-ua7"/>
                                     <constraint firstAttribute="width" constant="123" id="kM9-Ed-0AD"/>
@@ -58,7 +57,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="place" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctk-a0-MpE">
-                                <rect key="frame" x="8" y="356" width="123" height="24"/>
+                                <rect key="frame" x="15.5" y="356" width="123" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="AsS-sY-o4F"/>
                                     <constraint firstAttribute="width" constant="123" id="pX7-7N-YEe"/>
@@ -81,7 +80,7 @@
                             <constraint firstItem="Eih-21-xeb" firstAttribute="top" secondItem="SoO-Hp-9Pi" secondAttribute="bottom" constant="24" id="qia-A3-ByP"/>
                             <constraint firstItem="SoO-Hp-9Pi" firstAttribute="centerX" secondItem="eyu-dA-O9C" secondAttribute="centerX" id="qwd-mM-7yX"/>
                             <constraint firstAttribute="bottom" secondItem="Ctk-a0-MpE" secondAttribute="bottom" constant="24" id="tQO-D0-E20"/>
-                            <constraint firstAttribute="width" constant="139" id="yF0-na-tF5"/>
+                            <constraint firstAttribute="width" constant="154" id="yF0-na-tF5"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -92,7 +91,7 @@
                 <constraint firstItem="eyu-dA-O9C" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Wdz-7l-pkT"/>
                 <constraint firstAttribute="bottom" secondItem="eyu-dA-O9C" secondAttribute="bottom" id="myw-KO-j2u"/>
             </constraints>
-            <size key="customSize" width="139" height="404"/>
+            <size key="customSize" width="154" height="404"/>
             <connections>
                 <outlet property="materialLabel" destination="Eih-21-xeb" id="87K-HY-S7I"/>
                 <outlet property="placeOfProductionLabel" destination="Ctk-a0-MpE" id="ouh-PG-6AZ"/>
@@ -100,7 +99,10 @@
                 <outlet property="productImage" destination="wV1-X5-XHy" id="iXh-UV-KcS"/>
                 <outlet property="titleLabel" destination="FZh-Li-QX2" id="bdw-dc-DED"/>
             </connections>
-            <point key="canvasLocation" x="194.92753623188406" y="286.60714285714283"/>
+            <point key="canvasLocation" x="205.79710144927537" y="286.60714285714283"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="Image_Placeholder" width="375" height="375"/>
+    </resources>
 </document>

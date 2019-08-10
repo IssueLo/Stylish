@@ -89,6 +89,7 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
             String(describing: ProductDescriptionTableViewCell.self),
                                          bundle: nil
         )
+        
 
         tableView.lk_registerCellWithNib(identifier:
             ProductDetailCell.color,
@@ -99,6 +100,12 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
             ProductDetailCell.label,
                                          bundle: nil
         )
+    }
+    
+    func showSharingView() {
+        let storyboard = UIStoryboard(name:"ProductShare", bundle:nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ProductShareViewController")
+        self.present(vc, animated: true, completion: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -205,8 +212,19 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         guard let product = product else { return UITableViewCell() }
-
-        return datas[indexPath.row].cellForIndexPath(indexPath, tableView: tableView, data: product)
+        
+        guard let descriptCell = datas[0].cellForIndexPath(indexPath, tableView: tableView, data: product) as? ProductDescriptionTableViewCell else {return UITableViewCell()}
+        
+        descriptCell.delegate = self
+        
+        if indexPath.row == 0 {
+            
+            return descriptCell
+            
+        } else {
+        
+            return datas[indexPath.row].cellForIndexPath(indexPath, tableView: tableView, data: product)
+        }
     }
 
     // MARK: - UITableViewDelegate
@@ -260,4 +278,18 @@ extension ProductDetailViewController: ProductPickerControllerDelegate {
 
         isEnableAddToCarBtn(true)
     }
+}
+
+extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
+    
+    func showSharingPage() {
+        
+        let storyBoard = UIStoryboard(name: "ProductShare", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "ProductShareViewController")
+        self.present(controller, animated: true, completion: nil)
+        
+        print("delegate有做事")
+    }
+    
+    
 }

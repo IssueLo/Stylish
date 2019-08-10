@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0346B85E22FEB2A200B2F25D /* ProductShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0346B85D22FEB2A200B2F25D /* ProductShareView.xib */; };
+		0365AC7622FEB87600C75776 /* ProductShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC7522FEB87600C75776 /* ProductShareViewController.swift */; };
+		0365AC7B22FEB98F00C75776 /* ProductShare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0365AC7A22FEB98F00C75776 /* ProductShare.storyboard */; };
+		0365AC7D22FEBB2800C75776 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0365AC7C22FEBB2800C75776 /* Social.framework */; };
 		2D8E54C9BAFD8C9E19868B11 /* Pods_STYLiSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524288A503CA319531F016DA /* Pods_STYLiSH.framework */; };
 		3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F5112211435B00C5B3E2 /* Lobby.storyboard */; };
 		3C09F514221143A600C5B3E2 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F513221143A600C5B3E2 /* Product.storyboard */; };
@@ -123,6 +127,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0346B85D22FEB2A200B2F25D /* ProductShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductShareView.xib; sourceTree = "<group>"; };
+		0365AC7522FEB87600C75776 /* ProductShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductShareViewController.swift; sourceTree = "<group>"; };
+		0365AC7A22FEB98F00C75776 /* ProductShare.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductShare.storyboard; sourceTree = "<group>"; };
+		0365AC7C22FEBB2800C75776 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3C09F5112211435B00C5B3E2 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		3C09F513221143A600C5B3E2 /* Product.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
 		3C09F515221143BE00C5B3E2 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -248,6 +256,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0365AC7D22FEBB2800C75776 /* Social.framework in Frameworks */,
 				3CC3D738223D78FB007DAA0D /* SafariServices.framework in Frameworks */,
 				3C4B10DD2229273F009942B7 /* TPDirect.framework in Frameworks */,
 				2D8E54C9BAFD8C9E19868B11 /* Pods_STYLiSH.framework in Frameworks */,
@@ -257,6 +266,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0346B85C22FEB27100B2F25D /* ProductShareView */ = {
+			isa = PBXGroup;
+			children = (
+				0346B85D22FEB2A200B2F25D /* ProductShareView.xib */,
+			);
+			path = ProductShareView;
+			sourceTree = "<group>";
+		};
+		0365AC7922FEB95A00C75776 /* ShareFunction */ = {
+			isa = PBXGroup;
+			children = (
+				0365AC7522FEB87600C75776 /* ProductShareViewController.swift */,
+				0346B85C22FEB27100B2F25D /* ProductShareView */,
+				0365AC7A22FEB98F00C75776 /* ProductShare.storyboard */,
+			);
+			path = ShareFunction;
+			sourceTree = "<group>";
+		};
 		03C821089B9639ED8853C216 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -574,6 +601,7 @@
 		3CD2911B221135E2008B8A2D /* STYLiSH */ = {
 			isa = PBXGroup;
 			children = (
+				0365AC7922FEB95A00C75776 /* ShareFunction */,
 				3CB8011F2229A0580029A552 /* Third Party Wrapper */,
 				3C09F51F22115A9F00C5B3E2 /* Extension */,
 				3CD2913122113D12008B8A2D /* Resource */,
@@ -759,6 +787,7 @@
 		F26A8A19BFED7C956C38BFE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0365AC7C22FEBB2800C75776 /* Social.framework */,
 				3CC3D737223D78FB007DAA0D /* SafariServices.framework */,
 				524288A503CA319531F016DA /* Pods_STYLiSH.framework */,
 			);
@@ -853,9 +882,11 @@
 				3C4B10D122292732009942B7 /* card_mastercard.png in Resources */,
 				3C34794D222E82F600969C30 /* AmountSelectionCell.xib in Resources */,
 				3C4B10D422292732009942B7 /* card_jcb@2x.png in Resources */,
+				0346B85E22FEB2A200B2F25D /* ProductShareView.xib in Resources */,
 				3C4B10DB22292732009942B7 /* card_mastercard@2x.png in Resources */,
 				3C4B10CD22292732009942B7 /* card_jcb.png in Resources */,
 				3C33690F2226F53E008A5A7A /* TrolleyTableViewCell.xib in Resources */,
+				0365AC7B22FEB98F00C75776 /* ProductShare.storyboard in Resources */,
 				3C3369212227DC84008A5A7A /* TrolleySelectionView.xib in Resources */,
 				3C4B10DA22292732009942B7 /* card_visa@3x.png in Resources */,
 				3C6020D9222B883600312958 /* ProductDescriptionTableViewCell.xib in Resources */,
@@ -924,6 +955,7 @@
 				3C831C6022E9945500112298 /* STOrderProductCell.swift in Sources */,
 				3C1ACFE922152D29005583E2 /* ProfileCollectionViewCell.swift in Sources */,
 				3CB801232229A5290029A552 /* MJRefreshWrapper.swift in Sources */,
+				0365AC7622FEB87600C75776 /* ProductShareViewController.swift in Sources */,
 				3C546BE522EABB6D0082C655 /* CheckoutViewController.swift in Sources */,
 				3CD2911D221135E2008B8A2D /* AppDelegate.swift in Sources */,
 				3CEBE07A222F72600064EF82 /* STYLiSH.xcdatamodeld in Sources */,

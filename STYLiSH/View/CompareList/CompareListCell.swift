@@ -9,6 +9,17 @@
 import UIKit
 
 class CompareListCell: UICollectionViewCell {
+    
+    @IBOutlet weak var productImage: UIImageView!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var priceLabel: UILabel!
+    
+    @IBOutlet weak var materialLabel: UILabel!
+    
+    @IBOutlet weak var placeOfProductionLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

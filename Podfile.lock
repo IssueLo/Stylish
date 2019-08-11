@@ -1,4 +1,10 @@
 PODS:
+  - FacebookCore (0.8.0):
+    - FBSDKCoreKit (~> 5.0)
+  - FacebookShare (0.8.0):
+    - FacebookCore (~> 0.8.0)
+    - FBSDKCoreKit (~> 5.0)
+    - FBSDKShareKit (~> 5.0)
   - FBSDKCoreKit (5.2.3):
     - FBSDKCoreKit/Basics (= 5.2.3)
     - FBSDKCoreKit/Core (= 5.2.3)
@@ -7,6 +13,8 @@ PODS:
     - FBSDKCoreKit/Basics
   - FBSDKLoginKit (5.2.3):
     - FBSDKCoreKit (~> 5.0)
+  - FBSDKShareKit (5.3.0):
+    - FBSDKCoreKit (~> 5.0)
   - IQKeyboardManager (6.3.0)
   - JGProgressHUD (2.0.3)
   - KeychainAccess (3.2.0)
@@ -14,6 +22,7 @@ PODS:
   - MJRefresh (3.2.0)
 
 DEPENDENCIES:
+  - FacebookShare
   - FBSDKLoginKit
   - IQKeyboardManager
   - JGProgressHUD
@@ -23,8 +32,11 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - FacebookCore
+    - FacebookShare
     - FBSDKCoreKit
     - FBSDKLoginKit
+    - FBSDKShareKit
     - IQKeyboardManager
     - JGProgressHUD
     - KeychainAccess
@@ -32,8 +44,11 @@ SPEC REPOS:
     - MJRefresh
 
 SPEC CHECKSUMS:
+  FacebookCore: 563bb4cbcd7dd86cf89f3729252140bf256aacaa
+  FacebookShare: e75d5e81ef7bd7aab2f865446c4c27015b43bae6
   FBSDKCoreKit: 5154c35d9058fd7dfa0445ba19e194c4b172fc32
   FBSDKLoginKit: dc98b6bf12334f1a42f28d0457fffc9aa3d1eca5
+  FBSDKShareKit: f61d03f36ce4f1b379c7de7dbfe173662e68be44
   IQKeyboardManager: 2ca9d64893247556f53523dcd8d78641f0ba7c23
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b

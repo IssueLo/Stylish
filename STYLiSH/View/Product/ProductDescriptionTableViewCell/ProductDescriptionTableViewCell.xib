@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -69,6 +69,17 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d87-K4-KFM">
+                        <rect key="frame" x="259" y="58" width="16" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="a9V-16-mRm"/>
+                            <constraint firstAttribute="width" constant="16" id="kwd-IU-wA1"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="icons8-connect-50"/>
+                        <connections>
+                            <action selector="sharingBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="31q-EU-7AW"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="hg7-DJ-QZK" firstAttribute="top" secondItem="j1s-vw-gPi" secondAttribute="bottom" constant="4" id="4IA-ZP-FqR"/>
@@ -77,11 +88,13 @@
                     <constraint firstItem="CvJ-RP-jMV" firstAttribute="top" secondItem="hg7-DJ-QZK" secondAttribute="bottom" constant="24" id="C0I-Tx-HzJ"/>
                     <constraint firstAttribute="bottom" secondItem="CvJ-RP-jMV" secondAttribute="bottom" priority="750" constant="12" id="EXI-Fb-GZT"/>
                     <constraint firstItem="nI9-wZ-yeU" firstAttribute="centerY" secondItem="j1s-vw-gPi" secondAttribute="centerY" id="GYp-ck-Vi9"/>
+                    <constraint firstItem="d87-K4-KFM" firstAttribute="top" secondItem="nI9-wZ-yeU" secondAttribute="bottom" constant="8" id="IXK-Eh-ob5"/>
                     <constraint firstItem="CvJ-RP-jMV" firstAttribute="leading" secondItem="hg7-DJ-QZK" secondAttribute="leading" id="KjK-dp-xkG"/>
                     <constraint firstItem="j1s-vw-gPi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="YNo-29-tpI"/>
                     <constraint firstItem="j1s-vw-gPi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="aqf-oX-VB5"/>
                     <constraint firstItem="CvJ-RP-jMV" firstAttribute="trailing" secondItem="nI9-wZ-yeU" secondAttribute="trailing" id="aqj-90-bmC"/>
                     <constraint firstItem="nI9-wZ-yeU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j1s-vw-gPi" secondAttribute="trailing" constant="40" id="e83-hL-Fgd"/>
+                    <constraint firstItem="d87-K4-KFM" firstAttribute="leading" secondItem="hg7-DJ-QZK" secondAttribute="trailing" constant="-83" id="jPs-Kp-qHI"/>
                     <constraint firstAttribute="trailing" secondItem="hg7-DJ-QZK" secondAttribute="trailing" id="tGj-M3-IIv"/>
                 </constraints>
             </tableViewCellContentView>
@@ -95,4 +108,7 @@
             <point key="canvasLocation" x="57.600000000000001" y="169.11544227886057"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icons8-connect-50" width="50" height="50"/>
+    </resources>
 </document>

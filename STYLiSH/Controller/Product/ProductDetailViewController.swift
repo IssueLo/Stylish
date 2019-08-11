@@ -7,8 +7,19 @@
 //
 
 import UIKit
+import FacebookShare
+import FBSDKShareKit
 
 class ProductDetailViewController: STBaseViewController, UITableViewDataSource, UITableViewDelegate {
+   
+//    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+//        return product?.mainImage
+//    }
+//
+//    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+//        return product?.mainImage
+//    }
+    
 
     private struct Segue {
 
@@ -89,6 +100,7 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
             String(describing: ProductDescriptionTableViewCell.self),
                                          bundle: nil
         )
+        
 
         tableView.lk_registerCellWithNib(identifier:
             ProductDetailCell.color,
@@ -99,6 +111,12 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
             ProductDetailCell.label,
                                          bundle: nil
         )
+    }
+    
+    func showSharingView() {
+        let storyboard = UIStoryboard(name:"ProductShare", bundle:nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ProductShareViewController")
+        self.present(vc, animated: true, completion: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -205,8 +223,19 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         guard let product = product else { return UITableViewCell() }
-
-        return datas[indexPath.row].cellForIndexPath(indexPath, tableView: tableView, data: product)
+        
+        guard let descriptCell = datas[0].cellForIndexPath(indexPath, tableView: tableView, data: product) as? ProductDescriptionTableViewCell else {return UITableViewCell()}
+        
+        descriptCell.delegate = self
+        
+        if indexPath.row == 0 {
+            
+            return descriptCell
+            
+        } else {
+        
+            return datas[indexPath.row].cellForIndexPath(indexPath, tableView: tableView, data: product)
+        }
     }
 
     // MARK: - UITableViewDelegate
@@ -260,4 +289,55 @@ extension ProductDetailViewController: ProductPickerControllerDelegate {
 
         isEnableAddToCarBtn(true)
     }
+}
+
+extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
+    
+// 以 iOS 內建 UIActivityVC 分享
+    func showSharingPage() {
+        
+//        let storyBoard = UIStoryboard(name: "ProductShare", bundle: nil)
+//        let controller = storyBoard.instantiateViewController(withIdentifier: "ProductShareViewController")
+//        controller.modalPresentationStyle = .overCurrentContext
+//        self.present(controller, animated: false, completion: nil)
+        
+        guard let product = product else {
+            print("獲取資料失敗，請重新進入畫面")
+            return
+        }
+        
+        let items = [product.title, URL(string: product.mainImage) ?? "圖片網址", "NT$ \(product.price)"] as [Any]
+        
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+        
+        
+        print("delegate 分享")
+    }
+    
+    
+// 以 FBSDK 方式分享
+    func showShareDialog<C: SharingContent>(_ content: C, mode: ShareDialog.Mode = .automatic) {
+        let dialog = ShareDialog(fromViewController: self, content: content, delegate: self as? SharingDelegate)
+        dialog.mode = mode
+        dialog.show()
+    }
+    
+    func shareToFB() {
+        
+        guard let product = product else {return}
+        
+        guard let url = URL(string: "https://300zombies.com/product.html?id=\(product.id)") else {return}
+        
+        print(url)
+        
+        let content = ShareLinkContent()
+        content.contentURL = url
+        content.placeID = "296758097659999"
+        
+        showShareDialog(content, mode: .automatic)
+        print("delegate FBSDK 分享")
+        
+    }
+
 }

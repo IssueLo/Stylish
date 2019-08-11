@@ -18,6 +18,14 @@ class ProductDescriptionTableViewCell: ProductBasicCell {
 
     @IBOutlet weak var detailLbl: UILabel!
 
+    @IBAction func sharingBtnPressed(_ sender: Any) {
+        
+//        delegate?.showSharingPage()
+        delegate?.shareToFB()
+        
+        print("按")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,4 +41,11 @@ class ProductDescriptionTableViewCell: ProductBasicCell {
 
         detailLbl.text = product.story
     }
+    
+    weak var delegate: ProductDescriptionTableViewCellDelegate?
+}
+
+protocol ProductDescriptionTableViewCellDelegate: AnyObject {
+    func showSharingPage()
+    func shareToFB()
 }

@@ -7,24 +7,43 @@
 //
 
 import UIKit
-import Social
+import FacebookShare
+//import FBSDKShareKit
 
-class ProductShareViewController: UIViewController {
-
-    @IBOutlet weak var sharingBtn: UIButton!
-    @IBOutlet weak var sharingText: UITextView!
+class ProductShareViewController: STBaseViewController {
     
+    
+    @IBOutlet weak var sharingView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 加圓角
+        sharingView.clipsToBounds = true
+        sharingView.layer.cornerRadius = 25
+        sharingView.layer.maskedCorners = [ .layerMinXMinYCorner, .layerMaxXMinYCorner ]
+        
     }
-    @IBAction func backPressed(_ sender: Any) {
     
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func closePressed(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func showShareOptions(sender: AnyObject) {
+  
+    func shareToFB()  {
+//
+//        LinkShareContent
+//
+//        let content = LinkShareContent(url: NSURL("https://developers.facebook.com"))
+//        let shareDialog = ShareDialog(content: myContent)
+//        shareDialog.mode = .Native
+//        shareDialog.failsOnInvalidData = true
+//        shareDialog.completion = { result in
+//            // Handle share results
+//        }
+//
+//        try shareDialog.show()
     }
+    
 
     
 

@@ -9,6 +9,15 @@
 import UIKit
 
 class ProductDetailViewController: STBaseViewController, UITableViewDataSource, UITableViewDelegate {
+   
+//    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+//        return product?.mainImage
+//    }
+//
+//    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+//        return product?.mainImage
+//    }
+    
 
     private struct Segue {
 
@@ -284,12 +293,24 @@ extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
     
     func showSharingPage() {
         
-        let storyBoard = UIStoryboard(name: "ProductShare", bundle: nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: "ProductShareViewController")
-        self.present(controller, animated: true, completion: nil)
+//        let storyBoard = UIStoryboard(name: "ProductShare", bundle: nil)
+//        let controller = storyBoard.instantiateViewController(withIdentifier: "ProductShareViewController")
+//        controller.modalPresentationStyle = .overCurrentContext
+//        self.present(controller, animated: false, completion: nil)
         
-        print("delegate有做事")
+        
+        guard let product = product else {
+            print("獲取資料失敗，請重新進入畫面")
+            return
+        }
+        
+        let items = [product.title, URL(string: product.mainImage) ?? "圖片網址", "NT$ \(product.price)"] as [Any]
+        
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+        
+        
+        print("delegate 分享")
     }
-    
-    
+
 }

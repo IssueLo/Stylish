@@ -17,79 +17,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rFe-fT-Mf2" customClass="ProductShareView" customModule="STYLiSH" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                            <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qz-xT-cZS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="731"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8W-yU-tXm">
+                                <rect key="frame" x="0.0" y="731" width="414" height="165"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分享" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jd-kw-jE0">
-                                        <rect key="frame" x="183.66666666666666" y="66" width="47" height="28"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分享商品資訊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARW-Uy-QSf">
+                                        <rect key="frame" x="16" y="27" width="146" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" red="0.2470588235" green="0.2274509804" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D21-WS-Cjo">
-                                        <rect key="frame" x="341" y="64" width="38" height="38"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4a2-gO-cCj">
+                                        <rect key="frame" x="374" y="27" width="24" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="38" id="96e-h5-oHa"/>
-                                            <constraint firstAttribute="width" constant="38" id="nGs-1y-c4l"/>
-                                            <constraint firstAttribute="width" secondItem="D21-WS-Cjo" secondAttribute="height" multiplier="1:1" id="wPV-3g-ees"/>
+                                            <constraint firstAttribute="width" constant="24" id="fXh-XN-NAj"/>
+                                            <constraint firstAttribute="height" constant="24" id="t00-Zm-PDK"/>
                                         </constraints>
-                                        <state key="normal" image="icons8-share-3-50"/>
+                                        <state key="normal" title="Button" image="Icons_24px_Close"/>
                                         <connections>
-                                            <action selector="showShareOptionsWithSender:" destination="LQN-7q-gv4" eventType="touchUpInside" id="msa-sU-BFq"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhO-zR-fgb">
-                                        <rect key="frame" x="26" y="61" width="44" height="44"/>
-                                        <state key="normal" image="Icons_44px_Back01"/>
-                                        <connections>
-                                            <action selector="backPressed:" destination="LQN-7q-gv4" eventType="touchUpInside" id="Ua7-gd-pbm"/>
+                                            <action selector="closePressed:" destination="LQN-7q-gv4" eventType="touchUpInside" id="gay-fU-32P"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="5Jd-kw-jE0" firstAttribute="top" secondItem="rFe-fT-Mf2" secondAttribute="top" constant="66" id="1gS-r5-TB1"/>
-                                    <constraint firstItem="5Jd-kw-jE0" firstAttribute="centerX" secondItem="rFe-fT-Mf2" secondAttribute="centerX" id="AYf-MK-YhV"/>
-                                    <constraint firstItem="D21-WS-Cjo" firstAttribute="top" secondItem="rFe-fT-Mf2" secondAttribute="top" constant="64" id="Lfs-uQ-3TX"/>
-                                    <constraint firstItem="mhO-zR-fgb" firstAttribute="leading" secondItem="rFe-fT-Mf2" secondAttribute="leading" constant="26" id="MXg-vI-Tod"/>
-                                    <constraint firstAttribute="trailing" secondItem="D21-WS-Cjo" secondAttribute="trailing" constant="35" id="VsS-on-7E6"/>
-                                    <constraint firstAttribute="height" constant="130" id="i1U-2P-SU2"/>
-                                    <constraint firstItem="mhO-zR-fgb" firstAttribute="top" secondItem="rFe-fT-Mf2" secondAttribute="top" constant="61" id="tRH-hA-9GY"/>
+                                    <constraint firstAttribute="height" constant="165" id="CGN-Zg-iKF"/>
+                                    <constraint firstItem="4a2-gO-cCj" firstAttribute="top" secondItem="I8W-yU-tXm" secondAttribute="top" constant="27" id="Rql-WR-wjZ"/>
+                                    <constraint firstItem="ARW-Uy-QSf" firstAttribute="leading" secondItem="I8W-yU-tXm" secondAttribute="leading" constant="16" id="t9t-5K-TiB"/>
+                                    <constraint firstItem="ARW-Uy-QSf" firstAttribute="top" secondItem="I8W-yU-tXm" secondAttribute="top" constant="27" id="ygk-V1-9HZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="4a2-gO-cCj" secondAttribute="trailing" constant="16" id="zs3-8M-Uc1"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GLH-0j-QLq">
-                                <rect key="frame" x="20" y="151" width="374" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="mCE-xE-g2i"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rFe-fT-Mf2" firstAttribute="top" secondItem="Lk6-e6-hm4" secondAttribute="firstBaseline" id="PwP-Jz-YeX"/>
-                            <constraint firstItem="rFe-fT-Mf2" firstAttribute="trailing" secondItem="fVO-um-JVQ" secondAttribute="trailing" id="RUD-FJ-69k"/>
-                            <constraint firstItem="rFe-fT-Mf2" firstAttribute="leading" secondItem="fVO-um-JVQ" secondAttribute="leading" id="RqY-Dd-i1e"/>
-                            <constraint firstItem="GLH-0j-QLq" firstAttribute="centerX" secondItem="Lk6-e6-hm4" secondAttribute="centerX" id="gOP-EU-sza"/>
-                            <constraint firstItem="GLH-0j-QLq" firstAttribute="leading" secondItem="Lk6-e6-hm4" secondAttribute="leadingMargin" id="oCJ-FH-7eO"/>
-                            <constraint firstItem="GLH-0j-QLq" firstAttribute="top" secondItem="rFe-fT-Mf2" secondAttribute="bottom" constant="21" id="z3y-nf-wbZ"/>
+                            <constraint firstItem="4qz-xT-cZS" firstAttribute="leading" secondItem="fVO-um-JVQ" secondAttribute="leading" id="MNa-2N-8e9"/>
+                            <constraint firstAttribute="bottom" secondItem="I8W-yU-tXm" secondAttribute="bottom" id="PoA-OS-h09"/>
+                            <constraint firstItem="4qz-xT-cZS" firstAttribute="top" secondItem="Lk6-e6-hm4" secondAttribute="top" id="XJk-uV-zMS"/>
+                            <constraint firstItem="I8W-yU-tXm" firstAttribute="trailing" secondItem="4qz-xT-cZS" secondAttribute="trailing" id="Znz-3W-STU"/>
+                            <constraint firstItem="fVO-um-JVQ" firstAttribute="trailing" secondItem="4qz-xT-cZS" secondAttribute="trailing" id="pYs-Ks-IxU"/>
+                            <constraint firstItem="I8W-yU-tXm" firstAttribute="top" secondItem="4qz-xT-cZS" secondAttribute="bottom" id="q8l-LY-aeL"/>
+                            <constraint firstItem="I8W-yU-tXm" firstAttribute="leading" secondItem="fVO-um-JVQ" secondAttribute="leading" id="yDE-4m-ald"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fVO-um-JVQ"/>
                     </view>
                     <connections>
-                        <outlet property="sharingBtn" destination="D21-WS-Cjo" id="zE7-vm-wM7"/>
-                        <outlet property="sharingText" destination="GLH-0j-QLq" id="Zs5-E2-K2T"/>
+                        <outlet property="sharingView" destination="I8W-yU-tXm" id="72I-NV-RMi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8X-C9-zUX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-823" y="-26"/>
+            <point key="canvasLocation" x="-823.1884057971015" y="-26.116071428571427"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Icons_44px_Back01" width="44" height="44"/>
-        <image name="icons8-share-3-50" width="50" height="50"/>
+        <image name="Icons_24px_Close" width="24" height="24"/>
     </resources>
 </document>

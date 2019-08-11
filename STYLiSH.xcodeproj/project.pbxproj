@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0346B85E22FEB2A200B2F25D /* ProductShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0346B85D22FEB2A200B2F25D /* ProductShareView.xib */; };
 		0365AC7622FEB87600C75776 /* ProductShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC7522FEB87600C75776 /* ProductShareViewController.swift */; };
 		0365AC7B22FEB98F00C75776 /* ProductShare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0365AC7A22FEB98F00C75776 /* ProductShare.storyboard */; };
 		0365AC7D22FEBB2800C75776 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0365AC7C22FEBB2800C75776 /* Social.framework */; };
@@ -127,7 +126,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0346B85D22FEB2A200B2F25D /* ProductShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductShareView.xib; sourceTree = "<group>"; };
 		0365AC7522FEB87600C75776 /* ProductShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductShareViewController.swift; sourceTree = "<group>"; };
 		0365AC7A22FEB98F00C75776 /* ProductShare.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductShare.storyboard; sourceTree = "<group>"; };
 		0365AC7C22FEBB2800C75776 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -269,7 +267,6 @@
 		0346B85C22FEB27100B2F25D /* ProductShareView */ = {
 			isa = PBXGroup;
 			children = (
-				0346B85D22FEB2A200B2F25D /* ProductShareView.xib */,
 			);
 			path = ProductShareView;
 			sourceTree = "<group>";
@@ -882,7 +879,6 @@
 				3C4B10D122292732009942B7 /* card_mastercard.png in Resources */,
 				3C34794D222E82F600969C30 /* AmountSelectionCell.xib in Resources */,
 				3C4B10D422292732009942B7 /* card_jcb@2x.png in Resources */,
-				0346B85E22FEB2A200B2F25D /* ProductShareView.xib in Resources */,
 				3C4B10DB22292732009942B7 /* card_mastercard@2x.png in Resources */,
 				3C4B10CD22292732009942B7 /* card_jcb.png in Resources */,
 				3C33690F2226F53E008A5A7A /* TrolleyTableViewCell.xib in Resources */,

@@ -20,6 +20,29 @@ class CompareListCell: UICollectionViewCell {
     
     @IBOutlet weak var placeOfProductionLabel: UILabel!
     
+    @IBOutlet weak var removeBtn: UIButton!
+    
+    var touchHandler: (() -> Void)? {
+        
+        didSet {
+            
+            if touchHandler == nil {
+
+                removeBtn.isHidden = true
+
+            } else {
+            
+                removeBtn.isHidden = false
+            }
+        }
+    }
+    
+    @IBAction func didTouchRemoveButton(_ sender: UIButton) {
+        
+        touchHandler?()
+    }
+    
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

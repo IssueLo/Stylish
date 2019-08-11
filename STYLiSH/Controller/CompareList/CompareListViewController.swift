@@ -57,7 +57,7 @@ class CompareListViewController: UIViewController {
         
         collectionView.contentInset = UIEdgeInsets(top: 0,
                                                    left: 16,
-                                                   bottom: UIScreen.height - 468 ,
+                                                   bottom: UIScreen.height - 516 ,
                                                    right: 16)
         
         fetchData()
@@ -137,9 +137,49 @@ extension CompareListViewController: UICollectionViewDelegate, UICollectionViewD
         
         compareCell.productImage.loadImage(compareListProducts[indexPath.row].mainImage)
         
+        compareCell.materialLabel.text = compareListProducts[indexPath.row].texture
+        
+        compareCell.placeOfProductionLabel.text = compareListProducts[indexPath.row].place
+        
+        compareCell.touchHandler = { [weak self] in
+            
+            self?.deleteData(at: indexPath.item)
+        }
+        
         return compareCell
     }
 }
+
+//@IBAction func addToCompareListBtn(_ sender: UIButton) {
+//
+//    if productPickerView.superview == nil {
+//
+//        showProductPickerView()
+//
+//    } else {
+//
+//        guard let product = product else { return }
+//        
+//        CompareListManager.shared.saveCPProduct(
+//            product: product,
+//            completion: { result in
+//
+//                switch result {
+//
+//                case .success:
+//
+//                    LKProgressHUD.showSuccess()
+//
+//                    dismissPicker(pickerViewController!)
+//
+//                case .failure:
+//
+//                    LKProgressHUD.showFailure(text: "儲存失敗！")
+//                }
+//        })
+//    }
+//}
+
 
 //class CompareListFlowLayout: UICollectionViewFlowLayout {
 //    

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FacebookShare
+import FBSDKShareKit
 
 class ProductDetailViewController: STBaseViewController, UITableViewDataSource, UITableViewDelegate {
    
@@ -291,13 +293,13 @@ extension ProductDetailViewController: ProductPickerControllerDelegate {
 
 extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
     
+// 以 iOS 內建 UIActivityVC 分享
     func showSharingPage() {
         
 //        let storyBoard = UIStoryboard(name: "ProductShare", bundle: nil)
 //        let controller = storyBoard.instantiateViewController(withIdentifier: "ProductShareViewController")
 //        controller.modalPresentationStyle = .overCurrentContext
 //        self.present(controller, animated: false, completion: nil)
-        
         
         guard let product = product else {
             print("獲取資料失敗，請重新進入畫面")
@@ -311,6 +313,31 @@ extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
         
         
         print("delegate 分享")
+    }
+    
+    
+// 以 FBSDK 方式分享
+    func showShareDialog<C: SharingContent>(_ content: C, mode: ShareDialog.Mode = .automatic) {
+        let dialog = ShareDialog(fromViewController: self, content: content, delegate: self as? SharingDelegate)
+        dialog.mode = mode
+        dialog.show()
+    }
+    
+    func shareToFB() {
+        
+        guard let product = product else {return}
+        
+        guard let url = URL(string: "https://300zombies.com/product.html?id=\(product.id)") else {return}
+        
+        print(url)
+        
+        let content = ShareLinkContent()
+        content.contentURL = url
+        content.placeID = "296758097659999"
+        
+        showShareDialog(content, mode: .automatic)
+        print("delegate FBSDK 分享")
+        
     }
 
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 import FacebookShare
-//import FBSDKShareKit
+import FBSDKShareKit
 
 class ProductShareViewController: STBaseViewController {
     
@@ -29,22 +29,8 @@ class ProductShareViewController: STBaseViewController {
     }
     
   
-    func shareToFB()  {
-//
-//        LinkShareContent
-//
-//        let content = LinkShareContent(url: NSURL("https://developers.facebook.com"))
-//        let shareDialog = ShareDialog(content: myContent)
-//        shareDialog.mode = .Native
-//        shareDialog.failsOnInvalidData = true
-//        shareDialog.completion = { result in
-//            // Handle share results
-//        }
-//
-//        try shareDialog.show()
-    }
-    
 
+    
     
 
 }

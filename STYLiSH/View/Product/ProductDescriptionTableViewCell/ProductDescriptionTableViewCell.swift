@@ -20,7 +20,9 @@ class ProductDescriptionTableViewCell: ProductBasicCell {
 
     @IBAction func sharingBtnPressed(_ sender: Any) {
         
-        delegate?.showSharingPage()
+//        delegate?.showSharingPage()
+        delegate?.shareToFB()
+        
         print("按")
     }
     
@@ -45,4 +47,5 @@ class ProductDescriptionTableViewCell: ProductBasicCell {
 
 protocol ProductDescriptionTableViewCellDelegate: AnyObject {
     func showSharingPage()
+    func shareToFB()
 }

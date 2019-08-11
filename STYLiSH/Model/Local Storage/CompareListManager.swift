@@ -121,11 +121,11 @@ typealias CPProductResult = (Result<CPProduct>) -> Void
         }
     }
     
-    func deleteCPProduct(_ order: LSOrder, completion: (Result<Void>) -> Void) {
+    func deleteCPProduct(_ cpProduct: CPProduct, completion: (Result<Void>) -> Void) {
         
         do {
             
-            viewContext.delete(order)
+            viewContext.delete(cpProduct)
             
             try viewContext.save()
             

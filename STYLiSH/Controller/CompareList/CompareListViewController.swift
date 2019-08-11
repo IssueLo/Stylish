@@ -19,13 +19,15 @@ class CompareListViewController: UIViewController {
         }
     }
     
-    var orders: [LSOrder] = [] {
+//    var orders: [LSOrder] = [] {
+    
+    var compareListProducts: [CPProduct] = [] {
         
         didSet {
             
             collectionView.reloadData()
             
-            if orders.count == 0 {
+            if compareListProducts.count == 0 {
                 
                 collectionView.isHidden = true
                 
@@ -58,7 +60,6 @@ class CompareListViewController: UIViewController {
                                                    bottom: UIScreen.height - 468 ,
                                                    right: 16)
         
-        
         fetchData()
     }
     
@@ -71,20 +72,20 @@ class CompareListViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        StorageManager.shared.saveAll(completion: { _ in })
+        CompareListManager.shared.saveAll(completion: { _ in })
     }
     
     //MARK: - Action
     
     func fetchData() {
         
-        StorageManager.shared.fetchOrders(completion: { result in
+        CompareListManager.shared.fetchCPProducts(completion: { result in
             
             switch result {
                 
-            case .success(let orders):
+            case .success(let compareListProducts):
                 
-                self.orders = orders
+                self.compareListProducts = compareListProducts
                 
             case .failure:
                 
@@ -95,15 +96,15 @@ class CompareListViewController: UIViewController {
     
     func deleteData(at index: Int) {
         
-        StorageManager.shared.deleteOrder(
-            orders[index],
+        CompareListManager.shared.deleteCPProduct(
+            compareListProducts[index],
             completion: { result in
                 
                 switch result {
                     
                 case .success:
                     
-                    orders.remove(at: index)
+                    compareListProducts.remove(at: index)
                     
                 case .failure:
                     
@@ -117,8 +118,8 @@ class CompareListViewController: UIViewController {
 extension CompareListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(orders.count)
-        return orders.count
+        print(compareListProducts.count)
+        return compareListProducts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -130,12 +131,14 @@ extension CompareListViewController: UICollectionViewDelegate, UICollectionViewD
         
         guard let compareCell = cell as? CompareListCell else { return cell }
         
-        compareCell.titleLabel.text = orders[indexPath.row].seletedColor
+        compareCell.titleLabel.text = compareListProducts[indexPath.row].title
+        
+        compareCell.priceLabel.text = String(compareListProducts[indexPath.row].price)
+        
+        compareCell.productImage.loadImage(compareListProducts[indexPath.row].mainImage)
         
         return compareCell
-        
     }
-    
 }
 
 //class CompareListFlowLayout: UICollectionViewFlowLayout {

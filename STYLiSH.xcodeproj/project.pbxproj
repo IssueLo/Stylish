@@ -124,6 +124,7 @@
 		9518106422FEAB1400186141 /* CompareListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9518106222FEAB1400186141 /* CompareListCell.xib */; };
 		9518106D22FEACC000186141 /* CompareListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518106C22FEACC000186141 /* CompareListViewController.swift */; };
 		9518106F22FEAD3D00186141 /* CompareList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9518106E22FEAD3D00186141 /* CompareList.storyboard */; };
+		9519CAE522FFE13A00664A4E /* CompareListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9519CAE422FFE13A00664A4E /* CompareListManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -247,6 +248,7 @@
 		9518106222FEAB1400186141 /* CompareListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompareListCell.xib; sourceTree = "<group>"; };
 		9518106C22FEACC000186141 /* CompareListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareListViewController.swift; sourceTree = "<group>"; };
 		9518106E22FEAD3D00186141 /* CompareList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompareList.storyboard; sourceTree = "<group>"; };
+		9519CAE422FFE13A00664A4E /* CompareListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareListManager.swift; sourceTree = "<group>"; };
 		E921004E251C9FC3CBC174F5 /* Pods-STYLiSH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.release.xcconfig"; path = "Target Support Files/Pods-STYLiSH/Pods-STYLiSH.release.xcconfig"; sourceTree = "<group>"; };
 		F551E8F447D7C8DC42B53B98 /* Pods-STYLiSH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.debug.xcconfig"; path = "Target Support Files/Pods-STYLiSH/Pods-STYLiSH.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -743,6 +745,7 @@
 			children = (
 				3CEBE076222F718D0064EF82 /* StorageManager.swift */,
 				3CEBE078222F72600064EF82 /* STYLiSH.xcdatamodeld */,
+				9519CAE422FFE13A00664A4E /* CompareListManager.swift */,
 			);
 			path = "Local Storage";
 			sourceTree = "<group>";
@@ -953,6 +956,7 @@
 				3CED4C0C22141E9700121D4B /* MarketProvider.swift in Sources */,
 				3C831C6022E9945500112298 /* STOrderProductCell.swift in Sources */,
 				3C1ACFE922152D29005583E2 /* ProfileCollectionViewCell.swift in Sources */,
+				9519CAE522FFE13A00664A4E /* CompareListManager.swift in Sources */,
 				3CB801232229A5290029A552 /* MJRefreshWrapper.swift in Sources */,
 				3C546BE522EABB6D0082C655 /* CheckoutViewController.swift in Sources */,
 				3CD2911D221135E2008B8A2D /* AppDelegate.swift in Sources */,

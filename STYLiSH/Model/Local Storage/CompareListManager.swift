@@ -97,10 +97,6 @@ typealias CPProductResult = (Result<CPProduct>) -> Void
         product: Product,
         completion: (Result<Void>) -> Void) {
         
-//        let order = LSOrder(context: viewContext)
-//
-//        let lsProduct = LSProduct(context: viewContext)
-        
         let cpProduct = CPProduct(context: viewContext)
         
         let cpColor = CPColor(context: viewContext)

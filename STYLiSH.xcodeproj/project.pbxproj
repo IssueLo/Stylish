@@ -123,6 +123,11 @@
 		3CED4C0C22141E9700121D4B /* MarketProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED4C0B22141E9700121D4B /* MarketProvider.swift */; };
 		3CED4C0F2214222A00121D4B /* STParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CED4C0E2214222A00121D4B /* STParser.swift */; };
 		3CFAC67322EEF71C00785FAB /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFAC67222EEF71C00785FAB /* String+Extension.swift */; };
+		9518106322FEAB1400186141 /* CompareListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518106122FEAB1400186141 /* CompareListCell.swift */; };
+		9518106422FEAB1400186141 /* CompareListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9518106222FEAB1400186141 /* CompareListCell.xib */; };
+		9518106D22FEACC000186141 /* CompareListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518106C22FEACC000186141 /* CompareListViewController.swift */; };
+		9518106F22FEAD3D00186141 /* CompareList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9518106E22FEAD3D00186141 /* CompareList.storyboard */; };
+		9519CAE522FFE13A00664A4E /* CompareListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9519CAE422FFE13A00664A4E /* CompareListManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -245,6 +250,11 @@
 		3CED4C0E2214222A00121D4B /* STParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STParser.swift; sourceTree = "<group>"; };
 		3CFAC67222EEF71C00785FAB /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		524288A503CA319531F016DA /* Pods_STYLiSH.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_STYLiSH.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9518106122FEAB1400186141 /* CompareListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareListCell.swift; sourceTree = "<group>"; };
+		9518106222FEAB1400186141 /* CompareListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompareListCell.xib; sourceTree = "<group>"; };
+		9518106C22FEACC000186141 /* CompareListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareListViewController.swift; sourceTree = "<group>"; };
+		9518106E22FEAD3D00186141 /* CompareList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompareList.storyboard; sourceTree = "<group>"; };
+		9519CAE422FFE13A00664A4E /* CompareListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareListManager.swift; sourceTree = "<group>"; };
 		E921004E251C9FC3CBC174F5 /* Pods-STYLiSH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.release.xcconfig"; path = "Target Support Files/Pods-STYLiSH/Pods-STYLiSH.release.xcconfig"; sourceTree = "<group>"; };
 		F551E8F447D7C8DC42B53B98 /* Pods-STYLiSH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.debug.xcconfig"; path = "Target Support Files/Pods-STYLiSH/Pods-STYLiSH.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -614,6 +624,7 @@
 		3CD2912E22113CE4008B8A2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9518106022FEAAA900186141 /* CompareList */,
 				3C3369102227CDAF008A5A7A /* Base */,
 				3C33690B2226F513008A5A7A /* Trolley */,
 				3CC706132216B32700CAD850 /* Product */,
@@ -626,6 +637,7 @@
 				3C09F513221143A600C5B3E2 /* Product.storyboard */,
 				3C09F515221143BE00C5B3E2 /* Profile.storyboard */,
 				3C09F517221143FE00C5B3E2 /* Trolley.storyboard */,
+				9518106E22FEAD3D00186141 /* CompareList.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -640,6 +652,7 @@
 				3C1ACFE222151F3D005583E2 /* Profile */,
 				3C1ACFE122151F29005583E2 /* Base */,
 				3C0DD874221348D200F5237E /* Lobby */,
+				9518106922FEAC8100186141 /* CompareList */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -757,6 +770,7 @@
 			children = (
 				3CEBE076222F718D0064EF82 /* StorageManager.swift */,
 				3CEBE078222F72600064EF82 /* STYLiSH.xcdatamodeld */,
+				9519CAE422FFE13A00664A4E /* CompareListManager.swift */,
 			);
 			path = "Local Storage";
 			sourceTree = "<group>";
@@ -779,6 +793,23 @@
 				3CED4C0E2214222A00121D4B /* STParser.swift */,
 			);
 			path = Parser;
+			sourceTree = "<group>";
+		};
+		9518106022FEAAA900186141 /* CompareList */ = {
+			isa = PBXGroup;
+			children = (
+				9518106122FEAB1400186141 /* CompareListCell.swift */,
+				9518106222FEAB1400186141 /* CompareListCell.xib */,
+			);
+			path = CompareList;
+			sourceTree = "<group>";
+		};
+		9518106922FEAC8100186141 /* CompareList */ = {
+			isa = PBXGroup;
+			children = (
+				9518106C22FEACC000186141 /* CompareListViewController.swift */,
+			);
+			path = CompareList;
 			sourceTree = "<group>";
 		};
 		F26A8A19BFED7C956C38BFE8 /* Frameworks */ = {
@@ -859,6 +890,7 @@
 				3C0DD87F2213533F00F5237E /* LobbyTableViewCell.xib in Resources */,
 				3C3369182227CE8E008A5A7A /* TrolleyProductBaseView.xib in Resources */,
 				3C546BE922EAC7AA0082C655 /* STOrderHeaderView.xib in Resources */,
+				9518106F22FEAD3D00186141 /* CompareList.storyboard in Resources */,
 				3C09F514221143A600C5B3E2 /* Product.storyboard in Resources */,
 				3C6020DE222B90DF00312958 /* ProductDetailLabelCell.xib in Resources */,
 				3CC7061B2216B36800CAD850 /* ProductCollectionViewCell.xib in Resources */,
@@ -883,6 +915,7 @@
 				3C4B10CD22292732009942B7 /* card_jcb.png in Resources */,
 				3C33690F2226F53E008A5A7A /* TrolleyTableViewCell.xib in Resources */,
 				0365AC7B22FEB98F00C75776 /* ProductShare.storyboard in Resources */,
+				9518106422FEAB1400186141 /* CompareListCell.xib in Resources */,
 				3C3369212227DC84008A5A7A /* TrolleySelectionView.xib in Resources */,
 				3C4B10DA22292732009942B7 /* card_visa@3x.png in Resources */,
 				3C6020D9222B883600312958 /* ProductDescriptionTableViewCell.xib in Resources */,
@@ -950,6 +983,7 @@
 				3CED4C0C22141E9700121D4B /* MarketProvider.swift in Sources */,
 				3C831C6022E9945500112298 /* STOrderProductCell.swift in Sources */,
 				3C1ACFE922152D29005583E2 /* ProfileCollectionViewCell.swift in Sources */,
+				9519CAE522FFE13A00664A4E /* CompareListManager.swift in Sources */,
 				3CB801232229A5290029A552 /* MJRefreshWrapper.swift in Sources */,
 				0365AC7622FEB87600C75776 /* ProductShareViewController.swift in Sources */,
 				3C546BE522EABB6D0082C655 /* CheckoutViewController.swift in Sources */,
@@ -958,6 +992,7 @@
 				3CDC5A66222D85990071D0D1 /* ColorSelectionCell.swift in Sources */,
 				3C6020D8222B883600312958 /* ProductDescriptionTableViewCell.swift in Sources */,
 				3C0DD876221348E900F5237E /* LobbyViewController.swift in Sources */,
+				9518106D22FEACC000186141 /* CompareListViewController.swift in Sources */,
 				3C33691F2227DC7B008A5A7A /* TrolleySelectionView.swift in Sources */,
 				3C831C6422E9AF8F00112298 /* STOrderUserInputCell.swift in Sources */,
 				3C4B10E222292EBB009942B7 /* STTapPayViewController.swift in Sources */,
@@ -973,6 +1008,7 @@
 				3CE7A51C223089C3009FF003 /* OrderProvider.swift in Sources */,
 				3C0DD87A221350B300F5237E /* UIColor+Extension.swift in Sources */,
 				3CC706162216B34800CAD850 /* ProductTableViewCell.swift in Sources */,
+				9518106322FEAB1400186141 /* CompareListCell.swift in Sources */,
 				3CEBE077222F718D0064EF82 /* StorageManager.swift in Sources */,
 				3C09F51C22114A0100C5B3E2 /* STTabBarViewController.swift in Sources */,
 				3C7036D1222C4E0A00F6C58B /* ProductPickerController.swift in Sources */,

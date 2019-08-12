@@ -125,11 +125,18 @@
                         <viewLayoutGuide key="safeArea" id="ssr-DQ-tiu"/>
                     </view>
                     <navigationItem key="navigationItem" title="型錄" id="dI3-PV-yB4">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="Icons_24px_ListView" id="fMg-rv-MfI">
-                            <connections>
-                                <action selector="onChangeLayoutType:" destination="Yka-na-vga" id="PF2-93-Z2f"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="Icons_24px_ListView" id="fMg-rv-MfI">
+                                <connections>
+                                    <action selector="onChangeLayoutType:" destination="Yka-na-vga" id="PF2-93-Z2f"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="Icons_24px_Exchange" id="BJ4-cm-KTe">
+                                <connections>
+                                    <action selector="toCompareList:" destination="Yka-na-vga" id="DaL-Cc-8aA"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="accessoriesProductsContainerView" destination="nzb-lH-MQR" id="05m-jj-8Uc"/>
@@ -417,6 +424,7 @@
     </scenes>
     <resources>
         <image name="Icons_24px_Close" width="24" height="24"/>
+        <image name="Icons_24px_Exchange" width="24" height="24"/>
         <image name="Icons_24px_ListView" width="24" height="24"/>
         <image name="Icons_44px_Back01" width="44" height="44"/>
         <namedColor name="B1">

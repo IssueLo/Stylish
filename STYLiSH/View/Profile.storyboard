@@ -142,10 +142,22 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Grz-aq-dsd">
+                                        <rect key="frame" x="331" y="9.5" width="30" height="26"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <state key="normal" title="收回">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showAllOrders:" destination="jmF-8q-0Gj" eventType="touchUpInside" id="7aj-dU-80T"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="B2"/>
                                 <constraints>
+                                    <constraint firstItem="Grz-aq-dsd" firstAttribute="centerY" secondItem="OaT-Oy-8dT" secondAttribute="centerY" id="26S-cx-UCo"/>
                                     <constraint firstAttribute="height" constant="45" id="NeL-zr-iGI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Grz-aq-dsd" secondAttribute="trailing" constant="14" id="VdL-Yu-Mz8"/>
                                     <constraint firstItem="8zg-cm-9Od" firstAttribute="centerY" secondItem="OaT-Oy-8dT" secondAttribute="centerY" id="VlN-6Q-UTH"/>
                                     <constraint firstItem="8zg-cm-9Od" firstAttribute="leading" secondItem="OaT-Oy-8dT" secondAttribute="leading" constant="16" id="vv5-uS-tOv"/>
                                 </constraints>
@@ -175,6 +187,7 @@
                     <connections>
                         <outlet property="collectionView" destination="Rwc-aW-35L" id="zPF-Nk-tPD"/>
                         <outlet property="orderTableView" destination="g0W-Gz-1bZ" id="5Ul-WG-1Oz"/>
+                        <outlet property="showAllBtn" destination="Grz-aq-dsd" id="4lU-F6-daY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgO-tk-LoJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

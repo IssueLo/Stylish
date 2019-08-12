@@ -12,30 +12,37 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 註冊 cell
+        showAllBtn.isHidden = true
+        
+//         註冊 cell
         orderTableView.lk_registerCellWithNib(identifier: String(describing: OrderListTableViewCell.self), bundle: nil)
        
-        // 註冊 header footer
+//         註冊 header footer
         let orderHeaderXib = UINib(nibName: OrderListTableHeaderView.identifier, bundle: nil)
-        
+
         orderTableView.register(orderHeaderXib, forHeaderFooterViewReuseIdentifier: OrderListTableHeaderView.identifier)
         
+        let orderFooterXib = UINib(nibName: OrderListTableFooterView.identifier, bundle: nil)
         
+        orderTableView.register(orderFooterXib, forHeaderFooterViewReuseIdentifier: OrderListTableFooterView.identifier)
+
         
+        fetchData() // TODO: 之後要改成打一支 GET api ，把所有購買記錄抓下來
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
         fetchData() // TODO: 之後要改成打一支 GET api ，把所有購買記錄抓下來
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        fetchData() // TODO: 之後要改成打一支 GET api ，把所有購買記錄抓下來
-    }
-
     
     @IBOutlet weak var orderTableView: UITableView! {
         
         didSet {
             orderTableView.delegate = self
             orderTableView.dataSource = self
+            orderTableView.isHidden = true
         }
     
     }
@@ -89,6 +96,20 @@ class ProfileViewController: UIViewController {
     }
 
 //    let manager = ProfileManager()
+    
+    @IBOutlet weak var showAllBtn: UIButton!
+    
+    @IBAction func showAllOrders(_ sender: Any) {
+        
+        //        if orderTableView.isHidden == true {
+        //            orderTableView.isHidden = false
+        //
+        //            showAllBtn.setTitle("收回", for: .normal)
+        //        } else {
+        //            orderTableView.isHidden = true
+        //            showAllBtn.setTitle("查看全部", for: .normal)
+        //        }
+    }
 
 }
 
@@ -217,15 +238,26 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     //MARK: - Section Footer
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//
-//        return 1
-//    }
-//
-//    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-//
-//        return String.empty
-//    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+
+        return 25.0
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard
+            let orderFooterView = tableView.dequeueReusableHeaderFooterView(
+                withIdentifier: OrderListTableFooterView.identifier
+                )
+                as? OrderListTableFooterView else {
+                    
+                    return nil
+        }
+        
+        // TODO: 待填入正確資訊
+        orderFooterView.totalPrice.text = "1999"
+        
+        return orderFooterView
+    }
     
     
      //MARK: - Section cell rows

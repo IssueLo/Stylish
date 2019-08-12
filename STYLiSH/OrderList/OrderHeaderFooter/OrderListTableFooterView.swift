@@ -9,5 +9,6 @@
 import UIKit
 
 class OrderListTableFooterView: UITableViewHeaderFooterView {
-
+    @IBOutlet weak var totalPrice: UILabel!
+    
 }

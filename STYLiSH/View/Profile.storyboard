@@ -137,16 +137,16 @@
                                 <rect key="frame" x="0.0" y="156" width="375" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的訂單" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zg-cm-9Od">
-                                        <rect key="frame" x="16" y="12" width="68" height="19"/>
+                                        <rect key="frame" x="16" y="13" width="68" height="19"/>
                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
-                                        <color key="textColor" name="B1"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="B6"/>
+                                <color key="backgroundColor" name="B2"/>
                                 <constraints>
-                                    <constraint firstItem="8zg-cm-9Od" firstAttribute="top" secondItem="OaT-Oy-8dT" secondAttribute="top" constant="12" id="8xX-V8-XV5"/>
                                     <constraint firstAttribute="height" constant="45" id="NeL-zr-iGI"/>
+                                    <constraint firstItem="8zg-cm-9Od" firstAttribute="centerY" secondItem="OaT-Oy-8dT" secondAttribute="centerY" id="VlN-6Q-UTH"/>
                                     <constraint firstItem="8zg-cm-9Od" firstAttribute="leading" secondItem="OaT-Oy-8dT" secondAttribute="leading" constant="16" id="vv5-uS-tOv"/>
                                 </constraints>
                             </view>
@@ -208,9 +208,6 @@
         </namedColor>
         <namedColor name="B2">
             <color red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="B6">
-            <color red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

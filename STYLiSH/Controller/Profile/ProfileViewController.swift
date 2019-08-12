@@ -12,7 +12,17 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 註冊 cell
         orderTableView.lk_registerCellWithNib(identifier: String(describing: OrderListTableViewCell.self), bundle: nil)
+       
+        // 註冊 header footer
+        let orderHeaderXib = UINib(nibName: OrderListTableHeaderView.identifier, bundle: nil)
+        
+        orderTableView.register(orderHeaderXib, forHeaderFooterViewReuseIdentifier: OrderListTableHeaderView.identifier)
+        
+        
+        
+        
         fetchData() // TODO: 之後要改成打一支 GET api ，把所有購買記錄抓下來
     }
     
@@ -172,6 +182,53 @@ class ProfileViewController: UIViewController {
 //}
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    //MARK: - Section Count
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 2 // 待改
+    }
+    
+    //MARK: - Section Header
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return 60.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        guard
+            let orderHeaderView = tableView.dequeueReusableHeaderFooterView(
+                withIdentifier: OrderListTableHeaderView.identifier
+                )
+                as? OrderListTableHeaderView else {
+                    
+                    return nil
+        }
+        
+        orderHeaderView.backgroundColor = UIColor.B2
+        
+        // TODO: 待填入正確資訊
+        orderHeaderView.orderNO.text = "123456789"
+        orderHeaderView.orderTime.text = "2019/08/12 12:09"
+        orderHeaderView.orderStatus.text = "待出貨"
+        
+        return orderHeaderView
+    }
+    
+    //MARK: - Section Footer
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//
+//        return 1
+//    }
+//
+//    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+//
+//        return String.empty
+//    }
+    
+    
+     //MARK: - Section cell rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orders.count
     }

@@ -80,11 +80,13 @@
                             <action selector="sharingBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="31q-EU-7AW"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lj1-gW-HE0">
+                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lj1-gW-HE0">
                         <rect key="frame" x="282" y="58" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="BNj-7K-55y"/>
                             <constraint firstAttribute="width" constant="16" id="C9B-nz-5e6"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="16" id="b9k-F9-3Bi"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="nah-VD-SbK"/>
                         </constraints>
                         <state key="normal" image="icons8-in-love-50"/>
                         <connections>

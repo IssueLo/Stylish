@@ -17,6 +17,8 @@
 		0365AC8923011B3F00C75776 /* OrderListTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC8823011B3F00C75776 /* OrderListTableHeaderView.swift */; };
 		0365AC8B23011B6100C75776 /* OrderListTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC8A23011B6100C75776 /* OrderListTableFooterView.swift */; };
 		0365AC8D2301689D00C75776 /* WishListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC8C2301689D00C75776 /* WishListManager.swift */; };
+		0365AC8F230169A600C75776 /* WishList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0365AC8E230169A600C75776 /* WishList.storyboard */; };
+		0365AC9223016A2B00C75776 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC9123016A2B00C75776 /* WishListViewController.swift */; };
 		2D8E54C9BAFD8C9E19868B11 /* Pods_STYLiSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524288A503CA319531F016DA /* Pods_STYLiSH.framework */; };
 		3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F5112211435B00C5B3E2 /* Lobby.storyboard */; };
 		3C09F514221143A600C5B3E2 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F513221143A600C5B3E2 /* Product.storyboard */; };
@@ -148,6 +150,8 @@
 		0365AC8823011B3F00C75776 /* OrderListTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableHeaderView.swift; sourceTree = "<group>"; };
 		0365AC8A23011B6100C75776 /* OrderListTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableFooterView.swift; sourceTree = "<group>"; };
 		0365AC8C2301689D00C75776 /* WishListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListManager.swift; sourceTree = "<group>"; };
+		0365AC8E230169A600C75776 /* WishList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WishList.storyboard; sourceTree = "<group>"; };
+		0365AC9123016A2B00C75776 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		3C09F5112211435B00C5B3E2 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		3C09F513221143A600C5B3E2 /* Product.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
 		3C09F515221143BE00C5B3E2 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -324,6 +328,14 @@
 				0365AC8A23011B6100C75776 /* OrderListTableFooterView.swift */,
 			);
 			path = OrderHeaderFooter;
+			sourceTree = "<group>";
+		};
+		0365AC90230169F900C75776 /* WishList */ = {
+			isa = PBXGroup;
+			children = (
+				0365AC9123016A2B00C75776 /* WishListViewController.swift */,
+			);
+			path = WishList;
 			sourceTree = "<group>";
 		};
 		03C821089B9639ED8853C216 /* Pods */ = {
@@ -674,6 +686,7 @@
 				3C09F515221143BE00C5B3E2 /* Profile.storyboard */,
 				3C09F517221143FE00C5B3E2 /* Trolley.storyboard */,
 				9518106E22FEAD3D00186141 /* CompareList.storyboard */,
+				0365AC8E230169A600C75776 /* WishList.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -681,6 +694,7 @@
 		3CD2912F22113CEC008B8A2D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0365AC90230169F900C75776 /* WishList */,
 				3CD9BB33223B88110012C00D /* Auth */,
 				3C4B10E022292EA5009942B7 /* TapPay */,
 				3C5DD7CA2227EFE40053B67A /* Trolley */,
@@ -940,6 +954,7 @@
 				3C4B10D222292732009942B7 /* card_unknown@3x.png in Resources */,
 				3CD29122221135E2008B8A2D /* Main.storyboard in Resources */,
 				3CC706172216B34800CAD850 /* ProductTableViewCell.xib in Resources */,
+				0365AC8F230169A600C75776 /* WishList.storyboard in Resources */,
 				3C831C6122E9945500112298 /* STOrderProductCell.xib in Resources */,
 				3C4B10D522292732009942B7 /* card_unknown@2x.png in Resources */,
 				3C4B10CF22292732009942B7 /* card_visa.png in Resources */,
@@ -1049,6 +1064,7 @@
 				3C75FD0F22F1767D0068FEA5 /* CheckoutResultViewController.swift in Sources */,
 				3CE7A51C223089C3009FF003 /* OrderProvider.swift in Sources */,
 				3C0DD87A221350B300F5237E /* UIColor+Extension.swift in Sources */,
+				0365AC9223016A2B00C75776 /* WishListViewController.swift in Sources */,
 				3CC706162216B34800CAD850 /* ProductTableViewCell.swift in Sources */,
 				9518106322FEAB1400186141 /* CompareListCell.swift in Sources */,
 				3CEBE077222F718D0064EF82 /* StorageManager.swift in Sources */,

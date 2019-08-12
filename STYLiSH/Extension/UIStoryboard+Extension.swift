@@ -21,6 +21,8 @@ private struct StoryboardCategory {
     static let profile = "Profile"
 
     static let auth = "Auth"
+    
+    static let wishList = "WishList"
 }
 
 extension UIStoryboard {
@@ -36,6 +38,8 @@ extension UIStoryboard {
     static var profile: UIStoryboard { return stStoryboard(name: StoryboardCategory.profile) }
 
     static var auth: UIStoryboard { return stStoryboard(name: StoryboardCategory.auth) }
+    
+    static var wishList: UIStoryboard { return stStoryboard(name: StoryboardCategory.wishList)}
 
     private static func stStoryboard(name: String) -> UIStoryboard {
 

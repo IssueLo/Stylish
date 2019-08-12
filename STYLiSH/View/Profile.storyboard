@@ -94,7 +94,7 @@
                                 </collectionReusableView>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="g0W-Gz-1bZ">
-                                <rect key="frame" x="0.0" y="201" width="375" height="466"/>
+                                <rect key="frame" x="0.0" y="203" width="375" height="464"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -134,8 +134,15 @@
                                     <constraint firstItem="n54-dD-RdY" firstAttribute="leading" secondItem="4fb-Kk-nRw" secondAttribute="leading" constant="16" id="vIS-ed-SBc"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNO-AT-WFn">
+                                <rect key="frame" x="0.0" y="156" width="375" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="6qW-Qc-bea"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OaT-Oy-8dT" userLabel="TOPView">
-                                <rect key="frame" x="0.0" y="156" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="158" width="375" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的訂單" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zg-cm-9Od">
                                         <rect key="frame" x="16" y="13" width="68" height="19"/>
@@ -174,12 +181,15 @@
                             <constraint firstItem="bBO-el-9xj" firstAttribute="bottom" secondItem="Rwc-aW-35L" secondAttribute="bottom" id="CH6-pJ-70C"/>
                             <constraint firstItem="4fb-Kk-nRw" firstAttribute="top" secondItem="bBO-el-9xj" secondAttribute="top" id="HXA-H6-joT"/>
                             <constraint firstItem="bBO-el-9xj" firstAttribute="trailing" secondItem="Rwc-aW-35L" secondAttribute="trailing" id="POJ-PF-LCT"/>
-                            <constraint firstItem="OaT-Oy-8dT" firstAttribute="top" secondItem="4fb-Kk-nRw" secondAttribute="bottom" id="Uc3-3Y-An2"/>
+                            <constraint firstItem="bBO-el-9xj" firstAttribute="trailing" secondItem="JNO-AT-WFn" secondAttribute="trailing" id="RDS-QQ-hY0"/>
                             <constraint firstItem="bBO-el-9xj" firstAttribute="bottom" secondItem="g0W-Gz-1bZ" secondAttribute="bottom" id="ahd-Hs-iqR"/>
                             <constraint firstItem="Rwc-aW-35L" firstAttribute="top" secondItem="bBO-el-9xj" secondAttribute="top" constant="92" id="bOK-Kq-gnK"/>
                             <constraint firstItem="g0W-Gz-1bZ" firstAttribute="top" secondItem="OaT-Oy-8dT" secondAttribute="bottom" id="dnh-TO-Dde"/>
                             <constraint firstItem="Rwc-aW-35L" firstAttribute="leading" secondItem="bBO-el-9xj" secondAttribute="leading" id="e6L-KA-8BO"/>
                             <constraint firstItem="Rwc-aW-35L" firstAttribute="top" secondItem="4fb-Kk-nRw" secondAttribute="bottom" id="eQx-TX-ayb"/>
+                            <constraint firstItem="JNO-AT-WFn" firstAttribute="top" secondItem="4fb-Kk-nRw" secondAttribute="bottom" id="ehH-hV-GSi"/>
+                            <constraint firstItem="OaT-Oy-8dT" firstAttribute="top" secondItem="JNO-AT-WFn" secondAttribute="bottom" id="rtQ-za-QuM"/>
+                            <constraint firstItem="JNO-AT-WFn" firstAttribute="leading" secondItem="bBO-el-9xj" secondAttribute="leading" id="tel-e3-q3g"/>
                             <constraint firstItem="4fb-Kk-nRw" firstAttribute="leading" secondItem="bBO-el-9xj" secondAttribute="leading" id="yz3-kc-Bj4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bBO-el-9xj"/>

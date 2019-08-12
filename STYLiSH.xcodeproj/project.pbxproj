@@ -16,6 +16,7 @@
 		0365AC87230117E500C75776 /* OrderListTableFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0365AC86230117E500C75776 /* OrderListTableFooterView.xib */; };
 		0365AC8923011B3F00C75776 /* OrderListTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC8823011B3F00C75776 /* OrderListTableHeaderView.swift */; };
 		0365AC8B23011B6100C75776 /* OrderListTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC8A23011B6100C75776 /* OrderListTableFooterView.swift */; };
+		0365AC8D2301689D00C75776 /* WishListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC8C2301689D00C75776 /* WishListManager.swift */; };
 		2D8E54C9BAFD8C9E19868B11 /* Pods_STYLiSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524288A503CA319531F016DA /* Pods_STYLiSH.framework */; };
 		3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F5112211435B00C5B3E2 /* Lobby.storyboard */; };
 		3C09F514221143A600C5B3E2 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F513221143A600C5B3E2 /* Product.storyboard */; };
@@ -146,6 +147,7 @@
 		0365AC86230117E500C75776 /* OrderListTableFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderListTableFooterView.xib; sourceTree = "<group>"; };
 		0365AC8823011B3F00C75776 /* OrderListTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableHeaderView.swift; sourceTree = "<group>"; };
 		0365AC8A23011B6100C75776 /* OrderListTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableFooterView.swift; sourceTree = "<group>"; };
+		0365AC8C2301689D00C75776 /* WishListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListManager.swift; sourceTree = "<group>"; };
 		3C09F5112211435B00C5B3E2 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		3C09F513221143A600C5B3E2 /* Product.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
 		3C09F515221143BE00C5B3E2 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -805,6 +807,7 @@
 				3CEBE076222F718D0064EF82 /* StorageManager.swift */,
 				3CEBE078222F72600064EF82 /* STYLiSH.xcdatamodeld */,
 				9519CAE422FFE13A00664A4E /* CompareListManager.swift */,
+				0365AC8C2301689D00C75776 /* WishListManager.swift */,
 			);
 			path = "Local Storage";
 			sourceTree = "<group>";
@@ -1035,6 +1038,7 @@
 				3C831C6422E9AF8F00112298 /* STOrderUserInputCell.swift in Sources */,
 				3C4B10E222292EBB009942B7 /* STTapPayViewController.swift in Sources */,
 				3C831C8A22EAAF7A00112298 /* STPaymentInfoTableViewCell.swift in Sources */,
+				0365AC8D2301689D00C75776 /* WishListManager.swift in Sources */,
 				3C990F6C22E5C78200F2FCEA /* ProductDetailView.swift in Sources */,
 				3C546BE722EAC79D0082C655 /* STOrderHeaderView.swift in Sources */,
 				3C5DD7CC2227EFFF0053B67A /* TrolleyViewController.swift in Sources */,

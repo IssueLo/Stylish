@@ -75,7 +75,7 @@
                             <constraint firstAttribute="height" constant="16" id="a9V-16-mRm"/>
                             <constraint firstAttribute="width" constant="16" id="kwd-IU-wA1"/>
                         </constraints>
-                        <state key="normal" title="Button" image="icons8-connect-50"/>
+                        <state key="normal" title="Button" image="icons8-connect-51"/>
                         <connections>
                             <action selector="sharingBtnPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="31q-EU-7AW"/>
                         </connections>
@@ -86,7 +86,10 @@
                             <constraint firstAttribute="height" constant="16" id="BNj-7K-55y"/>
                             <constraint firstAttribute="width" constant="16" id="C9B-nz-5e6"/>
                         </constraints>
-                        <state key="normal" image="Icons_24px_Add01"/>
+                        <state key="normal" image="icons8-in-love-50"/>
+                        <connections>
+                            <action selector="addToWishList:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="JkH-H5-GUU"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiB-8Z-XCf">
                         <rect key="frame" x="308" y="58" width="16" height="16"/>
@@ -124,6 +127,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addToCompareListBtn" destination="SiB-8Z-XCf" id="P3o-Ys-W2d"/>
+                <outlet property="addToWishBtn" destination="Lj1-gW-HE0" id="hC5-6I-a6B"/>
                 <outlet property="detailLbl" destination="CvJ-RP-jMV" id="TwB-mA-n3x"/>
                 <outlet property="idLbl" destination="hg7-DJ-QZK" id="Wg3-fT-UMm"/>
                 <outlet property="priceLbl" destination="nI9-wZ-yeU" id="sDX-gq-kZr"/>
@@ -133,8 +137,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Icons_24px_Add01" width="24" height="24"/>
         <image name="Icons_24px_Exchange" width="24" height="24"/>
-        <image name="icons8-connect-50" width="50" height="50"/>
+        <image name="icons8-connect-51" width="50" height="50"/>
+        <image name="icons8-in-love-50" width="50" height="50"/>
     </resources>
 </document>

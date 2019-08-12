@@ -9,4 +9,153 @@
 
 import CoreData
 
+typealias WishProductResults = (Result<[WishProduct]>) -> Void
+
+typealias WishProductResult = (Result<WishProduct>) -> Void
+
+@objc class WishListManager: NSObject {
+    
+    private enum Entity: String, CaseIterable {
+        
+        case wishListProduct = "WishProduct"
+        
+    }
+    
+    static let shared = WishListManager()
+    
+    private override init() {
+        
+        print(" Core data file path: \(NSPersistentContainer.defaultDirectoryURL())")
+    }
+    
+    lazy var persistanceContainer: NSPersistentContainer = {
+        
+        let container = NSPersistentContainer(name: "STYLiSH")
+        
+        container.loadPersistentStores(completionHandler: { (_, error) in
+            
+            if let error = error {
+                fatalError("Unresolved error \(error)")
+            }
+        })
+        
+        return container
+    }()
+    
+    var viewContext: NSManagedObjectContext {
+        
+        return persistanceContainer.viewContext
+    }
+    
+    
+     @objc dynamic var wishListProducts: [WishProduct] = []
+    
+    
+    func saveWishProduct(
+        product: Product,
+        completion: (Result<Void>) -> Void) {
+        
+        let wishProduct = WishProduct(context: viewContext)
+        
+        wishProduct.mapping(product)
+        
+        
+        do {
+            
+            try viewContext.save()
+            
+            completion(Result.success(()))
+            
+            fetchWishProducts()
+            
+        } catch {
+            
+            completion(Result.failure(error))
+        }
+    }
+    
+    func deleteWishProduct(_ wishProduct: WishProduct, completion: (Result<Void>) -> Void) {
+        
+        do {
+            
+            viewContext.delete(wishProduct)
+            
+            try viewContext.save()
+            
+            completion(Result.success(()))
+            
+            fetchWishProducts()
+            
+        } catch {
+            
+            completion(Result.failure(error))
+        }
+    }
+    
+    func updateWishProduct(completion: (Result<Void>) -> Void) {
+        
+        do {
+            
+            try viewContext.save()
+            
+            completion(Result.success(()))
+            
+            fetchWishProducts()
+            
+        } catch {
+            
+            completion(Result.failure(error))
+        }
+    }
+    
+    
+    func fetchWishProducts(completion: WishProductResults? = nil) {
+        
+        let request = NSFetchRequest<WishProduct>(entityName: Entity.wishListProduct.rawValue)
+        
+        do {
+            
+            let wishListProducts = try viewContext.fetch(request)
+            
+            self.wishListProducts = wishListProducts
+            
+            completion?(Result.success(wishListProducts))
+            
+        } catch {
+            
+            completion?(Result.failure(error))
+        }
+    }
+    
+    
+    func saveAll(completion: (Result<Void>) -> Void) {
+        
+        do {
+            
+            try viewContext.save()
+            
+            completion(Result.success(()))
+            
+            fetchWishProducts()
+            
+        } catch {
+            
+            completion(Result.failure(error))
+        }
+    }
+    
+}
+
+
+private extension WishProduct {
+    
+    func mapping(_ object: Product) {
+        
+        mainImage = object.mainImage
+        
+        price = object.price.int64()
+        
+        title = object.title
+    }
+}
 

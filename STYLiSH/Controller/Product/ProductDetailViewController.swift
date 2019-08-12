@@ -333,6 +333,7 @@ extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
         
         let content = ShareLinkContent()
         content.contentURL = url
+        content.quote = "\(product.title)  #STYLiSH"
         content.placeID = "296758097659999"
         
         showShareDialog(content, mode: .automatic)

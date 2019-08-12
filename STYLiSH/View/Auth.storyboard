@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZYD-N5-aSi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZYD-N5-aSi">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YKh-PK-dkx">
-                                <rect key="frame" x="0.0" y="457.5" width="375" height="209.5"/>
+                                <rect key="frame" x="0.0" y="393.5" width="375" height="273.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請先登入會員" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYN-rZ-Xq9">
                                         <rect key="frame" x="16" y="24" width="108" height="26.5"/>
@@ -68,10 +68,24 @@
                                             <action selector="onFacebookLogin" destination="ZYD-N5-aSi" eventType="touchUpInside" id="grV-3o-TNx"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxm-jC-UNm">
+                                        <rect key="frame" x="16" y="201.5" width="343" height="48"/>
+                                        <color key="backgroundColor" name="systemBrownColor" catalog="System" colorSpace="catalog"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="yg2-HG-ZkJ"/>
+                                        </constraints>
+                                        <state key="normal" title="STYLiSH 會員登入 / 註冊">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onSTYLiSHLogin" destination="ZYD-N5-aSi" eventType="touchUpInside" id="EZR-1d-yVl"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottomMargin" secondItem="L51-58-3lp" secondAttribute="bottom" constant="16" id="Ell-R7-lUY"/>
+                                    <constraint firstItem="bxm-jC-UNm" firstAttribute="top" secondItem="L51-58-3lp" secondAttribute="bottom" constant="16" id="Blv-5R-4Eq"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="L51-58-3lp" secondAttribute="bottom" constant="80" id="Ell-R7-lUY"/>
                                     <constraint firstAttribute="trailing" secondItem="L51-58-3lp" secondAttribute="trailing" constant="16" id="FJp-zr-9Cy"/>
                                     <constraint firstItem="D6W-U8-6MM" firstAttribute="leading" secondItem="YKh-PK-dkx" secondAttribute="leading" constant="16" id="Kec-50-eA9"/>
                                     <constraint firstAttribute="trailing" secondItem="D6W-U8-6MM" secondAttribute="trailing" constant="16" id="Njj-P9-5Z9"/>
@@ -83,8 +97,10 @@
                                     <constraint firstItem="QhL-D6-TGl" firstAttribute="top" secondItem="YKh-PK-dkx" secondAttribute="top" constant="16" id="S8D-QG-IZ2"/>
                                     <constraint firstItem="UaM-LH-iKw" firstAttribute="top" secondItem="KYN-rZ-Xq9" secondAttribute="bottom" constant="24" id="XNT-Fk-Gcm"/>
                                     <constraint firstItem="KYN-rZ-Xq9" firstAttribute="top" secondItem="YKh-PK-dkx" secondAttribute="top" constant="24" id="cB0-Gd-RRl"/>
+                                    <constraint firstItem="bxm-jC-UNm" firstAttribute="leading" secondItem="YKh-PK-dkx" secondAttribute="leading" constant="16" id="fc7-Zp-RD7"/>
                                     <constraint firstAttribute="trailing" secondItem="UaM-LH-iKw" secondAttribute="trailing" constant="16" id="reg-b3-8vz"/>
                                     <constraint firstItem="UaM-LH-iKw" firstAttribute="leading" secondItem="YKh-PK-dkx" secondAttribute="leading" constant="16" id="xEk-WS-Up1"/>
+                                    <constraint firstAttribute="trailing" secondItem="bxm-jC-UNm" secondAttribute="trailing" constant="16" id="zok-Wd-m1R"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="lkCornerRadius">

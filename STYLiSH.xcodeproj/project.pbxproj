@@ -128,6 +128,8 @@
 		9518106D22FEACC000186141 /* CompareListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518106C22FEACC000186141 /* CompareListViewController.swift */; };
 		9518106F22FEAD3D00186141 /* CompareList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9518106E22FEAD3D00186141 /* CompareList.storyboard */; };
 		9519CAE522FFE13A00664A4E /* CompareListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9519CAE422FFE13A00664A4E /* CompareListManager.swift */; };
+		951CF8A92301424300871F61 /* NativeSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 951CF8A82301424300871F61 /* NativeSignUp.storyboard */; };
+		951CF8AB2301477800871F61 /* NativeSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951CF8AA2301477800871F61 /* NativeSignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -255,6 +257,8 @@
 		9518106C22FEACC000186141 /* CompareListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareListViewController.swift; sourceTree = "<group>"; };
 		9518106E22FEAD3D00186141 /* CompareList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompareList.storyboard; sourceTree = "<group>"; };
 		9519CAE422FFE13A00664A4E /* CompareListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareListManager.swift; sourceTree = "<group>"; };
+		951CF8A82301424300871F61 /* NativeSignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NativeSignUp.storyboard; sourceTree = "<group>"; };
+		951CF8AA2301477800871F61 /* NativeSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeSignUpViewController.swift; sourceTree = "<group>"; };
 		E921004E251C9FC3CBC174F5 /* Pods-STYLiSH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.release.xcconfig"; path = "Target Support Files/Pods-STYLiSH/Pods-STYLiSH.release.xcconfig"; sourceTree = "<group>"; };
 		F551E8F447D7C8DC42B53B98 /* Pods-STYLiSH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.debug.xcconfig"; path = "Target Support Files/Pods-STYLiSH/Pods-STYLiSH.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -638,6 +642,7 @@
 				3C09F515221143BE00C5B3E2 /* Profile.storyboard */,
 				3C09F517221143FE00C5B3E2 /* Trolley.storyboard */,
 				9518106E22FEAD3D00186141 /* CompareList.storyboard */,
+				951CF8A82301424300871F61 /* NativeSignUp.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -686,6 +691,7 @@
 			isa = PBXGroup;
 			children = (
 				3CD9BB34223B882C0012C00D /* AuthViewController.swift */,
+				951CF8AA2301477800871F61 /* NativeSignUpViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -904,6 +910,7 @@
 				3CC706172216B34800CAD850 /* ProductTableViewCell.xib in Resources */,
 				3C831C6122E9945500112298 /* STOrderProductCell.xib in Resources */,
 				3C4B10D522292732009942B7 /* card_unknown@2x.png in Resources */,
+				951CF8A92301424300871F61 /* NativeSignUp.storyboard in Resources */,
 				3C4B10CF22292732009942B7 /* card_visa.png in Resources */,
 				3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */,
 				3C09F518221143FE00C5B3E2 /* Trolley.storyboard in Resources */,
@@ -974,6 +981,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				951CF8AB2301477800871F61 /* NativeSignUpViewController.swift in Sources */,
 				3C0DD87822134EC100F5237E /* UIFont+Extension.swift in Sources */,
 				3CE7A507223042CE009FF003 /* STBaseTextField.swift in Sources */,
 				3CB80E78222FCCC20095F18C /* Bundle+Extension.swift in Sources */,

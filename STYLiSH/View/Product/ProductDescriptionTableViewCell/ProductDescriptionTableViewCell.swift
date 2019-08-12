@@ -59,4 +59,5 @@ protocol ProductDescriptionTableViewCellDelegate: AnyObject {
     func showSharingPage()
     func shareToFB()
     func addToCompareList()
+    func addToWishList()
 }

@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +17,129 @@
                     <view key="view" contentMode="scaleToFill" id="ODn-sL-OyT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ECI-ky-dMt">
+                                <rect key="frame" x="127.5" y="88" width="120" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="YX0-6M-VC7"/>
+                                    <constraint firstAttribute="width" constant="120" id="gan-Lb-MVh"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="登入"/>
+                                    <segment title="註冊"/>
+                                </segments>
+                                <color key="tintColor" name="systemBrownColor" catalog="System" colorSpace="catalog"/>
+                                <connections>
+                                    <action selector="selectSignInOrSignUp:" destination="02V-Ib-bKz" eventType="valueChanged" id="oJ2-FZ-2CK"/>
+                                </connections>
+                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2o4-Ba-sou">
+                                <rect key="frame" x="24" y="142" width="64" height="168"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暱稱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FtP-wm-au4">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="hav-5N-p6Z"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                        <color key="textColor" name="B4"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="信箱" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xun-wc-vaQ">
+                                        <rect key="frame" x="0.0" y="46" width="64" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="XVd-hc-VXD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                        <color key="textColor" name="B1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密碼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWP-ox-u58">
+                                        <rect key="frame" x="0.0" y="92" width="64" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="1XB-n3-wZJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                        <color key="textColor" name="B1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密碼確認" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZu-Xh-Dhn">
+                                        <rect key="frame" x="0.0" y="138" width="64" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="10N-hm-Oau"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                        <color key="textColor" name="B4"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sya-Cv-dXV">
+                                <rect key="frame" x="104" y="142" width="247" height="168"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MOp-O6-EX7">
+                                        <rect key="frame" x="0.0" y="0.0" width="247" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="x24-pG-FeZ"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IJu-Si-F3N">
+                                        <rect key="frame" x="0.0" y="46" width="247" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="xJX-Yy-KzW"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PD8-js-BXd">
+                                        <rect key="frame" x="0.0" y="92" width="247" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="1Cw-M3-iNe"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRo-hn-oXJ">
+                                        <rect key="frame" x="0.0" y="138" width="247" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="eFR-cT-2Ut"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRC-5G-mwf">
+                                <rect key="frame" x="147.5" y="346" width="80" height="36"/>
+                                <color key="backgroundColor" name="systemBrownColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="3aD-GR-ZZU"/>
+                                    <constraint firstAttribute="width" constant="80" id="ubf-5n-kP2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
+                                <state key="normal" title="確認">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ECI-ky-dMt" firstAttribute="top" secondItem="gi6-P9-SJB" secondAttribute="top" constant="24" id="JPH-Wp-IU0"/>
+                            <constraint firstItem="2o4-Ba-sou" firstAttribute="leading" secondItem="gi6-P9-SJB" secondAttribute="leading" constant="24" id="LPy-cX-GEr"/>
+                            <constraint firstItem="sya-Cv-dXV" firstAttribute="leading" secondItem="2o4-Ba-sou" secondAttribute="trailing" constant="16" id="W8C-6L-253"/>
+                            <constraint firstItem="CRC-5G-mwf" firstAttribute="top" secondItem="2o4-Ba-sou" secondAttribute="bottom" constant="36" id="aHH-ia-IjI"/>
+                            <constraint firstItem="CRC-5G-mwf" firstAttribute="centerX" secondItem="ODn-sL-OyT" secondAttribute="centerX" id="fGF-dF-3Sh"/>
+                            <constraint firstItem="2o4-Ba-sou" firstAttribute="top" secondItem="ECI-ky-dMt" secondAttribute="bottom" constant="24" id="fk6-Zy-opt"/>
+                            <constraint firstItem="sya-Cv-dXV" firstAttribute="centerY" secondItem="2o4-Ba-sou" secondAttribute="centerY" id="jAC-lK-FSp"/>
+                            <constraint firstItem="gi6-P9-SJB" firstAttribute="trailing" secondItem="sya-Cv-dXV" secondAttribute="trailing" constant="24" id="nYr-o2-3A6"/>
+                            <constraint firstItem="ECI-ky-dMt" firstAttribute="centerX" secondItem="ODn-sL-OyT" secondAttribute="centerX" id="vB2-zG-bvo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gi6-P9-SJB"/>
                     </view>
                     <navigationItem key="navigationItem" title="STYLiSH 會員登入" id="TyC-5V-Z7u">
@@ -26,6 +149,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="confirmBtn" destination="CRC-5G-mwf" id="bJU-PT-TJV"/>
+                        <outlet property="passwordConfirmLabel" destination="uZu-Xh-Dhn" id="eBa-p6-l8z"/>
+                        <outlet property="userEmailTextField" destination="IJu-Si-F3N" id="Mhq-5P-Stn"/>
+                        <outlet property="userNameLabel" destination="FtP-wm-au4" id="lde-Sz-fpb"/>
+                        <outlet property="userNameTextField" destination="MOp-O6-EX7" id="cFf-Ud-asY"/>
+                        <outlet property="userPasswordConfirmTextField" destination="gRo-hn-oXJ" id="Bq2-ec-wgN"/>
+                        <outlet property="userPasswordTextField" destination="PD8-js-BXd" id="hJg-KP-7sj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0B0-i2-Umi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -52,5 +184,11 @@
     </scenes>
     <resources>
         <image name="Icons_24px_Back02" width="24" height="24"/>
+        <namedColor name="B1">
+            <color red="0.24705882352941178" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="B4">
+            <color red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

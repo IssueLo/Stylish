@@ -88,6 +88,101 @@ class NativeSignUpViewController: UIViewController {
         }
     }
     
+    @IBAction func nativeSignIn(_ sender: Any) {
+        
+        if isSignUp {
+            
+            guard
+                let email = userEmailTextField.text,
+                let password = userPasswordTextField.text
+            else {
+                return
+            }
+            
+            nativeSignIn(email: email, password: password)
+            
+        } else {
+            
+            guard
+                let name = userNameTextField.text,
+                let email = userEmailTextField.text,
+                let password = userPasswordTextField.text,
+                let confirmPassword = userPasswordConfirmTextField.text
+            else {
+                return
+            }
+            
+            if password == confirmPassword {
+                
+                onSTYLiSHSignUp(name: name, email: email, password: password)
+                
+            } else {
+                
+//                LKProgressHUD.showFailure(text: "需要兩次輸入相同的密碼喔")
+            }
+        }
+    }
+    
+    
+    let userProvider = UserProvider()
+    
+    func nativeSignIn(email: String, password: String) {
+        
+        LKProgressHUD.show()
+        
+        userProvider.nativeSignInToSTYLiSH(email: email,
+                                           password: password,
+                                           completion: { [weak self] result in
+                                        
+            LKProgressHUD.dismiss()
+            
+            switch result {
+                
+            case .success:
+                
+                LKProgressHUD.showSuccess(text: "STYLiSH 登入成功")
+                
+            case .failure:
+                
+                LKProgressHUD.showSuccess(text: "STYLiSH 登入失敗!")
+            }
+            
+            DispatchQueue.main.async {
+                
+                self?.presentingViewController?.dismiss(animated: false, completion: nil)
+            }
+        })
+    }
+    
+    func onSTYLiSHSignUp(name: String, email: String, password: String) {
+        
+        LKProgressHUD.show()
+        
+        userProvider.signUpToSTYLiSH(name: name,
+                                     email: email,
+                                     password: password,
+                                     completion: { [weak self] result in
+            
+            LKProgressHUD.dismiss()
+
+            switch result {
+                
+            case .success:
+                
+                LKProgressHUD.showSuccess(text: "STYLiSH 註冊成功")
+                
+            case .failure:
+                
+                LKProgressHUD.showSuccess(text: "STYLiSH 註冊失敗!")
+            }
+            
+            DispatchQueue.main.async {
+                
+                self?.presentingViewController?.dismiss(animated: false, completion: nil)
+            }
+        })
+    }
+    
     func setupForSignIn() {
         
         userEmailTextField.text = ""

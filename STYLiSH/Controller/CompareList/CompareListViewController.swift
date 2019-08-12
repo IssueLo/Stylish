@@ -19,7 +19,19 @@ class CompareListViewController: UIViewController {
         }
     }
     
-//    var orders: [LSOrder] = [] {
+    @IBAction func deleteAllCPProduct(_ sender: Any) {
+        
+//        CompareListManager.shared.deleteAllProduct(completion: { _ in})
+//        
+//        collectionView.reloadData()
+    }
+    
+    @IBAction func goBackPage(_ sender: UIBarButtonItem) {
+    
+         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBOutlet weak var coverView: UIView!
     
     var compareListProducts: [CPProduct] = [] {
         
@@ -29,6 +41,8 @@ class CompareListViewController: UIViewController {
             
             if compareListProducts.count == 0 {
                 
+                coverView.isHidden = false
+                
                 collectionView.isHidden = true
                 
 //                checkoutBtn.isEnabled = false
@@ -36,6 +50,8 @@ class CompareListViewController: UIViewController {
 //                checkoutBtn.backgroundColor = UIColor.B4
                 
             } else {
+                
+                coverView.isHidden = true
                 
                 collectionView.isHidden = false
                 

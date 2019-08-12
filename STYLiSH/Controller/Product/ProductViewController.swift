@@ -96,6 +96,17 @@ class ProductViewController: UIViewController {
 
         isListLayout = !isListLayout
     }
+    
+    // MARK: Kevin- Add Btn for compareList
+    @IBAction func toCompareList(_ sender: UIBarButtonItem) {
+        
+        let storyboard = UIStoryboard(name: "CompareList", bundle: nil)
+        
+        if let controller = storyboard.instantiateViewController(withIdentifier: "CompareList") as? UINavigationController {
+            
+            present(controller, animated: true, completion: nil)
+        }
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 

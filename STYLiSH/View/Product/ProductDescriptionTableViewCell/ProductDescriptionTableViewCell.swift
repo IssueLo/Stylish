@@ -26,6 +26,16 @@ class ProductDescriptionTableViewCell: ProductBasicCell {
         print("按")
     }
     
+    // Add By Kevin
+    @IBOutlet weak var addToCompareListBtn: UIButton!
+    
+    @IBAction func addToCompareList(_ sender: Any) {
+        
+        delegate?.addToCompareList()
+        
+        addToCompareListBtn.isEnabled = false
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -48,4 +58,5 @@ class ProductDescriptionTableViewCell: ProductBasicCell {
 protocol ProductDescriptionTableViewCellDelegate: AnyObject {
     func showSharingPage()
     func shareToFB()
+    func addToCompareList()
 }

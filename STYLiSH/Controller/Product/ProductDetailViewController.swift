@@ -339,5 +339,26 @@ extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
         print("delegate FBSDK 分享")
         
     }
-
+    
+    // Add By Kevin
+    func addToCompareList() {
+        
+        guard let product = product else { return }
+        
+        CompareListManager.shared.saveCPProduct(
+            product: product,
+            completion: { result in
+                
+                switch result {
+                    
+                case .success:
+                    
+                    LKProgressHUD.showSuccess(text: "成功加入比較清單")
+                    
+                case .failure:
+                    
+                    LKProgressHUD.showFailure(text: "儲存失敗！")
+                }
+        })
+    }
 }

@@ -118,7 +118,8 @@ class NativeSignUpViewController: UIViewController {
                 
             } else {
                 
-//                LKProgressHUD.showFailure(text: "需要兩次輸入相同的密碼喔")
+                print("密碼錯誤喔")
+                LKProgressHUD.showFailure(text: "需要兩次輸入相同的密碼喔", self.view)
             }
         }
     }
@@ -140,11 +141,11 @@ class NativeSignUpViewController: UIViewController {
                 
             case .success:
                 
-                LKProgressHUD.showSuccess(text: "STYLiSH 登入成功")
+                LKProgressHUD.showSuccess(text: "STYLiSH 登入成功", self!.view)
                 
             case .failure:
                 
-                LKProgressHUD.showSuccess(text: "STYLiSH 登入失敗!")
+                LKProgressHUD.showFailure(text: "STYLiSH 登入失敗!", self!.view)
             }
             
             DispatchQueue.main.async {
@@ -169,11 +170,11 @@ class NativeSignUpViewController: UIViewController {
                 
             case .success:
                 
-                LKProgressHUD.showSuccess(text: "STYLiSH 註冊成功")
+                LKProgressHUD.showSuccess(text: "STYLiSH 註冊成功", self!.view)
                 
             case .failure:
                 
-                LKProgressHUD.showSuccess(text: "STYLiSH 註冊失敗!")
+                LKProgressHUD.showFailure(text: "STYLiSH 註冊失敗!", self!.view)
             }
             
             DispatchQueue.main.async {

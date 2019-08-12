@@ -213,7 +213,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: - Section Header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return 60.0
+        return 50.0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

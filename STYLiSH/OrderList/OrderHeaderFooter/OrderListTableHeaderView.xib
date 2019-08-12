@@ -17,35 +17,35 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qf5-Ix-avG">
-                    <rect key="frame" x="0.0" y="44" width="414" height="801"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="訂單編號：" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0m-o9-RpU">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" misplaced="YES" text="訂單編號：" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0m-o9-RpU">
                             <rect key="frame" x="21" y="4" width="52" height="14"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" misplaced="YES" text="(訂單編號)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlK-vd-5MK">
-                            <rect key="frame" x="71" y="5" width="49" height="12"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" misplaced="YES" text="(訂單編號)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlK-vd-5MK">
+                            <rect key="frame" x="94" y="5" width="49" height="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" misplaced="YES" text="訂購時間：" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmZ-jU-nCb">
-                            <rect key="frame" x="21" y="22" width="52" height="12"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <rect key="frame" x="21" y="22" width="52" height="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(訂單狀態)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgJ-Gv-BBU">
-                            <rect key="frame" x="339.5" y="393.5" width="58.5" height="14.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(訂單狀態)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgJ-Gv-BBU">
+                            <rect key="frame" x="330" y="400.5" width="68" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(訂購時間)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpN-iS-ORS">
-                            <rect key="frame" x="73" y="22" width="52" height="12"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" misplaced="YES" text="(訂購時間)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpN-iS-ORS">
+                            <rect key="frame" x="98" y="22" width="52" height="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -53,24 +53,22 @@
                     <color key="backgroundColor" name="B2"/>
                     <constraints>
                         <constraint firstItem="XgJ-Gv-BBU" firstAttribute="centerY" secondItem="Qf5-Ix-avG" secondAttribute="centerY" id="3sc-ki-m2w"/>
-                        <constraint firstAttribute="bottom" secondItem="zpN-iS-ORS" secondAttribute="bottom" constant="8" id="4Zd-R9-zG7"/>
-                        <constraint firstAttribute="bottom" secondItem="UmZ-jU-nCb" secondAttribute="bottom" constant="8" id="Bzn-xa-NFE"/>
-                        <constraint firstItem="Y0m-o9-RpU" firstAttribute="leading" secondItem="Qf5-Ix-avG" secondAttribute="leading" constant="16" id="DWh-0k-26G"/>
-                        <constraint firstItem="NlK-vd-5MK" firstAttribute="top" secondItem="Qf5-Ix-avG" secondAttribute="top" constant="5" id="Fky-da-29b"/>
+                        <constraint firstItem="UmZ-jU-nCb" firstAttribute="top" secondItem="Y0m-o9-RpU" secondAttribute="bottom" constant="3" id="9l8-Th-gj1"/>
+                        <constraint firstItem="NlK-vd-5MK" firstAttribute="top" secondItem="Qf5-Ix-avG" secondAttribute="top" constant="6" id="Agn-c9-crf"/>
+                        <constraint firstItem="UmZ-jU-nCb" firstAttribute="leading" secondItem="Qf5-Ix-avG" secondAttribute="leading" constant="16" id="E7p-qm-6fN"/>
                         <constraint firstAttribute="trailing" secondItem="XgJ-Gv-BBU" secondAttribute="trailing" constant="16" id="JrG-bY-avP"/>
-                        <constraint firstItem="UmZ-jU-nCb" firstAttribute="leading" secondItem="Qf5-Ix-avG" secondAttribute="leading" constant="16" id="h4P-Dj-GVw"/>
-                        <constraint firstItem="zpN-iS-ORS" firstAttribute="top" secondItem="NlK-vd-5MK" secondAttribute="bottom" constant="5" id="ipw-nq-5r9"/>
-                        <constraint firstItem="zpN-iS-ORS" firstAttribute="leading" secondItem="UmZ-jU-nCb" secondAttribute="trailing" constant="1" id="kk1-uR-j1w"/>
-                        <constraint firstItem="UmZ-jU-nCb" firstAttribute="top" secondItem="Y0m-o9-RpU" secondAttribute="bottom" constant="5" id="mXC-qT-obX"/>
-                        <constraint firstItem="Y0m-o9-RpU" firstAttribute="top" secondItem="Qf5-Ix-avG" secondAttribute="top" constant="5" id="r4b-ji-BkQ"/>
-                        <constraint firstItem="NlK-vd-5MK" firstAttribute="leading" secondItem="Y0m-o9-RpU" secondAttribute="trailing" constant="1" id="sau-aB-st2"/>
+                        <constraint firstItem="zpN-iS-ORS" firstAttribute="top" secondItem="NlK-vd-5MK" secondAttribute="bottom" constant="4" id="Mie-wr-iad"/>
+                        <constraint firstItem="NlK-vd-5MK" firstAttribute="leading" secondItem="Y0m-o9-RpU" secondAttribute="trailing" constant="1" id="QvN-ut-aFJ"/>
+                        <constraint firstItem="Y0m-o9-RpU" firstAttribute="leading" secondItem="Qf5-Ix-avG" secondAttribute="leading" constant="16" id="RUq-6f-4CJ"/>
+                        <constraint firstItem="Y0m-o9-RpU" firstAttribute="top" secondItem="Qf5-Ix-avG" secondAttribute="top" constant="6" id="Svh-uV-bQ5"/>
+                        <constraint firstItem="zpN-iS-ORS" firstAttribute="leading" secondItem="UmZ-jU-nCb" secondAttribute="trailing" constant="1" id="v8A-Yb-2Qi"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" name="B2"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Qf5-Ix-avG" secondAttribute="trailing" id="9AD-P8-v8h"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Qf5-Ix-avG" secondAttribute="bottom" constant="17" id="d35-tm-fbp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Qf5-Ix-avG" secondAttribute="trailing" id="9AD-P8-v8h"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Qf5-Ix-avG" secondAttribute="bottom" id="d35-tm-fbp"/>
                 <constraint firstItem="Qf5-Ix-avG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dUe-tM-jAA"/>
                 <constraint firstItem="Qf5-Ix-avG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="wGb-XE-9io"/>
             </constraints>

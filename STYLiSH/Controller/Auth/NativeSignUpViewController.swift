@@ -23,28 +23,41 @@ class NativeSignUpViewController: UIViewController {
         didSet {
             
             userNameTextField.isEnabled = false
+            
+            userNameTextField.delegate = self
         }
     }
     
-    @IBOutlet weak var userEmailTextField: UITextField!
+    @IBOutlet weak var userEmailTextField: UITextField! {
+        didSet {
+            
+            userEmailTextField.delegate = self
+        }
+    }
     
-    @IBOutlet weak var userPasswordTextField: UITextField!
+    @IBOutlet weak var userPasswordTextField: UITextField! {
+        didSet {
+            
+            userPasswordTextField.delegate = self
+        }
+    }
     
     @IBOutlet weak var userPasswordConfirmTextField: UITextField! {
         didSet {
             
             userPasswordConfirmTextField.isEnabled = false
+            
+            userPasswordConfirmTextField.delegate = self
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
     }
 
     @IBOutlet weak var confirmBtn: UIButton! {
         
         didSet {
+            
+            confirmBtn.setTitle("登入", for: .normal)
+            
+            confirmBtn.turnOff()
             
             confirmBtn.clipsToBounds = true
             
@@ -52,27 +65,102 @@ class NativeSignUpViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    var isSignUp = true
+    
     @IBAction func selectSignInOrSignUp(_ sender: UISegmentedControl) {
         
         if sender.selectedSegmentIndex == 0 {
             
-            userNameLabel.textColor = UIColor.B4
+            isSignUp = true
             
-            passwordConfirmLabel.textColor = UIColor.B4
-            
-            userNameTextField.isEnabled = false
-            
-            userPasswordConfirmTextField.isEnabled = false
+            setupForSignIn()
             
         } else {
             
-            userNameLabel.textColor = UIColor.B1
+            isSignUp = false
             
-            passwordConfirmLabel.textColor = UIColor.B1
+            setupForSignUp()
+        }
+    }
+    
+    func setupForSignIn() {
+        
+        userEmailTextField.text = ""
+        
+        userPasswordTextField.text = ""
+        
+        userNameTextField.text = ""
+        
+        userPasswordConfirmTextField.text = ""
+        
+        userNameLabel.textColor = UIColor.B4
+        
+        passwordConfirmLabel.textColor = UIColor.B4
+        
+        userNameTextField.isEnabled = false
+        
+        userPasswordConfirmTextField.isEnabled = false
+        
+        confirmBtn.setTitle("登入", for: .normal)
+    }
+    
+    func setupForSignUp() {
+        
+        userEmailTextField.text = ""
+        
+        userPasswordTextField.text = ""
+        
+        userNameTextField.text  = ""
+        
+        userPasswordConfirmTextField.text = ""
+        
+        userNameLabel.textColor = UIColor.B1
+        
+        passwordConfirmLabel.textColor = UIColor.B1
+        
+        userNameTextField.isEnabled = true
+        
+        userPasswordConfirmTextField.isEnabled = true
+        
+        confirmBtn.setTitle("確定註冊", for: .normal)
+    }
+    
+}
+
+extension NativeSignUpViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if isSignUp {
             
-            userNameTextField.isEnabled = true
+            if userEmailTextField.text != "" &&
+                userPasswordTextField.text != ""
+            {
+                confirmBtn.turnOn()
+                
+            } else {
+                
+                confirmBtn.turnOff()
+            }
             
-            userPasswordConfirmTextField.isEnabled = true
+        } else {
+            
+            if userEmailTextField.text != "" &&
+                userPasswordTextField.text != "" &&
+                userNameLabel.text != "" &&
+                userPasswordConfirmTextField.text != ""
+            {
+                confirmBtn.turnOn()
+                
+            } else {
+                
+                confirmBtn.turnOff()
+            }
         }
     }
 }

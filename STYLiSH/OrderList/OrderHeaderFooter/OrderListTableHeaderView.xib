@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OrderListTableHeaderView" customModule="STYLiSH" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="訂單編號：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0m-o9-RpU">
+                    <rect key="frame" x="10" y="49" width="52" height="791"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="(訂單編號)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlK-vd-5MK">
+                    <rect key="frame" x="63" y="49" width="49" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="訂購時間：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmZ-jU-nCb">
+                    <rect key="frame" x="10" y="845" width="52" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(訂購時間)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvZ-Ec-e7G">
+                    <rect key="frame" x="63" y="66" width="49" height="791"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(訂單狀態)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgJ-Gv-BBU">
+                    <rect key="frame" x="355" y="51" width="49" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" name="B2"/>
+            <constraints>
+                <constraint firstItem="XgJ-Gv-BBU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="7" id="BNY-cR-p4p"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zvZ-Ec-e7G" secondAttribute="bottom" constant="5" id="C4V-fF-JDs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XgJ-Gv-BBU" secondAttribute="trailing" constant="10" id="IAy-A5-osJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="UmZ-jU-nCb" secondAttribute="bottom" constant="5" id="PRa-vE-XsK"/>
+                <constraint firstItem="UmZ-jU-nCb" firstAttribute="top" secondItem="Y0m-o9-RpU" secondAttribute="bottom" constant="5" id="d3J-iD-j45"/>
+                <constraint firstItem="UmZ-jU-nCb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="h0v-yI-g4c"/>
+                <constraint firstItem="NlK-vd-5MK" firstAttribute="leading" secondItem="Y0m-o9-RpU" secondAttribute="trailing" constant="1" id="hjd-GD-QFs"/>
+                <constraint firstItem="zvZ-Ec-e7G" firstAttribute="leading" secondItem="UmZ-jU-nCb" secondAttribute="trailing" constant="1" id="iOJ-RD-cI6"/>
+                <constraint firstItem="Y0m-o9-RpU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="j19-43-ODX"/>
+                <constraint firstItem="NlK-vd-5MK" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="n1g-qQ-VDw"/>
+                <constraint firstItem="Y0m-o9-RpU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="qPf-NL-7Df"/>
+                <constraint firstItem="zvZ-Ec-e7G" firstAttribute="top" secondItem="NlK-vd-5MK" secondAttribute="bottom" constant="5" id="zrI-UN-X8k"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="orderNO" destination="NlK-vd-5MK" id="6uH-I1-exN"/>
+                <outlet property="orderStatus" destination="XgJ-Gv-BBU" id="VaX-qd-geR"/>
+                <outlet property="orderTime" destination="zvZ-Ec-e7G" id="OKN-d6-Dmx"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="B2">
+            <color red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

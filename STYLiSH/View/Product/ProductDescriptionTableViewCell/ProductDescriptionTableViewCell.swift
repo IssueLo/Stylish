@@ -48,4 +48,5 @@ class ProductDescriptionTableViewCell: ProductBasicCell {
 protocol ProductDescriptionTableViewCellDelegate: AnyObject {
     func showSharingPage()
     func shareToFB()
+    func addToWishList()
 }

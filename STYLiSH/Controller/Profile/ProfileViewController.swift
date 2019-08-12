@@ -274,7 +274,10 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let orderCell = cell as? OrderListTableViewCell else { return cell }
         
+        // TODO: 刪第一行，改 show 第二行，並放入正確資料
         orderCell.layoutView(order: orders[indexPath.row])
+//        orderCell.orderProductBaseView.layoutView(title: "", size: "", price: "", color: "")
+        orderCell.selectedQuantity.text = "數量：\(1)"
         
         
         return orderCell

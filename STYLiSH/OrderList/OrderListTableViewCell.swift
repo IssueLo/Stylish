@@ -14,6 +14,8 @@ class OrderListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var orderProductImage: UIImageView!
     
+    @IBOutlet weak var selectedQuantity: UILabel!
+    
     func layoutView(order: LSOrder) {
         
         guard let product = order.product,

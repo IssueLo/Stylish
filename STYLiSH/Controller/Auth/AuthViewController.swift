@@ -76,5 +76,15 @@ class AuthViewController: STBaseViewController {
             }
         })
     }
+    
+    // Kevin- Native SingUp/ SingIn
+    @IBAction func onSTYLiSHLogin() {
+        
+        guard let vc = UIStoryboard.nativeSignUp.instantiateInitialViewController() else { return }
+        
+        vc.modalPresentationStyle = .overCurrentContext
+        
+        present(vc, animated: true, completion: nil)
+    }
 
 }

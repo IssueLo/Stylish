@@ -13,6 +13,10 @@ enum STUserRequest: STRequest {
     case signin(String)
 
     case checkout(token: String, body: Data?)
+    
+    case signup(name: String, email: String, password: String)
+    
+    case nativesignin(email: String, password: String)
 
     var headers: [String: String] {
 
@@ -28,6 +32,14 @@ enum STUserRequest: STRequest {
                 STHTTPHeaderField.auth.rawValue: "Bearer \(token)",
                 STHTTPHeaderField.contentType.rawValue: STHTTPHeaderValue.json.rawValue
             ]
+            
+        case .signup:
+            
+            return [STHTTPHeaderField.contentType.rawValue: STHTTPHeaderValue.json.rawValue]
+            
+        case .nativesignin:
+            
+            return [STHTTPHeaderField.contentType.rawValue: STHTTPHeaderValue.json.rawValue]
         }
     }
 
@@ -47,6 +59,27 @@ enum STUserRequest: STRequest {
         case .checkout(_, let body):
 
             return body
+            
+            
+        case .signup(let name, let email, let password):
+            
+            let dict = [
+                "name": name,
+                "email": email,
+                "password": password
+            ]
+            
+            return try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+            
+        case .nativesignin(let email, let password):
+            
+            let dict = [
+                "provider": "native",
+                "email": email,
+                "password": password
+            ]
+            
+            return try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
         }
     }
 
@@ -54,7 +87,7 @@ enum STUserRequest: STRequest {
 
         switch self {
 
-        case .signin, .checkout: return STHTTPMethod.POST.rawValue
+        case .signin, .checkout, .signup, .nativesignin: return STHTTPMethod.POST.rawValue
 
         }
     }
@@ -63,9 +96,11 @@ enum STUserRequest: STRequest {
 
         switch self {
 
-        case .signin: return "/user/signin"
+        case .signin, .nativesignin: return "/user/signin"
 
         case .checkout: return "/order/checkout"
+            
+        case .signup: return "/user/signup"
         }
     }
 

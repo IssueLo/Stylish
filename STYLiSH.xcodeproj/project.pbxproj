@@ -140,6 +140,9 @@
 		9518106D22FEACC000186141 /* CompareListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9518106C22FEACC000186141 /* CompareListViewController.swift */; };
 		9518106F22FEAD3D00186141 /* CompareList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9518106E22FEAD3D00186141 /* CompareList.storyboard */; };
 		9519CAE522FFE13A00664A4E /* CompareListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9519CAE422FFE13A00664A4E /* CompareListManager.swift */; };
+		951CF8A92301424300871F61 /* NativeSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 951CF8A82301424300871F61 /* NativeSignUp.storyboard */; };
+		951CF8AB2301477800871F61 /* NativeSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951CF8AA2301477800871F61 /* NativeSignUpViewController.swift */; };
+		951CF8AD23016F1500871F61 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951CF8AC23016F1500871F61 /* UIButton+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -279,6 +282,9 @@
 		9518106C22FEACC000186141 /* CompareListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareListViewController.swift; sourceTree = "<group>"; };
 		9518106E22FEAD3D00186141 /* CompareList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CompareList.storyboard; sourceTree = "<group>"; };
 		9519CAE422FFE13A00664A4E /* CompareListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareListManager.swift; sourceTree = "<group>"; };
+		951CF8A82301424300871F61 /* NativeSignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NativeSignUp.storyboard; sourceTree = "<group>"; };
+		951CF8AA2301477800871F61 /* NativeSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeSignUpViewController.swift; sourceTree = "<group>"; };
+		951CF8AC23016F1500871F61 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		E921004E251C9FC3CBC174F5 /* Pods-STYLiSH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.release.xcconfig"; path = "Target Support Files/Pods-STYLiSH/Pods-STYLiSH.release.xcconfig"; sourceTree = "<group>"; };
 		F551E8F447D7C8DC42B53B98 /* Pods-STYLiSH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.debug.xcconfig"; path = "Target Support Files/Pods-STYLiSH/Pods-STYLiSH.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -378,6 +384,7 @@
 				3C6020E9222BC00100312958 /* UILabel+Extension.swift */,
 				3CB80E77222FCCC20095F18C /* Bundle+Extension.swift */,
 				3CFAC67222EEF71C00785FAB /* String+Extension.swift */,
+				951CF8AC23016F1500871F61 /* UIButton+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -703,7 +710,11 @@
 				3C09F515221143BE00C5B3E2 /* Profile.storyboard */,
 				3C09F517221143FE00C5B3E2 /* Trolley.storyboard */,
 				9518106E22FEAD3D00186141 /* CompareList.storyboard */,
+<<<<<<< HEAD
 				0365AC8E230169A600C75776 /* WishList.storyboard */,
+=======
+				951CF8A82301424300871F61 /* NativeSignUp.storyboard */,
+>>>>>>> 7011ea375c14dd8d5f12455611eed04080101867
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -753,6 +764,7 @@
 			isa = PBXGroup;
 			children = (
 				3CD9BB34223B882C0012C00D /* AuthViewController.swift */,
+				951CF8AA2301477800871F61 /* NativeSignUpViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -974,6 +986,7 @@
 				0365AC8F230169A600C75776 /* WishList.storyboard in Resources */,
 				3C831C6122E9945500112298 /* STOrderProductCell.xib in Resources */,
 				3C4B10D522292732009942B7 /* card_unknown@2x.png in Resources */,
+				951CF8A92301424300871F61 /* NativeSignUp.storyboard in Resources */,
 				3C4B10CF22292732009942B7 /* card_visa.png in Resources */,
 				0365AC9D23026B3500C75776 /* WishListCell.xib in Resources */,
 				0365AC802300FE6A00C75776 /* OrderListTableViewCell.xib in Resources */,
@@ -1047,6 +1060,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				951CF8AB2301477800871F61 /* NativeSignUpViewController.swift in Sources */,
 				3C0DD87822134EC100F5237E /* UIFont+Extension.swift in Sources */,
 				3CE7A507223042CE009FF003 /* STBaseTextField.swift in Sources */,
 				3CB80E78222FCCC20095F18C /* Bundle+Extension.swift in Sources */,
@@ -1063,6 +1077,7 @@
 				3C546BE522EABB6D0082C655 /* CheckoutViewController.swift in Sources */,
 				3CD2911D221135E2008B8A2D /* AppDelegate.swift in Sources */,
 				3CEBE07A222F72600064EF82 /* STYLiSH.xcdatamodeld in Sources */,
+				951CF8AD23016F1500871F61 /* UIButton+Extension.swift in Sources */,
 				3CDC5A66222D85990071D0D1 /* ColorSelectionCell.swift in Sources */,
 				3C6020D8222B883600312958 /* ProductDescriptionTableViewCell.swift in Sources */,
 				3C0DD876221348E900F5237E /* LobbyViewController.swift in Sources */,

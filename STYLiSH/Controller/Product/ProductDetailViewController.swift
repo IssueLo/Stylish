@@ -113,11 +113,7 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
         )
     }
     
-    func showSharingView() {
-        let storyboard = UIStoryboard(name:"ProductShare", bundle:nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "ProductShareViewController")
-        self.present(vc, animated: true, completion: nil)
-    }
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
@@ -134,6 +130,7 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
 
     // MARK: - Action
     @IBAction func didTouchAddToCarBtn(_ sender: UIButton) {
+        
 
         if productPickerView.superview == nil {
 

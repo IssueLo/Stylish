@@ -710,11 +710,8 @@
 				3C09F515221143BE00C5B3E2 /* Profile.storyboard */,
 				3C09F517221143FE00C5B3E2 /* Trolley.storyboard */,
 				9518106E22FEAD3D00186141 /* CompareList.storyboard */,
-<<<<<<< HEAD
 				0365AC8E230169A600C75776 /* WishList.storyboard */,
-=======
 				951CF8A82301424300871F61 /* NativeSignUp.storyboard */,
->>>>>>> 7011ea375c14dd8d5f12455611eed04080101867
 			);
 			path = View;
 			sourceTree = "<group>";

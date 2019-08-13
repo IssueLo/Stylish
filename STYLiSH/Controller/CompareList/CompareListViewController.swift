@@ -164,6 +164,20 @@ extension CompareListViewController: UICollectionViewDelegate, UICollectionViewD
         
         return compareCell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        // 在動畫效果之前先進行下列操作
+        // 將透明度設為 0，再把 Cell 位移到右下角，並且長寬縮小 0.5 倍。
+        cell.alpha = 0
+        cell.transform = CGAffineTransform(translationX: cell.bounds.width / 2, y: cell.bounds.height / 3).concatenating(CGAffineTransform(scaleX: 0.5, y: 0.5))
+        
+        UIView.animate(withDuration: 0.4) {
+            // 執行動畫效果
+            // 將透明度改回 1，並取消所有的變形效果，回到原樣及位置。
+            cell.alpha = 1
+            cell.transform = CGAffineTransform.identity
+        }
+    }
 }
 
 //@IBAction func addToCompareListBtn(_ sender: UIButton) {

@@ -137,6 +137,8 @@
 		951CF8A92301424300871F61 /* NativeSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 951CF8A82301424300871F61 /* NativeSignUp.storyboard */; };
 		951CF8AB2301477800871F61 /* NativeSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951CF8AA2301477800871F61 /* NativeSignUpViewController.swift */; };
 		951CF8AD23016F1500871F61 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951CF8AC23016F1500871F61 /* UIButton+Extension.swift */; };
+		9584CEBE2302EAAB00B4CC69 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9584CEBD2302EAAB00B4CC69 /* SearchViewController.swift */; };
+		9584CEC02302EACC00B4CC69 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9584CEBF2302EACC00B4CC69 /* Search.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -273,6 +275,8 @@
 		951CF8A82301424300871F61 /* NativeSignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NativeSignUp.storyboard; sourceTree = "<group>"; };
 		951CF8AA2301477800871F61 /* NativeSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeSignUpViewController.swift; sourceTree = "<group>"; };
 		951CF8AC23016F1500871F61 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		9584CEBD2302EAAB00B4CC69 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9584CEBF2302EACC00B4CC69 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		E921004E251C9FC3CBC174F5 /* Pods-STYLiSH.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.release.xcconfig"; path = "Target Support Files/Pods-STYLiSH/Pods-STYLiSH.release.xcconfig"; sourceTree = "<group>"; };
 		F551E8F447D7C8DC42B53B98 /* Pods-STYLiSH.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STYLiSH.debug.xcconfig"; path = "Target Support Files/Pods-STYLiSH/Pods-STYLiSH.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -680,6 +684,7 @@
 				3C09F517221143FE00C5B3E2 /* Trolley.storyboard */,
 				9518106E22FEAD3D00186141 /* CompareList.storyboard */,
 				951CF8A82301424300871F61 /* NativeSignUp.storyboard */,
+				9584CEBF2302EACC00B4CC69 /* Search.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -695,6 +700,7 @@
 				3C1ACFE122151F29005583E2 /* Base */,
 				3C0DD874221348D200F5237E /* Lobby */,
 				9518106922FEAC8100186141 /* CompareList */,
+				9584CEC12302ED8900B4CC69 /* Search */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -855,6 +861,14 @@
 			path = CompareList;
 			sourceTree = "<group>";
 		};
+		9584CEC12302ED8900B4CC69 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				9584CEBD2302EAAB00B4CC69 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		F26A8A19BFED7C956C38BFE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -929,6 +943,7 @@
 				3C4B10CE22292732009942B7 /* card_amex@2x.png in Resources */,
 				3C09F516221143BE00C5B3E2 /* Profile.storyboard in Resources */,
 				3CD29127221135E3008B8A2D /* LaunchScreen.storyboard in Resources */,
+				9584CEC02302EACC00B4CC69 /* Search.storyboard in Resources */,
 				3C4B10D622292732009942B7 /* card_amex.png in Resources */,
 				3C0DD87F2213533F00F5237E /* LobbyTableViewCell.xib in Resources */,
 				3C3369182227CE8E008A5A7A /* TrolleyProductBaseView.xib in Resources */,
@@ -1082,6 +1097,7 @@
 				3C9EF5362213C97D00DEE152 /* MarketRequest.swift in Sources */,
 				3CB801252229AEE30029A552 /* UITableView+Extension.swift in Sources */,
 				3CDC5A6A222D860B0071D0D1 /* SizeSelectionCell.swift in Sources */,
+				9584CEBE2302EAAB00B4CC69 /* SearchViewController.swift in Sources */,
 				3C1ACFE622152B1F005583E2 /* UIScreen+Extension.swift in Sources */,
 				3C6020DD222B90DF00312958 /* ProductDetailCell.swift in Sources */,
 				3C09F51E22114E1900C5B3E2 /* UIStoryboard+Extension.swift in Sources */,

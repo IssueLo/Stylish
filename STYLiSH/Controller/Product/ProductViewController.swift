@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductViewController: UIViewController, UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
+class ProductViewController: UIViewController {
 
     private enum LayoutType {
 
@@ -67,71 +67,14 @@ class ProductViewController: UIViewController, UISearchControllerDelegate, UISea
             }
         }
     }
-    
-    var searchController: UISearchController!
-    
-    @IBOutlet weak var searchView: UIView!
-    @IBOutlet weak var searchView2: UIView!
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        self.dismiss(animated: true, completion: nil)
-        
-    }
-    
-    func updateSearchResults(for searchController: UISearchController)
-    {
-        guard let text = searchController.searchBar.text else { return }
-        
-        print(text)
-    }
-    
-    
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("updating")
-    }
-    
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        
-        
-        
-    }
 
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         isListLayout = true
-        
-//        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        self.searchController = UISearchController(searchResultsController:  nil)
-        
-        self.searchController.searchResultsUpdater = self
-        self.searchController.delegate = self
-        self.searchController.searchBar.delegate = self
-        
-        self.searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.dimsBackgroundDuringPresentation = false
-        self.searchController.obscuresBackgroundDuringPresentation = false
-        
-        navigationItem.searchController = searchController
-        
-        searchController.searchBar.placeholder = "Search here..."
-        
-        searchController.searchBar.sizeToFit()
-        
-        definesPresentationContext = true
-        
-        searchController.searchBar.becomeFirstResponder()
-//        tblSearchResults.tableHeaderView = searchController.searchBa
-        
-//        searchView2 = searchController.searchBar
-        
-//        self.navigationItem.leftBarButtonItem?.customView = searchController.searchBar
-//        self.navigationItem.titleView = searchController.searchBar
     }
-
+    
     // MARK: - Action
     @IBAction func onChangeProducts(_ sender: UIButton) {
 
@@ -164,6 +107,18 @@ class ProductViewController: UIViewController, UISearchControllerDelegate, UISea
             present(controller, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func toSearchVC(_ sender: UIBarButtonItem) {
+        
+        let storyboard = UIStoryboard(name: "Search", bundle: nil)
+        
+        if let controller = storyboard.instantiateViewController(withIdentifier: "Search") as? UINavigationController {
+            
+            present(controller, animated: true, completion: nil)
+        }
+    }
+    
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 

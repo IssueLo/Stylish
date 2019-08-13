@@ -19,12 +19,12 @@ class WishListCell: UICollectionViewCell {
         // Initialization code
     }
     
-    
     var touchHandler: (() -> Void)?
     
     @IBAction func removeWish(_ sender: Any) {
         
         touchHandler?()
     }
+    
     
 }

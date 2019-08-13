@@ -20,7 +20,8 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
 //        return product?.mainImage
 //    }
     
-
+    @IBOutlet weak var popBackBtn: UIButton!
+    
     private struct Segue {
 
         static let picker = "SeguePicker"

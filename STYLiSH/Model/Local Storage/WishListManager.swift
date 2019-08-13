@@ -191,36 +191,16 @@ typealias WishProductResult = (Result<WishProduct>) -> Void
 }
 
 
-extension NSSet {
-    
-    func toColorArray(_ color: WishColor) -> [Color] {
-        
-        let code = color.code ?? ""
-        let name = color.name ?? ""
-        
-        let colors = [Color(name: name, code: code)]
-        
-        return colors
-        
-    }
-    
-    func toVariantArrray(_ variant: WishVariant) -> [Variant] {
-        
-        let colorCode = variant.colorCode ?? ""
-        let size = variant.size ?? ""
-        let stock = Int(variant.stocks)
-        
-        let variants = [Variant(colorCode: colorCode, size: size, stock: stock)]
-        
-        return variants
-    }
+//extension NSSet {
+//    
+//}
     
     
 //    func toArray<T>() -> [T] {
 //        let array = self.map({ $0 as! T})
 //        return array
 //    }
-}
+
 
 
 private extension WishProduct {

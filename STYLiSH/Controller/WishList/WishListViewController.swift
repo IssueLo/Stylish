@@ -14,6 +14,13 @@ class WishListViewController: UIViewController {
     @IBOutlet weak var wishListCollectionView: UICollectionView!
     @IBOutlet weak var showEmotyView: UIView!
     
+    @IBOutlet weak var topView: UIView!
+
+    
+    var pickerViewController: ProductPickerController?
+    
+    var wishProduct: Product?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,16 +48,65 @@ class WishListViewController: UIViewController {
                 
                 showEmotyView.isHidden = false
                 
+                topView.isHidden = true
+                
                 wishListCollectionView.isHidden = true
             } else {
                 
                 showEmotyView.isHidden = true
+                
+                topView.isHidden = false
                 
                 wishListCollectionView.isHidden = false
                 
             }
         }
     }
+    
+    func touchAddWishToCart(product: Product) {
+        
+        let vc = UIStoryboard.product.instantiateViewController(withIdentifier:
+            String(describing: ProductPickerController.self)
+        )
+        
+        guard let pickerVC = vc as? ProductPickerController else { return }
+        
+        pickerVC.product = product
+        
+        pickerVC.delegate = self
+        
+        present(pickerVC, animated: false, completion: nil)
+        
+//        func showProductPickerView() {
+//
+//            let maxY = wishListCollectionView.frame.maxY
+//
+//            productPickerView.frame = CGRect(
+//                x: 0, y: maxY, width: UIScreen.width, height: 0.0
+//            )
+//
+//            wishListCollectionView.addSubview(productPickerView)
+//
+//
+//            UIView.animate(
+//                withDuration: 0.3,
+//                animations: { [weak self] in
+//
+//                    guard let strongSelf = self else { return }
+//
+//                    let height = 451.0 / 586.0 * strongSelf.wishListCollectionView.frame.height
+//
+//                    self?.productPickerView.frame = CGRect(
+//                        x: 0, y: maxY - height, width: UIScreen.width, height: height
+//                    )
+//
+//                    self?.isEnableAddToCarBtn(false)
+//                }
+//            )
+//        }
+        
+    }
+    
     
     func fetchWishes() {
         
@@ -70,7 +126,7 @@ class WishListViewController: UIViewController {
         }
     }
     
-    func deleteWishes(at index: Int) {
+    @objc func deleteWishes(at index: Int) {
         
         WishListManager.shared.deleteWishProduct(wishes[index]) {
             deleteResult in
@@ -153,56 +209,91 @@ extension WishListViewController: UICollectionViewDataSource {
 
 extension WishListViewController: UICollectionViewDelegate {
 
-//    private func showProductDetailViewController(product: Product) {
-//
-//        let vc = UIStoryboard.product.instantiateViewController(withIdentifier:
-//            String(describing: ProductDetailViewController.self)
-//        )
-//
-//        guard let detailVC = vc as? ProductDetailViewController else { return }
-//
-//        detailVC.product = product
-//
-//        show(detailVC, sender: nil)
-//
-//    }
-//
-//
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//
-//        wishListCollectionView.deselectItem(at: indexPath, animated: true)
-//
-//        let NScolors = wishes[indexPath.item].colors?.allObjects as! NSArray
-//
-//        let NSvariants = wishes[indexPath.item].variants?.allObjects as! NSArray
-//
-//        let objcColors = NSMutableArray(array: NScolors)
-//
-//        let objcVariants = NSMutableArray(array: NSvariants)
-//
-//        let swiftColors: [Color] = objcColors.compactMap({ $0 as? Color })
-//
-//        let swiftVariants: [Variant] = objcColors.compactMap({ $0 as? Variant })
-//
-//
-//        let wishProduct = Product(
-//            id: Int(wishes[indexPath.item].id),
-//            title: wishes[indexPath.item].title ?? "",
-//            description: wishes[indexPath.item].detail ?? "",
-//            price: Int(wishes[indexPath.item].price),
-//            texture: wishes[indexPath.item].texture ?? "",
-//            wash: wishes[indexPath.item].wash ?? "",
-//            place: wishes[indexPath.item].place ?? "",
-//            note: wishes[indexPath.item].note ?? "",
-//            story: wishes[indexPath.item].story ?? "",
-//            colors: swiftColors,
-//            sizes: wishes[indexPath.item].sizes ?? [],
-//            variants: swiftVariants,
-//            mainImage: wishes[indexPath.item].mainImage ?? "",
-//            images: wishes[indexPath.item].images ?? [])
-//
-//        showProductDetailViewController(product: wishProduct)
-//
-//    }
+    private func showProductDetailViewController(product: Product, index: Int) {
+
+        let vc = UIStoryboard.product.instantiateViewController(withIdentifier:
+            String(describing: ProductDetailViewController.self)
+        )
+
+        guard let detailVC = vc as? ProductDetailViewController else { return }
+
+        detailVC.product = product
+
+        show(detailVC, sender: nil)
+        
+        
+        detailVC.popBackBtn.addTarget(self, action: #selector(popBack), for: .touchUpInside)
+
+    }
+    
+    @objc func popBack() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        wishListCollectionView.deselectItem(at: indexPath, animated: true)
+        
+        guard let wishColors = wishes[indexPath.item].colors?.allObjects as? [WishColor] else {return}
+        
+        guard let wishVariants = wishes[indexPath.item].variants?.allObjects as? [WishVariant] else {return}
+        
+        let colors = wishColors.map { (wishcolor) -> Color in
+            
+            guard let name = wishcolor.name, let code = wishcolor.code else {return Color(name: "", code: "")}
+            
+            let colorArray = Color(name: name, code: code)
+            
+            return colorArray
+        
+        }
+        
+        let variants = wishVariants.map { (wishVariant) -> Variant in
+            
+            guard let colorCode = wishVariant.colorCode, let size = wishVariant.size else { return Variant(colorCode: "", size: "", stock: 0) }
+            
+            let stocks = Int(wishVariant.stocks)
+            
+            let variantsArray = Variant(colorCode: colorCode, size: size, stock: stocks)
+            
+            return variantsArray
+            
+        }
+
+
+        let wishProduct = Product(
+            id: Int(wishes[indexPath.item].id),
+            title: wishes[indexPath.item].title ?? "",
+            description: wishes[indexPath.item].detail ?? "",
+            price: Int(wishes[indexPath.item].price),
+            texture: wishes[indexPath.item].texture ?? "",
+            wash: wishes[indexPath.item].wash ?? "",
+            place: wishes[indexPath.item].place ?? "",
+            note: wishes[indexPath.item].note ?? "",
+            story: wishes[indexPath.item].story ?? "",
+            colors: colors,
+            sizes: wishes[indexPath.item].sizes ?? [],
+            variants: variants,
+            mainImage: wishes[indexPath.item].mainImage ?? "",
+            images: wishes[indexPath.item].images ?? [])
+        
+        self.wishProduct = wishProduct
+
+        showProductDetailViewController(product: wishProduct, index: indexPath.item)
+//            touchAddWishToCart(product: wishProduct)
+    }
+}
+
+extension WishListViewController: ProductPickerControllerDelegate {
+    
+    func dismissPicker(_ controller: ProductPickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func valueChange(_ controller: ProductPickerController) {
+    }
+    
+    
 }
 

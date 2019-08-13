@@ -56,7 +56,7 @@ class UserProvider {
     }
     
     // Add by Kevin
-    func signUpToSTYLiSH(name: String, email: String, password: String, completion: @escaping (Result<Void>) -> Void) {
+    func nativeSignUpToSTYLiSH(name: String, email: String, password: String, completion: @escaping (Result<Void>) -> Void) {
         
         HTTPClient.shared.request(STUserRequest.signup(name: name, email: email, password: password), completion: { result in
             
@@ -66,7 +66,7 @@ class UserProvider {
                 
                 do {
                     
-                    let userObject = try JSONDecoder().decode(STSuccessParser<UserObject>.self, from: data)
+                    let userObject = try JSONDecoder().decode(STSuccessParser<AddUserObject>.self, from: data)
                     
                     KeyChainManager.shared.token = userObject.data.accessToken
                     

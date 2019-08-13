@@ -129,13 +129,13 @@ class NativeSignUpViewController: UIViewController {
     
     func nativeSignIn(email: String, password: String) {
         
-        LKProgressHUD.show()
+//        LKProgressHUD.show()
         
         userProvider.nativeSignInToSTYLiSH(email: email,
                                            password: password,
                                            completion: { [weak self] result in
                                         
-            LKProgressHUD.dismiss()
+//            LKProgressHUD.dismiss()
             
             switch result {
                 
@@ -157,14 +157,14 @@ class NativeSignUpViewController: UIViewController {
     
     func onSTYLiSHSignUp(name: String, email: String, password: String) {
         
-        LKProgressHUD.show()
+//        LKProgressHUD.show()
         
-        userProvider.signUpToSTYLiSH(name: name,
+        userProvider.nativeSignUpToSTYLiSH(name: name,
                                      email: email,
                                      password: password,
                                      completion: { [weak self] result in
             
-            LKProgressHUD.dismiss()
+//            LKProgressHUD.dismiss()
 
             switch result {
                 

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderListTableViewCell" rowHeight="191" id="OXd-Sz-aUb" customClass="OrderListTableViewCell" customModule="STYLiSH" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="507" height="191"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OXd-Sz-aUb" id="mCZ-An-QbC">
+                <rect key="frame" x="0.0" y="0.0" width="507" height="190.66666666666666"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(數量)" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwB-bf-g9Z">
+                        <rect key="frame" x="232" y="84" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" name="B1"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fYO-MZ-KGi">
+                        <rect key="frame" x="16" y="10" width="82" height="110"/>
+                        <color key="backgroundColor" red="0.0" green="0.75294117650000003" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="41" id="4Ei-jo-SBK"/>
+                            <constraint firstAttribute="width" secondItem="fYO-MZ-KGi" secondAttribute="height" multiplier="82/110" id="dc2-oV-URm"/>
+                            <constraint firstAttribute="height" constant="55" id="jKj-S1-HFr"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5cx-kM-eu9" customClass="TrolleyProductBaseView" customModule="STYLiSH" customModuleProvider="target">
+                        <rect key="frame" x="114" y="10" width="369" height="52"/>
+                        <color key="backgroundColor" name="G1"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="52" id="mz1-SE-7An"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fYO-MZ-KGi" firstAttribute="top" secondItem="mCZ-An-QbC" secondAttribute="top" constant="10" id="Xkq-pX-mXS"/>
+                    <constraint firstItem="fYO-MZ-KGi" firstAttribute="leading" secondItem="mCZ-An-QbC" secondAttribute="leading" constant="16" id="dkI-my-QQJ"/>
+                    <constraint firstAttribute="bottom" secondItem="fYO-MZ-KGi" secondAttribute="bottom" constant="10" id="gTK-5E-d1e"/>
+                    <constraint firstAttribute="trailing" secondItem="dwB-bf-g9Z" secondAttribute="trailing" constant="16" id="i5r-Bd-ZbR"/>
+                    <constraint firstItem="5cx-kM-eu9" firstAttribute="leading" secondItem="fYO-MZ-KGi" secondAttribute="trailing" constant="16" id="oqa-hr-cLD"/>
+                    <constraint firstAttribute="bottom" secondItem="dwB-bf-g9Z" secondAttribute="bottom" constant="14" id="rW5-Tr-Dn9"/>
+                    <constraint firstItem="5cx-kM-eu9" firstAttribute="top" secondItem="mCZ-An-QbC" secondAttribute="top" constant="10" id="rc9-rX-C6d"/>
+                    <constraint firstItem="dwB-bf-g9Z" firstAttribute="leading" secondItem="5cx-kM-eu9" secondAttribute="trailing" constant="35" id="yku-tT-KVR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="orderProductBaseView" destination="5cx-kM-eu9" id="yeS-db-Zr6"/>
+                <outlet property="orderProductImage" destination="fYO-MZ-KGi" id="wwW-SR-0qr"/>
+                <outlet property="selectedQuantity" destination="dwB-bf-g9Z" id="YnT-vo-uqo"/>
+            </connections>
+            <point key="canvasLocation" x="160.1449275362319" y="-3.683035714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="B1">
+            <color red="0.24705882352941178" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="G1">
+            <color red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

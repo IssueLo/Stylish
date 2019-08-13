@@ -8,6 +8,7 @@
 
 import UIKit
 
+// 設定 tab bar items
 private enum Tab {
 
     case lobby

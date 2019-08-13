@@ -12,11 +12,14 @@ class WishListViewController: UIViewController {
     
     
     @IBOutlet weak var wishListCollectionView: UICollectionView!
+    @IBOutlet weak var showEmotyView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fetchWishes()
+        
+        setUpFlatCardView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,7 +30,26 @@ class WishListViewController: UIViewController {
         WishListManager.shared.saveAll { _ in }
     }
     
-    var wishes: [WishProduct] = []
+    var wishes: [WishProduct] = [] {
+        
+        didSet {
+        
+            wishListCollectionView.reloadData()
+            
+            if wishes.count == 0 {
+                
+                showEmotyView.isHidden = false
+                
+                wishListCollectionView.isHidden = true
+            } else {
+                
+                showEmotyView.isHidden = true
+                
+                wishListCollectionView.isHidden = false
+                
+            }
+        }
+    }
     
     func fetchWishes() {
         
@@ -47,7 +69,7 @@ class WishListViewController: UIViewController {
         }
     }
     
-    func deleteWishws(at index: Int) {
+    func deleteWishes(at index: Int) {
         
         WishListManager.shared.deleteWishProduct(wishes[index]) {
             deleteResult in
@@ -83,8 +105,8 @@ class WishListViewController: UIViewController {
         wishListCollectionView.dataSource = self
         wishListCollectionView.delegate = self
         wishListCollectionView.showsVerticalScrollIndicator = false
-        
-        
+        wishListCollectionView.collectionViewLayout = cardLayout
+        wishListCollectionView.lk_registerCellWithNib(identifier: String(describing: WishListCell.self), bundle: nil)
     }
 
 }
@@ -100,7 +122,23 @@ extension WishListViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        
+        let cell = wishListCollectionView.dequeueReusableCell(withReuseIdentifier: String(describing: WishListCell.self), for: indexPath)
+        
+        guard let wishCell = cell as? WishListCell else { return cell }
+        
+        wishCell.wishTitle.text = wishes[indexPath.item].title ?? "(品名)"
+        
+        wishCell.wishImage.loadImage(wishes[indexPath.item].mainImage)
+        
+        wishCell.wishPrice.text = String(wishes[indexPath.item].price)
+        
+        wishCell.touchHandler = { [weak self] in
+            
+            self?.deleteWishes(at: indexPath.item)
+        }
+        
+        return wishCell
     }
     
     

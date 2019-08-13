@@ -18,5 +18,13 @@ class WishListCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    
+    var touchHandler: (() -> Void)?
+    
+    @IBAction func removeWish(_ sender: Any) {
+        
+        touchHandler?()
+    }
+    
 }

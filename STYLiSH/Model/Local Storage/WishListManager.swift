@@ -19,6 +19,10 @@ typealias WishProductResult = (Result<WishProduct>) -> Void
         
         case wishListProduct = "WishProduct"
         
+        case wishListColor = "WishColor"
+        
+        case wishListVarint = "WishVariant"
+        
     }
     
     static let shared = WishListManager()
@@ -56,6 +60,10 @@ typealias WishProductResult = (Result<WishProduct>) -> Void
         completion: (Result<Void>) -> Void) {
         
         let wishProduct = WishProduct(context: viewContext)
+        
+        let wishColor = WishColor(context: viewContext)
+        
+        let wishVariant = WishVariant(context: viewContext)
         
         wishProduct.mapping(product)
         
@@ -185,3 +193,24 @@ private extension WishProduct {
     }
 }
 
+private extension WishColor {
+    
+    func mapping(_ object: Color) {
+        
+        code = object.code
+        
+        name = object.name
+    }
+}
+
+private extension WishVariant {
+    
+    func mapping(_ object: Variant) {
+        
+        colorCode = object.colorCode
+        
+        size = object.size
+        
+        stocks = object.stock.int64()
+    }
+}

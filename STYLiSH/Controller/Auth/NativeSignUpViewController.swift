@@ -150,7 +150,8 @@ class NativeSignUpViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
-                self?.presentingViewController?.dismiss(animated: false, completion: nil)
+                self?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+                
             }
         })
     }
@@ -179,7 +180,8 @@ class NativeSignUpViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
-                self?.presentingViewController?.dismiss(animated: false, completion: nil)
+                self?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+
             }
         })
     }

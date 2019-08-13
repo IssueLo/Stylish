@@ -97,7 +97,7 @@ class ProductViewController: UIViewController {
         isListLayout = !isListLayout
     }
     
-    // MARK: Kevin- Add Btn for compareL
+    // MARK: Kevin- Add Btn for compareList
     @IBAction func toCompareList(_ sender: UIBarButtonItem) {
         
         let storyboard = UIStoryboard(name: "CompareList", bundle: nil)
@@ -108,6 +108,7 @@ class ProductViewController: UIViewController {
         }
     }
     
+    // MARK: Kevin- Add Btn for search
     @IBAction func toSearchVC(_ sender: UIBarButtonItem) {
         
         let storyboard = UIStoryboard(name: "Search", bundle: nil)

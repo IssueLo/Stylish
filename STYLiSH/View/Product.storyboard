@@ -150,7 +150,6 @@
                         <outlet property="indicatorView" destination="iT1-40-Gaf" id="Rlp-4l-swZ"/>
                         <outlet property="layoutBtn" destination="fMg-rv-MfI" id="9hK-wM-9a9"/>
                         <outlet property="menProductsContainerView" destination="Wo4-r2-uEs" id="CAT-6r-GmF"/>
-                        <outlet property="search" destination="UzU-Xk-YWq" id="eDx-Hh-eTj"/>
                         <outlet property="womenProductsContainerView" destination="EzC-7D-T5k" id="YzR-4b-N3S"/>
                         <outletCollection property="productBtns" destination="mIU-pU-Sui" collectionClass="NSMutableArray" id="cLK-UG-ZpL"/>
                         <outletCollection property="productBtns" destination="ELV-1w-gpV" collectionClass="NSMutableArray" id="Nll-Lp-4xo"/>

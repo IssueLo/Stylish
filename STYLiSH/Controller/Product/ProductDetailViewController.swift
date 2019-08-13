@@ -293,7 +293,7 @@ extension ProductDetailViewController: ProductPickerControllerDelegate {
 
 extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
 
-// 以 iOS 內建 UIActivityVC 分享
+    // 以 iOS 內建 UIActivityVC 分享
     func showSharingPage() {
         
 //        let storyBoard = UIStoryboard(name: "ProductShare", bundle: nil)
@@ -316,7 +316,7 @@ extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
     }
     
     
-// 以 FBSDK 方式分享
+    // 以 FBSDK 方式分享
     func showShareDialog<C: SharingContent>(_ content: C, mode: ShareDialog.Mode = .automatic) {
         let dialog = ShareDialog(fromViewController: self, content: content, delegate: self as? SharingDelegate)
         dialog.mode = mode
@@ -362,8 +362,28 @@ extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
                 }
         })
     }
-// 加入 wish list
+    
+    // 加入 wish list
     func addToWishList() {
+        
+        guard let product = product else { return }
+        
+        WishListManager.shared.saveWishProduct(product: product) { saveResult in
+            
+            switch saveResult {
+                
+            case .success:
+                
+                LKProgressHUD.showSuccess(text: "許願成功！")
+            
+            case .failure:
+                
+                LKProgressHUD.showFailure(text: "許願失敗(T_T)")
+                
+            }
+        }
+        
+        
     }
     
 

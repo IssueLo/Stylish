@@ -144,6 +144,32 @@ typealias WishProductResult = (Result<WishProduct>) -> Void
         }
     }
     
+    
+    func deleteAllWish(completion: (Result<Void>) -> Void) {
+        
+        for item in Entity.allCases {
+            
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: item.rawValue)
+            
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            
+            do {
+                
+                try viewContext.execute(deleteRequest)
+                
+                fetchWishProducts()
+                
+            } catch {
+                
+                completion(Result.failure(error))
+                
+                return
+            }
+        }
+        
+        completion(Result.success(()))
+    }
+    
 }
 
 

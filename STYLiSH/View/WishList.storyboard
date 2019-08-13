@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,14 +17,60 @@
                     <view key="view" contentMode="scaleToFill" id="F69-7q-L86">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxO-sN-hco">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <color key="backgroundColor" name="G1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="eta-ZZ-ylN"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Azf-yy-FZH">
+                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gEX-DS-NGq">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iBi-sv-oJ6">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gxO-sN-hco" firstAttribute="top" secondItem="eR7-Lx-pa3" secondAttribute="top" id="2Mf-uE-xzs"/>
+                            <constraint firstItem="gxO-sN-hco" firstAttribute="leading" secondItem="eR7-Lx-pa3" secondAttribute="leading" id="3jR-Jx-BWm"/>
+                            <constraint firstItem="eR7-Lx-pa3" firstAttribute="bottom" secondItem="Azf-yy-FZH" secondAttribute="bottom" id="D6J-ks-6eE"/>
+                            <constraint firstItem="eR7-Lx-pa3" firstAttribute="trailing" secondItem="Azf-yy-FZH" secondAttribute="trailing" id="GnQ-jz-bxD"/>
+                            <constraint firstItem="Azf-yy-FZH" firstAttribute="leading" secondItem="eR7-Lx-pa3" secondAttribute="leading" id="I7h-iH-a17"/>
+                            <constraint firstItem="eR7-Lx-pa3" firstAttribute="trailing" secondItem="gxO-sN-hco" secondAttribute="trailing" id="Z7T-3C-fpu"/>
+                            <constraint firstItem="Azf-yy-FZH" firstAttribute="top" secondItem="gxO-sN-hco" secondAttribute="bottom" id="jwY-Vx-EmU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eR7-Lx-pa3"/>
                     </view>
                     <navigationItem key="navigationItem" id="y4b-rc-I85"/>
+                    <connections>
+                        <outlet property="wishListCollectionView" destination="Azf-yy-FZH" id="iDS-JF-rga"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Von-b6-ySO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="400.00000000000006" y="-206.25"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="G1">
+            <color red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

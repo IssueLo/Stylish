@@ -24,8 +24,6 @@ class ProductDescriptionTableViewCell: ProductBasicCell {
         
 //        delegate?.showSharingPage()
         delegate?.shareToFB()
-        
-        print("按")
     }
     
     // Add By Kevin

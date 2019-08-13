@@ -62,11 +62,18 @@ typealias WishProductResult = (Result<WishProduct>) -> Void
         let wishProduct = WishProduct(context: viewContext)
         
         let wishColor = WishColor(context: viewContext)
-        
+
         let wishVariant = WishVariant(context: viewContext)
         
         wishProduct.mapping(product)
         
+        for color in product.colors {
+            wishColor.mapping(color)
+        }
+        
+        for variant in product.variants {
+            wishVariant.mapping(variant)
+        }
         
         do {
             
@@ -119,6 +126,8 @@ typealias WishProductResult = (Result<WishProduct>) -> Void
     
     func fetchWishProducts(completion: WishProductResults? = nil) {
         
+        
+        
         let request = NSFetchRequest<WishProduct>(entityName: Entity.wishListProduct.rawValue)
         
         do {
@@ -133,6 +142,7 @@ typealias WishProductResult = (Result<WishProduct>) -> Void
             
             completion?(Result.failure(error))
         }
+        
     }
     
     
@@ -181,16 +191,91 @@ typealias WishProductResult = (Result<WishProduct>) -> Void
 }
 
 
+extension NSSet {
+    
+    func toColorArray(_ color: WishColor) -> [Color] {
+        
+        let code = color.code ?? ""
+        let name = color.name ?? ""
+        
+        let colors = [Color(name: name, code: code)]
+        
+        return colors
+        
+    }
+    
+    func toVariantArrray(_ variant: WishVariant) -> [Variant] {
+        
+        let colorCode = variant.colorCode ?? ""
+        let size = variant.size ?? ""
+        let stock = Int(variant.stocks)
+        
+        let variants = [Variant(colorCode: colorCode, size: size, stock: stock)]
+        
+        return variants
+    }
+    
+    
+//    func toArray<T>() -> [T] {
+//        let array = self.map({ $0 as! T})
+//        return array
+//    }
+}
+
+
 private extension WishProduct {
     
     func mapping(_ object: Product) {
         
+        detail = object.description
+        
+        id = object.id.int64()
+        
+        images = object.images
+        
         mainImage = object.mainImage
+        
+        note = object.note
+        
+        place = object.place
         
         price = object.price.int64()
         
+        sizes = object.sizes
+        
+        story = object.story
+        
+        texture = object.texture
+        
         title = object.title
-    }
+        
+        wash = object.wash
+        
+      
+        colors = NSSet(array: object.colors.map({ color in
+
+                        let wishColor = WishColor(context: WishListManager.shared.viewContext)
+
+                        wishColor.mapping(color)
+
+                        return wishColor
+                    })
+                )
+        
+        
+        variants = NSSet(array:
+        
+                    object.variants.map({ variant in
+        
+                        let wishVariant = WishVariant(context: WishListManager.shared.viewContext)
+        
+                        wishVariant.mapping(variant)
+        
+                        return wishVariant
+                    })
+                )
+        }
+
 }
 
 private extension WishColor {
@@ -214,3 +299,5 @@ private extension WishVariant {
         stocks = object.stock.int64()
     }
 }
+
+

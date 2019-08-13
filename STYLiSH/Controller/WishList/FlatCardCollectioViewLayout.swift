@@ -18,9 +18,9 @@ class FlatCardCollectioViewLayout: UICollectionViewFlowLayout {
         
         let verticalInset = (collectionView!.frame.size.height - itemSize.height) * 0.5
         
-        let horizontalInset = (collectionView!.frame.size.width - itemSize.width) * 0.3
+//        let horizontalInset = (collectionView!.frame.size.width - itemSize.width) * 0.5
         
-        sectionInset = UIEdgeInsets(top: verticalInset, left: horizontalInset, bottom: verticalInset, right: horizontalInset)
+        sectionInset = UIEdgeInsets(top: verticalInset, left: 0, bottom: verticalInset, right: 0)
         
     }
     

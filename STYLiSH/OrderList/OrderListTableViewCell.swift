@@ -46,7 +46,7 @@ class OrderListTableViewCell: UITableViewCell {
         })
         
         guard let maxNumber = variant.first?.stocks else { return }
-        
+
 //        amountLbl?.text = "x \(order.amount)"
     }
 

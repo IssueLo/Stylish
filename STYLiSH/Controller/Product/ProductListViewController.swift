@@ -24,9 +24,9 @@ class ProductListViewController: STCompondViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.white
-
+        
         setupTableView()
-
+        
         setupCollectionView()
     }
 

@@ -11,18 +11,16 @@ import UIKit
 class SearchViewController: UIViewController {
     
     let marketProvider = MarketProvider()
-
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dataArray = [String]()
+//    var dataArray = [String]()
     
-    var filteredArray = [String]()
+    var searchedArray = [Product]()
     
     var shouldShowSearchResults = false
     
     var allProductDatas: [Product] = [] {
-        
         didSet {
             tableView.reloadData()
         }
@@ -33,6 +31,8 @@ class SearchViewController: UIViewController {
     var searchController: UISearchController!
 
     @IBAction func goBackPage(_ sender: UIBarButtonItem) {
+        
+        shouldShowSearchResults = false
         
         dismiss(animated: true, completion: nil)
     }
@@ -47,23 +47,7 @@ class SearchViewController: UIViewController {
         
         getAllProductData()
         
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
-        
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
-        self.searchController.obscuresBackgroundDuringPresentation = false
-
-        searchController.searchResultsUpdater = self
-        
-        searchController.searchBar.placeholder = "Search here..."
-        
-        searchController.searchBar.sizeToFit()
-        
-        navigationItem.titleView = searchController.searchBar
-        
-        definesPresentationContext = true
+        setUpSearchBar()
     }
     
     private func cpdSetupTableView() {
@@ -98,12 +82,16 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return allProductDatas.count
-
+        if shouldShowSearchResults {
+            
+            return searchedArray.count
+            
+        } else {
+        
+            return allProductDatas.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -113,33 +101,41 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             for: indexPath
         )
         
-        guard
-            let productCell = cell as? ProductTableViewCell,
-            let product = allProductDatas[indexPath.row] as? Product
-        else {
-                
-                return cell
-        }
+        guard let productCell = cell as? ProductTableViewCell else { return cell }
         
-        productCell.layoutCell(
-            image: product.mainImage,
-            title: product.title,
-            price: product.price
-        )
+        if shouldShowSearchResults {
+            
+            guard let product = searchedArray[indexPath.row] as? Product else { return cell }
+            
+            productCell.layoutCell(
+                image: product.mainImage,
+                title: product.title,
+                price: product.price
+            )
+            
+        } else {
+            
+            guard let product = allProductDatas[indexPath.row] as? Product else { return cell }
+            
+            productCell.layoutCell(
+                image: product.mainImage,
+                title: product.title,
+                price: product.price
+            )
+        }
         
         return productCell
     }
     
     func getAllProductData() {
         
-        
         var provider: ProductListDataProvider?
         
-        let productType = [ ProductsProvider.ProductType.men,
-                            ProductsProvider.ProductType.women,
-                            ProductsProvider.ProductType.accessories ]
+        let productTypeArray = [ ProductsProvider.ProductType.women,
+                                 ProductsProvider.ProductType.men,
+                                 ProductsProvider.ProductType.accessories ]
         
-        for productType in productType {
+        for productType in productTypeArray {
             
             provider = ProductsProvider(productType: productType,
                                         dataProvider: marketProvider)
@@ -205,63 +201,80 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension SearchViewController: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    func setUpSearchBar() {
+        
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        
+        searchController.searchResultsUpdater = self
+        
+        searchController.searchBar.placeholder = "Search here..."
+        
+        searchController.searchBar.sizeToFit()
+        
+        navigationItem.titleView = searchController.searchBar
+        
+        definesPresentationContext = true
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if !shouldShowSearchResults {
+            shouldShowSearchResults = true
+            tableView.reloadData()
+        }
+        
+        searchController.searchBar.resignFirstResponder()
+        
+        print("SearchButtonClicked")
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         shouldShowSearchResults = true
         tableView.reloadData()
+        
+        print("TextDidBeginEditing")
         //        self.dismiss(animated: true, completion: nil)
         
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         shouldShowSearchResults = false
         tableView.reloadData()
+        
+        print("CancelButtonClicked")
     }
     
-    func updateSearchResults(for searchController: UISearchController)
-    {
-        guard let text = searchController.searchBar.text else { return }
+    func updateSearchResults(for searchController: UISearchController) {
         
-        print(text)
+        let searchString = searchController.searchBar.text!
         
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("updating")
-    }
-    
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        searchedArray = allProductDatas.filter({ (proudct) -> Bool in
+            
+            return proudct.title.contains(searchString)
+        })
         
+        tableView.reloadData()
     }
+//
+//    func updateSearchResultsForSearchController(searchController: UISearchController) {
+//        guard let searchString = searchController.searchBar.text else {
+//            return
+//        }
+//
+//        // Filter the data array and get only those countries that match the search text.
+//        filteredArray = dataArray.filter({ (country) -> Bool in
+//            let countryText:NSString = country
+//
+//            return (countryText.rangeOfString(searchString, options: NSStringCompareOptions.CaseInsensitiveSearch).location) != NSNotFound
+//        })
+//
+//        // Reload the tableview.
+//        tblSearchResults.reloadData()
+//    }
     
 }
-
-
-
-
-//override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//    var provider: ProductListDataProvider?
-//
-//    let marketProvider = MarketProvider()
-//
-//    if identifier == Segue.men {
-//
-//        provider = ProductsProvider(productType: ProductsProvider.ProductType.men, dataProvider: marketProvider)
-//
-//    } else if identifier == Segue.women {
-//
-//        provider = ProductsProvider(productType: ProductsProvider.ProductType.women, dataProvider: marketProvider)
-//
-//    } else if identifier == Segue.accessories {
-//
-//        provider = ProductsProvider(
-//            productType: ProductsProvider.ProductType.accessories,
-//            dataProvider: marketProvider
-//        )
-//    }
-//
-//    vc.provider = provider
-//}
-
-
-

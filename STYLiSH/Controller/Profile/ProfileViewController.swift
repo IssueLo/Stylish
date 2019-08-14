@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    let orderListProvider = OrderListProvider()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         showAllBtn.isHidden = true
@@ -27,13 +29,13 @@ class ProfileViewController: UIViewController {
         orderTableView.register(orderFooterXib, forHeaderFooterViewReuseIdentifier: OrderListTableFooterView.identifier)
 
         
-        fetchData() // TODO: 之後要改成打一支 GET api ，把所有購買記錄抓下來
+        fetchOrderData()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        fetchData() // TODO: 之後要改成打一支 GET api ，把所有購買記錄抓下來
+        fetchOrderData()
     }
     
     
@@ -47,7 +49,7 @@ class ProfileViewController: UIViewController {
     
     }
     
-    var orders: [LSOrder] = [] {
+    var orders: [OrderList] = [] {
         
         didSet {
             
@@ -68,21 +70,22 @@ class ProfileViewController: UIViewController {
     }
     
     
-    func fetchData() { // TODO: 之後要改成打一支 GET api ，把所有購買記錄抓下來
+    func fetchOrderData() {
         
-        StorageManager.shared.fetchOrders(completion: { result in
+        orderListProvider.fetchOrderList { [weak self] result in
             
-            switch result {
+            switch result{
                 
             case .success(let orders):
                 
-                self.orders = orders
+                self?.orders = orders
                 
             case .failure:
                 
-                LKProgressHUD.showFailure(text: "讀取資料發生錯誤！")
+                LKProgressHUD.showFailure(text: "讀取資料失敗！")
+                
             }
-        })
+        }
     }
     
 
@@ -207,7 +210,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: - Section Count
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2 // 待改
+        return orders.count
     }
     
     //MARK: - Section Header
@@ -275,9 +278,21 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         guard let orderCell = cell as? OrderListTableViewCell else { return cell }
         
         // TODO: 刪第一行，改 show 第二行，並放入正確資料
-        orderCell.layoutView(order: orders[indexPath.row])
 //        orderCell.orderProductBaseView.layoutView(title: "", size: "", price: "", color: "")
-        orderCell.selectedQuantity.text = "數量：\(1)"
+        
+        let title = orders[indexPath.section].details.list[indexPath.row].name
+        
+        let size = orders[indexPath.section].details.list[indexPath.row].size
+        
+        let price = orders[indexPath.section].details.list[indexPath.row].price
+        
+        let color = orders[indexPath.section].details.list[indexPath.row].color.code
+        
+        let qtn = orders[indexPath.section].details.list[indexPath.row].qty
+        
+        orderCell.selectedQuantity.text = "數量：\(qtn)"
+        
+    orderCell.orderProductBaseView.layoutView(title: title , size: size, price: String(price), color: color)
         
         
         return orderCell

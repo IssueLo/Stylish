@@ -22,6 +22,9 @@
 		0365AC9523025EFB00C75776 /* FlatCardCollectioViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC9423025EFB00C75776 /* FlatCardCollectioViewLayout.swift */; };
 		0365AC9C23026B3500C75776 /* WishListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC9A23026B3500C75776 /* WishListCell.swift */; };
 		0365AC9D23026B3500C75776 /* WishListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0365AC9B23026B3500C75776 /* WishListCell.xib */; };
+		0370114A23041E13002E49A6 /* OrderListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370114923041E13002E49A6 /* OrderListRequest.swift */; };
+		0370114C23042144002E49A6 /* OrderListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370114B23042144002E49A6 /* OrderListProvider.swift */; };
+		0370114E2304226A002E49A6 /* OrderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370114D2304226A002E49A6 /* OrderData.swift */; };
 		2D8E54C9BAFD8C9E19868B11 /* Pods_STYLiSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524288A503CA319531F016DA /* Pods_STYLiSH.framework */; };
 		3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F5112211435B00C5B3E2 /* Lobby.storyboard */; };
 		3C09F514221143A600C5B3E2 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F513221143A600C5B3E2 /* Product.storyboard */; };
@@ -163,6 +166,9 @@
 		0365AC9423025EFB00C75776 /* FlatCardCollectioViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatCardCollectioViewLayout.swift; sourceTree = "<group>"; };
 		0365AC9A23026B3500C75776 /* WishListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListCell.swift; sourceTree = "<group>"; };
 		0365AC9B23026B3500C75776 /* WishListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishListCell.xib; sourceTree = "<group>"; };
+		0370114923041E13002E49A6 /* OrderListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListRequest.swift; sourceTree = "<group>"; };
+		0370114B23042144002E49A6 /* OrderListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListProvider.swift; sourceTree = "<group>"; };
+		0370114D2304226A002E49A6 /* OrderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderData.swift; sourceTree = "<group>"; };
 		3C09F5112211435B00C5B3E2 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		3C09F513221143A600C5B3E2 /* Product.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
 		3C09F515221143BE00C5B3E2 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -362,6 +368,16 @@
 				0365AC9B23026B3500C75776 /* WishListCell.xib */,
 			);
 			path = WishList;
+			sourceTree = "<group>";
+		};
+		0370114823041DF4002E49A6 /* OrderList */ = {
+			isa = PBXGroup;
+			children = (
+				0370114923041E13002E49A6 /* OrderListRequest.swift */,
+				0370114B23042144002E49A6 /* OrderListProvider.swift */,
+				0370114D2304226A002E49A6 /* OrderData.swift */,
+			);
+			path = OrderList;
 			sourceTree = "<group>";
 		};
 		03C821089B9639ED8853C216 /* Pods */ = {
@@ -741,6 +757,7 @@
 		3CD2913022113CF3008B8A2D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0370114823041DF4002E49A6 /* OrderList */,
 				3CE7A51A2230899D009FF003 /* OrderProvider */,
 				3CE7A51122305904009FF003 /* User */,
 				3CEBE075222F714A0064EF82 /* Local Storage */,
@@ -1084,9 +1101,11 @@
 				3C831C6022E9945500112298 /* STOrderProductCell.swift in Sources */,
 				3C1ACFE922152D29005583E2 /* ProfileCollectionViewCell.swift in Sources */,
 				9519CAE522FFE13A00664A4E /* CompareListManager.swift in Sources */,
+				0370114E2304226A002E49A6 /* OrderData.swift in Sources */,
 				3CB801232229A5290029A552 /* MJRefreshWrapper.swift in Sources */,
 				0365AC7622FEB87600C75776 /* ProductShareViewController.swift in Sources */,
 				3C546BE522EABB6D0082C655 /* CheckoutViewController.swift in Sources */,
+				0370114C23042144002E49A6 /* OrderListProvider.swift in Sources */,
 				3CD2911D221135E2008B8A2D /* AppDelegate.swift in Sources */,
 				3CEBE07A222F72600064EF82 /* STYLiSH.xcdatamodeld in Sources */,
 				951CF8AD23016F1500871F61 /* UIButton+Extension.swift in Sources */,
@@ -1117,6 +1136,7 @@
 				0365AC9523025EFB00C75776 /* FlatCardCollectioViewLayout.swift in Sources */,
 				3C7036D1222C4E0A00F6C58B /* ProductPickerController.swift in Sources */,
 				3CC7061A2216B36800CAD850 /* ProductCollectionViewCell.swift in Sources */,
+				0370114A23041E13002E49A6 /* OrderListRequest.swift in Sources */,
 				3CED4C0F2214222A00121D4B /* STParser.swift in Sources */,
 				3CED4C0A2214192100121D4B /* Product.swift in Sources */,
 				3C33691A2227D20B008A5A7A /* UIView+Extension.swift in Sources */,

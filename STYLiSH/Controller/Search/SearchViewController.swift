@@ -22,7 +22,7 @@ class SearchViewController: UIViewController {
     
     var allProductDatas: [Product] = [] {
         didSet {
-            tableView.reloadData()
+//            tableView.reloadData()
         }
     }
     
@@ -127,6 +127,39 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         return productCell
     }
     
+//    func getAllProductData() {
+//
+//        var provider: ProductListDataProvider?
+//
+//        let productTypeArray = [ ProductsProvider.ProductType.women,
+//                                 ProductsProvider.ProductType.men,
+//                                 ProductsProvider.ProductType.accessories ]
+//
+//        for productType in productTypeArray {
+//
+//            provider = ProductsProvider(productType: productType,
+//                                        dataProvider: marketProvider)
+//
+//            provider?.fetchData(paging: 0, completion: { [weak self] result in
+//
+//                switch result {
+//
+//                case .success(let response):
+//
+//                    self?.allProductDatas += response.data
+//
+//                    print(self?.allProductDatas.count as Any)
+//
+////                    self?.paging = response.paging
+//
+//                case .failure(let error):
+//
+//                    LKProgressHUD.showFailure(text: error.localizedDescription)
+//                }
+//            })
+//        }
+//    }
+    
     func getAllProductData() {
         
         var provider: ProductListDataProvider?
@@ -135,7 +168,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                                  ProductsProvider.ProductType.men,
                                  ProductsProvider.ProductType.accessories ]
         
+        let group = DispatchGroup()
+        
         for productType in productTypeArray {
+            
+            group.enter()
             
             provider = ProductsProvider(productType: productType,
                                         dataProvider: marketProvider)
@@ -150,6 +187,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                     
                     print(self?.allProductDatas.count as Any)
                     
+                    group.leave()
+                    
 //                    self?.paging = response.paging
                     
                 case .failure(let error):
@@ -157,6 +196,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                     LKProgressHUD.showFailure(text: error.localizedDescription)
                 }
             })
+        }
+        
+        group.notify(queue: .main) {
+            
+            self.tableView.reloadData()
         }
     }
     

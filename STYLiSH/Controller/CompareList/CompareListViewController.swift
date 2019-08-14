@@ -77,6 +77,8 @@ class CompareListViewController: UIViewController {
                                                    right: 16)
         
         fetchData()
+        
+        print(UIScreen.height)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -134,7 +136,7 @@ class CompareListViewController: UIViewController {
 extension CompareListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(compareListProducts.count)
+
         return compareListProducts.count
     }
     

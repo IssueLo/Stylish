@@ -217,3 +217,4 @@ class ProductListViewController: STCompondViewController {
         showProductDetailViewController(product: product)
     }
 }
+

@@ -305,6 +305,7 @@
                         <outlet property="addToCarBtn" destination="Vgc-kd-UhY" id="iBJ-r3-ftg"/>
                         <outlet property="baseView" destination="jBF-Qv-Z58" id="6ch-lG-Boi"/>
                         <outlet property="galleryView" destination="171-NO-oAQ" id="YgB-uE-CdA"/>
+                        <outlet property="popBackBtn" destination="bz7-Xk-k2r" id="5fp-mF-U6h"/>
                         <outlet property="productPickerView" destination="baA-ET-avg" id="2VK-4g-FEk"/>
                         <outlet property="tableView" destination="JNy-Dd-FWj" id="pBt-qQ-smn"/>
                     </connections>
@@ -338,7 +339,7 @@
         <!--Product Picker Controller-->
         <scene sceneID="tIe-uh-6xT">
             <objects>
-                <viewController id="BkW-zv-DWw" customClass="ProductPickerController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductPickerController" id="BkW-zv-DWw" customClass="ProductPickerController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BOQ-w2-OZ5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -10,6 +10,8 @@ import UIKit
 
 class ProductDescriptionTableViewCell: ProductBasicCell {
 
+    @IBOutlet weak var addToWishBtn: UIButton!
+    
     @IBOutlet weak var titleLbl: UILabel!
 
     @IBOutlet weak var priceLbl: UILabel!
@@ -22,8 +24,6 @@ class ProductDescriptionTableViewCell: ProductBasicCell {
         
 //        delegate?.showSharingPage()
         delegate?.shareToFB()
-        
-        print("按")
     }
     
     // Add By Kevin
@@ -35,6 +35,18 @@ class ProductDescriptionTableViewCell: ProductBasicCell {
         
         addToCompareListBtn.isEnabled = false
     }
+    
+    // Add By Sylvia
+    @IBAction func addToWishList(_ sender: Any) {
+        
+        delegate?.addToWishList()
+        
+        addToWishBtn.isEnabled = false
+        
+        addToWishBtn.setImage(UIImage(named: "icons8-in-love-24"), for: .init())
+        // icons8-in-love-50-2
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

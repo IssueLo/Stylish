@@ -20,7 +20,8 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
 //        return product?.mainImage
 //    }
     
-
+    @IBOutlet weak var popBackBtn: UIButton!
+    
     private struct Segue {
 
         static let picker = "SeguePicker"
@@ -65,6 +66,8 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
         .description, .color, .size, .stock, .texture, .washing, .placeOfProduction, .remarks
     ]
 
+    var wishProductID: Int64?
+    
     var product: Product? {
 
         didSet {
@@ -113,11 +116,7 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
         )
     }
     
-    func showSharingView() {
-        let storyboard = UIStoryboard(name:"ProductShare", bundle:nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "ProductShareViewController")
-        self.present(vc, animated: true, completion: nil)
-    }
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
@@ -134,6 +133,7 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
 
     // MARK: - Action
     @IBAction func didTouchAddToCarBtn(_ sender: UIButton) {
+        
 
         if productPickerView.superview == nil {
 
@@ -293,7 +293,7 @@ extension ProductDetailViewController: ProductPickerControllerDelegate {
 
 extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
 
-// 以 iOS 內建 UIActivityVC 分享
+    // 以 iOS 內建 UIActivityVC 分享
     func showSharingPage() {
         
 //        let storyBoard = UIStoryboard(name: "ProductShare", bundle: nil)
@@ -316,7 +316,7 @@ extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
     }
     
     
-// 以 FBSDK 方式分享
+    // 以 FBSDK 方式分享
     func showShareDialog<C: SharingContent>(_ content: C, mode: ShareDialog.Mode = .automatic) {
         let dialog = ShareDialog(fromViewController: self, content: content, delegate: self as? SharingDelegate)
         dialog.mode = mode
@@ -333,6 +333,7 @@ extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
         
         let content = ShareLinkContent()
         content.contentURL = url
+        content.quote = "\(product.title)  #STYLiSH"
         content.placeID = "296758097659999"
         
         showShareDialog(content, mode: .automatic)
@@ -361,9 +362,83 @@ extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
                 }
         })
     }
-// 加入 wish list
-    func addToWishList() {
-    }
     
-
+    // 加入 wish list
+    func addToWishList() {
+        
+        WishListManager.shared.fetchWishProducts()
+        
+        guard let product = product else { return }
+        
+        let id = Int64(product.id)
+        
+        let wishesDone = WishListManager.shared.wishListProducts
+        
+        print("wishDone: \(wishesDone.count)")
+        
+        if  wishesDone.count == 0 {
+            
+            WishListManager.shared.saveWishProduct(product: product, completion: { (saveresult) in
+                
+                switch saveresult {
+                    
+                case .success:
+                    
+                    LKProgressHUD.showSuccess(text: "許願成功！")
+                    
+                case .failure:
+                    
+                    LKProgressHUD.showFailure(text: "許願失敗")
+                }
+            })
+            
+        } else if wishesDone.count != 0 {
+            
+            if wishProductID != nil {
+                
+                LKProgressHUD.showSuccess(text: "已經許願過囉")
+                
+                print("從 wish 除重成功")
+        
+            } else if wishProductID == nil {
+                
+                var wisheBeforeidArray: [Int64] = []
+                
+                for wishBefore in wishesDone {
+                    
+                    wisheBeforeidArray.append(wishBefore.id)
+                }
+    
+                if wisheBeforeidArray.contains(id) {
+                        
+                        LKProgressHUD.showSuccess(text: "已經許願過囉")
+                        
+                        print("除重成功")
+                        
+                        
+                } else {
+                        
+                        WishListManager.shared.saveWishProduct(product: product, completion: { (saveresult) in
+                            
+                            switch saveresult {
+                                
+                            case .success:
+                                
+                                LKProgressHUD.showSuccess(text: "許願成功！")
+                                print("存進願望")
+                                
+                                
+                            case .failure:
+                                
+                                LKProgressHUD.showFailure(text: "許願失敗")
+                            }
+                        })
+                        
+                    }
+                    
+                }
+                
+            }
+        
+    }
 }

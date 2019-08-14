@@ -22,6 +22,8 @@ private struct StoryboardCategory {
 
     static let auth = "Auth"
     
+    static let wishList = "WishList"
+
     static let nativeSignUp = "NativeSignUp"
 }
 
@@ -38,6 +40,8 @@ extension UIStoryboard {
     static var profile: UIStoryboard { return stStoryboard(name: StoryboardCategory.profile) }
 
     static var auth: UIStoryboard { return stStoryboard(name: StoryboardCategory.auth) }
+    
+    static var wishList: UIStoryboard { return stStoryboard(name: StoryboardCategory.wishList)}
     
     static var nativeSignUp: UIStoryboard { return stStoryboard(name: StoryboardCategory.nativeSignUp) }
 

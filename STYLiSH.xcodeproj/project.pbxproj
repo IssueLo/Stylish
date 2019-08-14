@@ -16,6 +16,12 @@
 		0365AC87230117E500C75776 /* OrderListTableFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0365AC86230117E500C75776 /* OrderListTableFooterView.xib */; };
 		0365AC8923011B3F00C75776 /* OrderListTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC8823011B3F00C75776 /* OrderListTableHeaderView.swift */; };
 		0365AC8B23011B6100C75776 /* OrderListTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC8A23011B6100C75776 /* OrderListTableFooterView.swift */; };
+		0365AC8D2301689D00C75776 /* WishListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC8C2301689D00C75776 /* WishListManager.swift */; };
+		0365AC8F230169A600C75776 /* WishList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0365AC8E230169A600C75776 /* WishList.storyboard */; };
+		0365AC9223016A2B00C75776 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC9123016A2B00C75776 /* WishListViewController.swift */; };
+		0365AC9523025EFB00C75776 /* FlatCardCollectioViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC9423025EFB00C75776 /* FlatCardCollectioViewLayout.swift */; };
+		0365AC9C23026B3500C75776 /* WishListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365AC9A23026B3500C75776 /* WishListCell.swift */; };
+		0365AC9D23026B3500C75776 /* WishListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0365AC9B23026B3500C75776 /* WishListCell.xib */; };
 		2D8E54C9BAFD8C9E19868B11 /* Pods_STYLiSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524288A503CA319531F016DA /* Pods_STYLiSH.framework */; };
 		3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F5112211435B00C5B3E2 /* Lobby.storyboard */; };
 		3C09F514221143A600C5B3E2 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F513221143A600C5B3E2 /* Product.storyboard */; };
@@ -149,6 +155,12 @@
 		0365AC86230117E500C75776 /* OrderListTableFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderListTableFooterView.xib; sourceTree = "<group>"; };
 		0365AC8823011B3F00C75776 /* OrderListTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableHeaderView.swift; sourceTree = "<group>"; };
 		0365AC8A23011B6100C75776 /* OrderListTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableFooterView.swift; sourceTree = "<group>"; };
+		0365AC8C2301689D00C75776 /* WishListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListManager.swift; sourceTree = "<group>"; };
+		0365AC8E230169A600C75776 /* WishList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WishList.storyboard; sourceTree = "<group>"; };
+		0365AC9123016A2B00C75776 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		0365AC9423025EFB00C75776 /* FlatCardCollectioViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatCardCollectioViewLayout.swift; sourceTree = "<group>"; };
+		0365AC9A23026B3500C75776 /* WishListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListCell.swift; sourceTree = "<group>"; };
+		0365AC9B23026B3500C75776 /* WishListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishListCell.xib; sourceTree = "<group>"; };
 		3C09F5112211435B00C5B3E2 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		3C09F513221143A600C5B3E2 /* Product.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
 		3C09F515221143BE00C5B3E2 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -328,6 +340,24 @@
 				0365AC8A23011B6100C75776 /* OrderListTableFooterView.swift */,
 			);
 			path = OrderHeaderFooter;
+			sourceTree = "<group>";
+		};
+		0365AC90230169F900C75776 /* WishList */ = {
+			isa = PBXGroup;
+			children = (
+				0365AC9123016A2B00C75776 /* WishListViewController.swift */,
+				0365AC9423025EFB00C75776 /* FlatCardCollectioViewLayout.swift */,
+			);
+			path = WishList;
+			sourceTree = "<group>";
+		};
+		0365AC9323025CE500C75776 /* WishList */ = {
+			isa = PBXGroup;
+			children = (
+				0365AC9A23026B3500C75776 /* WishListCell.swift */,
+				0365AC9B23026B3500C75776 /* WishListCell.xib */,
+			);
+			path = WishList;
 			sourceTree = "<group>";
 		};
 		03C821089B9639ED8853C216 /* Pods */ = {
@@ -665,6 +695,7 @@
 		3CD2912E22113CE4008B8A2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0365AC9323025CE500C75776 /* WishList */,
 				9518106022FEAAA900186141 /* CompareList */,
 				3C3369102227CDAF008A5A7A /* Base */,
 				3C33690B2226F513008A5A7A /* Trolley */,
@@ -679,6 +710,7 @@
 				3C09F515221143BE00C5B3E2 /* Profile.storyboard */,
 				3C09F517221143FE00C5B3E2 /* Trolley.storyboard */,
 				9518106E22FEAD3D00186141 /* CompareList.storyboard */,
+				0365AC8E230169A600C75776 /* WishList.storyboard */,
 				951CF8A82301424300871F61 /* NativeSignUp.storyboard */,
 			);
 			path = View;
@@ -687,6 +719,7 @@
 		3CD2912F22113CEC008B8A2D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0365AC90230169F900C75776 /* WishList */,
 				3CD9BB33223B88110012C00D /* Auth */,
 				3C4B10E022292EA5009942B7 /* TapPay */,
 				3C5DD7CA2227EFE40053B67A /* Trolley */,
@@ -814,6 +847,7 @@
 				3CEBE076222F718D0064EF82 /* StorageManager.swift */,
 				3CEBE078222F72600064EF82 /* STYLiSH.xcdatamodeld */,
 				9519CAE422FFE13A00664A4E /* CompareListManager.swift */,
+				0365AC8C2301689D00C75776 /* WishListManager.swift */,
 			);
 			path = "Local Storage";
 			sourceTree = "<group>";
@@ -946,10 +980,12 @@
 				3C4B10D222292732009942B7 /* card_unknown@3x.png in Resources */,
 				3CD29122221135E2008B8A2D /* Main.storyboard in Resources */,
 				3CC706172216B34800CAD850 /* ProductTableViewCell.xib in Resources */,
+				0365AC8F230169A600C75776 /* WishList.storyboard in Resources */,
 				3C831C6122E9945500112298 /* STOrderProductCell.xib in Resources */,
 				3C4B10D522292732009942B7 /* card_unknown@2x.png in Resources */,
 				951CF8A92301424300871F61 /* NativeSignUp.storyboard in Resources */,
 				3C4B10CF22292732009942B7 /* card_visa.png in Resources */,
+				0365AC9D23026B3500C75776 /* WishListCell.xib in Resources */,
 				0365AC802300FE6A00C75776 /* OrderListTableViewCell.xib in Resources */,
 				3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */,
 				3C09F518221143FE00C5B3E2 /* Trolley.storyboard in Resources */,
@@ -1047,6 +1083,7 @@
 				3C831C6422E9AF8F00112298 /* STOrderUserInputCell.swift in Sources */,
 				3C4B10E222292EBB009942B7 /* STTapPayViewController.swift in Sources */,
 				3C831C8A22EAAF7A00112298 /* STPaymentInfoTableViewCell.swift in Sources */,
+				0365AC8D2301689D00C75776 /* WishListManager.swift in Sources */,
 				3C990F6C22E5C78200F2FCEA /* ProductDetailView.swift in Sources */,
 				3C546BE722EAC79D0082C655 /* STOrderHeaderView.swift in Sources */,
 				3C5DD7CC2227EFFF0053B67A /* TrolleyViewController.swift in Sources */,
@@ -1057,10 +1094,12 @@
 				3C75FD0F22F1767D0068FEA5 /* CheckoutResultViewController.swift in Sources */,
 				3CE7A51C223089C3009FF003 /* OrderProvider.swift in Sources */,
 				3C0DD87A221350B300F5237E /* UIColor+Extension.swift in Sources */,
+				0365AC9223016A2B00C75776 /* WishListViewController.swift in Sources */,
 				3CC706162216B34800CAD850 /* ProductTableViewCell.swift in Sources */,
 				9518106322FEAB1400186141 /* CompareListCell.swift in Sources */,
 				3CEBE077222F718D0064EF82 /* StorageManager.swift in Sources */,
 				3C09F51C22114A0100C5B3E2 /* STTabBarViewController.swift in Sources */,
+				0365AC9523025EFB00C75776 /* FlatCardCollectioViewLayout.swift in Sources */,
 				3C7036D1222C4E0A00F6C58B /* ProductPickerController.swift in Sources */,
 				3CC7061A2216B36800CAD850 /* ProductCollectionViewCell.swift in Sources */,
 				3CED4C0F2214222A00121D4B /* STParser.swift in Sources */,
@@ -1084,6 +1123,7 @@
 				3CDC5A6A222D860B0071D0D1 /* SizeSelectionCell.swift in Sources */,
 				3C1ACFE622152B1F005583E2 /* UIScreen+Extension.swift in Sources */,
 				3C6020DD222B90DF00312958 /* ProductDetailCell.swift in Sources */,
+				0365AC9C23026B3500C75776 /* WishListCell.swift in Sources */,
 				3C09F51E22114E1900C5B3E2 /* UIStoryboard+Extension.swift in Sources */,
 				3C0DD87E2213533F00F5237E /* LobbyTableViewCell.swift in Sources */,
 				3C33690E2226F53E008A5A7A /* TrolleyTableViewCell.swift in Sources */,
@@ -1250,7 +1290,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93DCX8AMC8;
+				DEVELOPMENT_TEAM = 2MN93DQ7G3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/STYLiSH/Resource/TapPay",
@@ -1275,7 +1315,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93DCX8AMC8;
+				DEVELOPMENT_TEAM = 2MN93DQ7G3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/STYLiSH/Resource/TapPay",

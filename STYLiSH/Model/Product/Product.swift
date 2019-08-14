@@ -17,33 +17,33 @@ struct PromotedProducts: Codable {
 
 struct Product: Codable {
 
-    let id: Int
+    var id: Int
 
-    let title: String
+    var title: String
 
-    let description: String
+    var description: String
 
-    let price: Int
+    var price: Int
 
-    let texture: String
+    var texture: String
 
-    let wash: String
+    var wash: String
 
-    let place: String
+    var place: String
 
-    let note: String
+    var note: String
 
-    let story: String
+    var story: String
 
-    let colors: [Color]
+    var colors: [Color]
 
-    let sizes: [String]
+    var sizes: [String]
 
-    let variants: [Variant]
+    var variants: [Variant]
 
-    let mainImage: String
+    var mainImage: String
 
-    let images: [String]
+    var images: [String]
 
     var size: String {
 
@@ -79,18 +79,18 @@ struct Product: Codable {
 
 struct Color: Codable {
 
-    let name: String
+    var name: String
 
-    let code: String
+    var code: String
 }
 
 struct Variant: Codable {
 
-    let colorCode: String
+    var colorCode: String
 
-    let size: String
+    var size: String
 
-    let stock: Int
+    var stock: Int
 
     enum CodingKeys: String, CodingKey {
 

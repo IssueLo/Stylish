@@ -353,11 +353,11 @@ extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
                     
                 case .success:
                     
-                    LKProgressHUD.showSuccess(text: "成功加入比較清單")
+                    LKProgressHUD.showSuccess(text: "成功加入比較清單", self.view)
                     
                 case .failure:
                     
-                    LKProgressHUD.showFailure(text: "儲存失敗！")
+                    LKProgressHUD.showFailure(text: "儲存失敗！", self.view)
                 }
         })
     }

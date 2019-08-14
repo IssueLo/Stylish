@@ -21,9 +21,9 @@ class CompareListViewController: UIViewController {
     
     @IBAction func deleteAllCPProduct(_ sender: Any) {
         
-//        CompareListManager.shared.deleteAllProduct(completion: { _ in})
-//        
-//        collectionView.reloadData()
+        CompareListManager.shared.deleteAllProduct(completion: { _ in})
+        
+        compareListProducts = []
     }
     
     @IBAction func goBackPage(_ sender: UIBarButtonItem) {
@@ -45,6 +45,8 @@ class CompareListViewController: UIViewController {
                 
                 collectionView.isHidden = true
                 
+                navigationItem.title = "小朋友才做選擇！"
+                
 //                checkoutBtn.isEnabled = false
 //
 //                checkoutBtn.backgroundColor = UIColor.B4
@@ -54,6 +56,10 @@ class CompareListViewController: UIViewController {
                 coverView.isHidden = true
                 
                 collectionView.isHidden = false
+                
+                
+                
+                navigationItem.title = "比較清單"
                 
 //                checkoutBtn.isEnabled = true
 //
@@ -75,13 +81,13 @@ class CompareListViewController: UIViewController {
             
             collectionView.contentInset = UIEdgeInsets(top: 0,
                                                        left: 16,
-                                                       bottom: UIScreen.height - 574 ,
+                                                       bottom: UIScreen.height - 622 ,
                                                        right: 16)
         } else {
             
             collectionView.contentInset = UIEdgeInsets(top: 0,
                                                        left: 16,
-                                                       bottom: UIScreen.height - 516 ,
+                                                       bottom: UIScreen.height - 554 ,
                                                        right: 16)
         }
         
@@ -132,7 +138,7 @@ class CompareListViewController: UIViewController {
                 case .success:
                     
                     compareListProducts.remove(at: index)
-                    
+                                        
                 case .failure:
                     
                     LKProgressHUD.showFailure(text: "刪除資料失敗！")
@@ -166,6 +172,8 @@ extension CompareListViewController: UICollectionViewDelegate, UICollectionViewD
         
         compareCell.materialLabel.text = compareListProducts[indexPath.row].texture
         
+        compareCell.washLabel.text = compareListProducts[indexPath.row].wash
+        print(compareListProducts[indexPath.row])
         compareCell.placeOfProductionLabel.text = compareListProducts[indexPath.row].place
         
         compareCell.touchHandler = { [weak self] in

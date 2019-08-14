@@ -18,8 +18,10 @@ class CompareListCell: UICollectionViewCell {
     
     @IBOutlet weak var materialLabel: UILabel!
     
-    @IBOutlet weak var placeOfProductionLabel: UILabel!
+    @IBOutlet weak var washLabel: UILabel!
     
+    @IBOutlet weak var placeOfProductionLabel: UILabel!
+        
     @IBOutlet weak var removeBtn: UIButton!
     
     var touchHandler: (() -> Void)? {

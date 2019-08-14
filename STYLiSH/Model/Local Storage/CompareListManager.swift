@@ -195,6 +195,8 @@ private extension CPProduct {
         
         texture = object.texture
         
+        wash = object.wash
+        
         title = object.title
     }
 }

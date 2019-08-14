@@ -119,7 +119,7 @@ class NativeSignUpViewController: UIViewController {
             } else {
                 
                 print("密碼錯誤喔")
-                LKProgressHUD.showFailure(text: "需要兩次輸入相同的密碼喔", self.view)
+                LKProgressHUD.showFailure(text: "請確認密碼要跟密碼確認相同喔", self.view)
             }
         }
     }

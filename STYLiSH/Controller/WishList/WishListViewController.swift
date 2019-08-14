@@ -25,12 +25,12 @@ class WishListViewController: UIViewController {
         super.viewDidLoad()
         
         fetchWishes()
-        
         setUpFlatCardView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         fetchWishes()
+        WishListManager.shared.updateWishProduct { _ in }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -63,49 +63,6 @@ class WishListViewController: UIViewController {
         }
     }
     
-    func touchAddWishToCart(product: Product) {
-        
-        let vc = UIStoryboard.product.instantiateViewController(withIdentifier:
-            String(describing: ProductPickerController.self)
-        )
-        
-        guard let pickerVC = vc as? ProductPickerController else { return }
-        
-        pickerVC.product = product
-        
-        pickerVC.delegate = self
-        
-        present(pickerVC, animated: false, completion: nil)
-        
-//        func showProductPickerView() {
-//
-//            let maxY = wishListCollectionView.frame.maxY
-//
-//            productPickerView.frame = CGRect(
-//                x: 0, y: maxY, width: UIScreen.width, height: 0.0
-//            )
-//
-//            wishListCollectionView.addSubview(productPickerView)
-//
-//
-//            UIView.animate(
-//                withDuration: 0.3,
-//                animations: { [weak self] in
-//
-//                    guard let strongSelf = self else { return }
-//
-//                    let height = 451.0 / 586.0 * strongSelf.wishListCollectionView.frame.height
-//
-//                    self?.productPickerView.frame = CGRect(
-//                        x: 0, y: maxY - height, width: UIScreen.width, height: height
-//                    )
-//
-//                    self?.isEnableAddToCarBtn(false)
-//                }
-//            )
-//        }
-        
-    }
     
     
     func fetchWishes() {
@@ -209,7 +166,7 @@ extension WishListViewController: UICollectionViewDataSource {
 
 extension WishListViewController: UICollectionViewDelegate {
 
-    private func showProductDetailViewController(product: Product, index: Int) {
+    private func showProductDetailViewController(product: Product, id: Int64) {
 
         let vc = UIStoryboard.product.instantiateViewController(withIdentifier:
             String(describing: ProductDetailViewController.self)
@@ -218,9 +175,10 @@ extension WishListViewController: UICollectionViewDelegate {
         guard let detailVC = vc as? ProductDetailViewController else { return }
 
         detailVC.product = product
+        
+        detailVC.wishProductID = id
 
         show(detailVC, sender: nil)
-        
         
         detailVC.popBackBtn.addTarget(self, action: #selector(popBack), for: .touchUpInside)
 
@@ -261,7 +219,6 @@ extension WishListViewController: UICollectionViewDelegate {
             
         }
 
-
         let wishProduct = Product(
             id: Int(wishes[indexPath.item].id),
             title: wishes[indexPath.item].title ?? "",
@@ -277,23 +234,9 @@ extension WishListViewController: UICollectionViewDelegate {
             variants: variants,
             mainImage: wishes[indexPath.item].mainImage ?? "",
             images: wishes[indexPath.item].images ?? [])
-        
-        self.wishProduct = wishProduct
 
-        showProductDetailViewController(product: wishProduct, index: indexPath.item)
-//            touchAddWishToCart(product: wishProduct)
-    }
-}
+        showProductDetailViewController(product: wishProduct, id: wishes[indexPath.item].id)
 
-extension WishListViewController: ProductPickerControllerDelegate {
-    
-    func dismissPicker(_ controller: ProductPickerController) {
-        dismiss(animated: true, completion: nil)
     }
-    
-    func valueChange(_ controller: ProductPickerController) {
-    }
-    
-    
 }
 

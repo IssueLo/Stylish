@@ -66,6 +66,8 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
         .description, .color, .size, .stock, .texture, .washing, .placeOfProduction, .remarks
     ]
 
+    var wishProductID: Int64?
+    
     var product: Product? {
 
         didSet {
@@ -364,26 +366,79 @@ extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
     // 加入 wish list
     func addToWishList() {
         
+        WishListManager.shared.fetchWishProducts()
+        
         guard let product = product else { return }
         
-        WishListManager.shared.saveWishProduct(product: product) { saveResult in
+        let id = Int64(product.id)
+        
+        let wishesDone = WishListManager.shared.wishListProducts
+        
+        print("wishDone: \(wishesDone.count)")
+        
+        if  wishesDone.count == 0 {
             
-            switch saveResult {
+            WishListManager.shared.saveWishProduct(product: product, completion: { (saveresult) in
                 
-            case .success:
+                switch saveresult {
+                    
+                case .success:
+                    
+                    LKProgressHUD.showSuccess(text: "許願成功！")
+                    
+                case .failure:
+                    
+                    LKProgressHUD.showFailure(text: "許願失敗")
+                }
+            })
+            
+        } else if wishesDone.count != 0 {
+            
+            if wishProductID != nil {
                 
-                LKProgressHUD.showSuccess(text: "許願成功！")
+                LKProgressHUD.showSuccess(text: "已經許願過囉")
+                
+                print("從 wish 除重成功")
+        
+            } else if wishProductID == nil {
+                
+                var wisheBeforeidArray: [Int64] = []
+                
+                for wishBefore in wishesDone {
+                    
+                    wisheBeforeidArray.append(wishBefore.id)
+                }
     
-            
-            case .failure:
-                
-                LKProgressHUD.showFailure(text: "許願失敗(T_T)")
+                if wisheBeforeidArray.contains(id) {
+                        
+                        LKProgressHUD.showSuccess(text: "已經許願過囉")
+                        
+                        print("除重成功")
+                        
+                        
+                } else {
+                        
+                        WishListManager.shared.saveWishProduct(product: product, completion: { (saveresult) in
+                            
+                            switch saveresult {
+                                
+                            case .success:
+                                
+                                LKProgressHUD.showSuccess(text: "許願成功！")
+                                print("存進願望")
+                                
+                                
+                            case .failure:
+                                
+                                LKProgressHUD.showFailure(text: "許願失敗")
+                            }
+                        })
+                        
+                    }
+                    
+                }
                 
             }
-        }
-        
         
     }
-    
-
 }

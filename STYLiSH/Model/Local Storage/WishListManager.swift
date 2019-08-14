@@ -83,6 +83,7 @@ typealias WishProductResult = (Result<WishProduct>) -> Void
             
             fetchWishProducts()
             
+            
         } catch {
             
             completion(Result.failure(error))
@@ -117,6 +118,7 @@ typealias WishProductResult = (Result<WishProduct>) -> Void
             
             fetchWishProducts()
             
+            
         } catch {
             
             completion(Result.failure(error))
@@ -127,14 +129,13 @@ typealias WishProductResult = (Result<WishProduct>) -> Void
     func fetchWishProducts(completion: WishProductResults? = nil) {
         
         
-        
         let request = NSFetchRequest<WishProduct>(entityName: Entity.wishListProduct.rawValue)
         
         do {
             
-            let wishListProducts = try viewContext.fetch(request)
+            let fetchingwishListProducts = try viewContext.fetch(request)
             
-            self.wishListProducts = wishListProducts
+            self.wishListProducts = fetchingwishListProducts
             
             completion?(Result.success(wishListProducts))
             

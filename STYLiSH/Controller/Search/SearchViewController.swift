@@ -135,7 +135,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 //                                 ProductsProvider.ProductType.men,
 //                                 ProductsProvider.ProductType.accessories ]
 //
+//        let group = DispatchGroup()
+//
 //        for productType in productTypeArray {
+//
+//            group.enter()
 //
 //            provider = ProductsProvider(productType: productType,
 //                                        dataProvider: marketProvider)
@@ -150,7 +154,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 //
 //                    print(self?.allProductDatas.count as Any)
 //
-////                    self?.paging = response.paging
+//                    group.leave()
+//
+//                    //                    self?.paging = response.paging
 //
 //                case .failure(let error):
 //
@@ -158,26 +164,46 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 //                }
 //            })
 //        }
+//
+//        group.notify(queue: .main) {
+//
+//            self.tableView.reloadData()
+//        }
 //    }
     
+    // MARK: 請叫我 DispatchGroup 天才
     func getAllProductData() {
-        
+
         var provider: ProductListDataProvider?
-        
+
         let productTypeArray = [ ProductsProvider.ProductType.women,
                                  ProductsProvider.ProductType.men,
                                  ProductsProvider.ProductType.accessories ]
-        
+
         let group = DispatchGroup()
-        
+
         for productType in productTypeArray {
-            
+
             group.enter()
+
+            fetchData(0, productType, group)
             
-            provider = ProductsProvider(productType: productType,
+        }
+
+        group.notify(queue: .main) {
+
+            self.tableView.reloadData()
+        }
+    }
+    
+    func fetchData(_ paging: Int?, _ productType: ProductsProvider.ProductType, _ group: DispatchGroup) {
+        
+        if paging != nil {
+            
+            let provider = ProductsProvider(productType: productType,
                                         dataProvider: marketProvider)
             
-            provider?.fetchData(paging: 0, completion: { [weak self] result in
+            provider.fetchData(paging: paging!, completion: { [weak self] result in
                 
                 switch result {
                     
@@ -186,21 +212,20 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                     self?.allProductDatas += response.data
                     
                     print(self?.allProductDatas.count as Any)
-                    
-                    group.leave()
-                    
-//                    self?.paging = response.paging
+                                        
+                    self?.fetchData(response.paging, productType, group)
                     
                 case .failure(let error):
                     
                     LKProgressHUD.showFailure(text: error.localizedDescription)
                 }
             })
-        }
-        
-        group.notify(queue: .main) {
             
-            self.tableView.reloadData()
+        } else {
+            
+            group.leave()
+            
+            return
         }
     }
     

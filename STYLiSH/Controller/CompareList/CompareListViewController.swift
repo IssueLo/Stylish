@@ -71,10 +71,19 @@ class CompareListViewController: UIViewController {
 
         collectionView.lk_registerCellWithNib(identifier: String(describing: CompareListCell.self), bundle: nil)
         
-        collectionView.contentInset = UIEdgeInsets(top: 0,
-                                                   left: 16,
-                                                   bottom: UIScreen.height - 516 ,
-                                                   right: 16)
+        if UIScreen.height > 750 {
+            
+            collectionView.contentInset = UIEdgeInsets(top: 0,
+                                                       left: 16,
+                                                       bottom: UIScreen.height - 574 ,
+                                                       right: 16)
+        } else {
+            
+            collectionView.contentInset = UIEdgeInsets(top: 0,
+                                                       left: 16,
+                                                       bottom: UIScreen.height - 516 ,
+                                                       right: 16)
+        }
         
         fetchData()
         

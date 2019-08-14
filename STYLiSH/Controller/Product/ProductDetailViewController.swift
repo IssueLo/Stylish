@@ -155,13 +155,13 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
 
                     case .success:
 
-                        LKProgressHUD.showSuccess()
+                        LKProgressHUD.showSuccess(text: "成功加入購物車", self.view)
 
                         dismissPicker(pickerViewController!)
 
                     case .failure:
 
-                        LKProgressHUD.showFailure(text: "儲存失敗！")
+                        LKProgressHUD.showFailure(text: "儲存失敗！", self.view)
                     }
                 })
         }

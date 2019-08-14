@@ -74,7 +74,7 @@ class ProductViewController: UIViewController {
 
         isListLayout = true
     }
-
+    
     // MARK: - Action
     @IBAction func onChangeProducts(_ sender: UIButton) {
 
@@ -97,7 +97,7 @@ class ProductViewController: UIViewController {
         isListLayout = !isListLayout
     }
     
-    // MARK: Kevin- Add Btn for compareL
+    // MARK: Kevin- Add Btn for compareList
     @IBAction func toCompareList(_ sender: UIBarButtonItem) {
         
         let storyboard = UIStoryboard(name: "CompareList", bundle: nil)
@@ -107,6 +107,19 @@ class ProductViewController: UIViewController {
             present(controller, animated: true, completion: nil)
         }
     }
+    
+    // MARK: Kevin- Add Btn for search
+    @IBAction func toSearchVC(_ sender: UIBarButtonItem) {
+        
+        let storyboard = UIStoryboard(name: "Search", bundle: nil)
+        
+        if let controller = storyboard.instantiateViewController(withIdentifier: "Search") as? UINavigationController {
+            
+            present(controller, animated: true, completion: nil)
+        }
+    }
+    
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 

@@ -155,13 +155,13 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
 
                     case .success:
 
-                        LKProgressHUD.showSuccess()
+                        LKProgressHUD.showSuccess(text: "成功加入購物車", self.view)
 
                         dismissPicker(pickerViewController!)
 
                     case .failure:
 
-                        LKProgressHUD.showFailure(text: "儲存失敗！")
+                        LKProgressHUD.showFailure(text: "儲存失敗！", self.view)
                     }
                 })
         }
@@ -354,11 +354,11 @@ extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
                     
                 case .success:
                     
-                    LKProgressHUD.showSuccess(text: "成功加入比較清單")
+                    LKProgressHUD.showSuccess(text: "成功加入比較清單", self.view)
                     
                 case .failure:
                     
-                    LKProgressHUD.showFailure(text: "儲存失敗！")
+                    LKProgressHUD.showFailure(text: "儲存失敗！", self.view)
                 }
         })
     }

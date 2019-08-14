@@ -292,8 +292,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         orderCell.selectedQuantity.text = "數量：\(qtn)"
         
-    orderCell.orderProductBaseView.layoutView(title: title , size: size, price: String(price), color: color)
+        orderCell.orderProductBaseView.layoutView(title: title , size: size, price: String(price), color: color)
         
+        orderCell.orderProductBaseView.removeBtn.isHidden = true
         
         return orderCell
     }

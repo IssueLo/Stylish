@@ -18,7 +18,9 @@ class OrderListProvider {
     
     func fetchOrderList(completion: @escaping OrderListHandler) {
         
-        guard let token = KeyChainManager.shared.token else {return}
+//        guard let token = KeyChainManager.shared.token else {return}
+        
+        let token = "2dfbc870223545176b92a73863ae1c641d75c05f2220155d7cf234bb80f52aac"
         
         HTTPClient.shared.request(
         STOrderListRequest.orderList(token: token))
@@ -32,14 +34,16 @@ class OrderListProvider {
                 
                 do {
                     let orderList = try
-                    strongSelf.decoder.decode(STSuccessParser<[OrderList]>.self, from: data)
+                    strongSelf.decoder.decode([OrderList].self, from: data)
                     
                     DispatchQueue.main.async {
-                        completion(Result.success(orderList.data))
+                        completion(Result.success(orderList))
                     }
                 } catch {
                     
                     completion(Result.failure(error))
+                    
+                    print(error)
                 }
                 
             case .failure(let error):
@@ -50,4 +54,9 @@ class OrderListProvider {
         }
     }
     
+}
+
+struct OrderData: Codable {
+    
+    var data: [OrderList]
 }

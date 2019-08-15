@@ -59,7 +59,7 @@ class LKProgressHUD {
         
         shared.hud.show(in: view)
         
-        shared.hud.dismiss(afterDelay: 1.5)
+        shared.hud.dismiss(afterDelay: 1)
     }
 
     static func showFailure(text: String = "Failure", _ view: UIView = shared.view) {
@@ -79,7 +79,7 @@ class LKProgressHUD {
 
         shared.hud.show(in: view)
 
-        shared.hud.dismiss(afterDelay: 1.5)
+        shared.hud.dismiss(afterDelay: 1)
     }
 
     static func show() {

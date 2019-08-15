@@ -32,6 +32,7 @@ class NativeSignUpViewController: UIViewController {
         didSet {
             
             userEmailTextField.delegate = self
+            
         }
     }
     
@@ -70,27 +71,63 @@ class NativeSignUpViewController: UIViewController {
         
     }
     
-    var isSignUp = true
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        userNameTextField.constant -= view.bounds.width
+        
+//        userNameTextField
+        
+//        let xorig = self.view2.center.x
+//        let opts = UIViewAnimationOptions.autoreverse
+//        UIView.animate(withDuration: 1, delay: 0, options: opts, animations: {
+//            self.view2.center.x -= 100
+//        }, completion: { _ in
+//            self.view2.center.x = xorig
+//        })
+
+//        confirmBtn.alpha = 0.0
+    }
+    
+    var isSignIn = true
     
     @IBAction func selectSignInOrSignUp(_ sender: UISegmentedControl) {
         
+        confirmBtn.turnOff()
+        
         if sender.selectedSegmentIndex == 0 {
             
-            isSignUp = true
+            isSignIn = true
             
             setupForSignIn()
             
         } else {
             
-            isSignUp = false
+            isSignIn = false
             
             setupForSignUp()
         }
     }
     
-    @IBAction func nativeSignIn(_ sender: Any) {
+    func btnFail() {
         
-        if isSignUp {
+        let bounds = self.confirmBtn.bounds
+        UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.05, initialSpringVelocity: 10, options: .transitionFlipFromBottom, animations: {
+            self.confirmBtn.bounds = CGRect(x: bounds.origin.x - 10, y: bounds.origin.y, width: bounds.size.width , height: bounds.size.height)
+        }, completion: nil)
+    }
+    
+    func btnPass() {
+        
+        let bounds = self.confirmBtn.bounds
+        UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.15, initialSpringVelocity: 10, options: .transitionFlipFromBottom, animations: {
+            self.confirmBtn.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y, width: bounds.size.width + 50, height: bounds.size.height)
+        }, completion: nil)
+    }
+    
+    @IBAction func nativeSignIn(_ sender: UIButton) {
+        
+        if isSignIn {
             
             guard
                 let email = userEmailTextField.text,
@@ -118,41 +155,51 @@ class NativeSignUpViewController: UIViewController {
                 
             } else {
                 
-                print("密碼錯誤喔")
-                LKProgressHUD.showFailure(text: "需要兩次輸入相同的密碼喔", self.view)
+                btnPass()
+                
+                LKProgressHUD.showFailure(text: "請確認密碼要跟密碼確認相同喔", self.view)
+                
+                confirmBtn.turnOff()
             }
         }
     }
-    
     
     let userProvider = UserProvider()
     
     func nativeSignIn(email: String, password: String) {
         
-//        LKProgressHUD.show()
-        
         userProvider.nativeSignInToSTYLiSH(email: email,
                                            password: password,
                                            completion: { [weak self] result in
-                                        
-//            LKProgressHUD.dismiss()
-            
+                                            
             switch result {
                 
             case .success:
+
+                print("STYLiSH 登入成功")
                 
-                LKProgressHUD.showSuccess(text: "STYLiSH 登入成功", self!.view)
+                DispatchQueue.main.async {
+                    
+                    LKProgressHUD.showSuccess(text: "STYLiSH 登入成功")
+                    
+                    self?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+                    
+                }
                 
             case .failure:
                 
-                LKProgressHUD.showFailure(text: "STYLiSH 登入失敗!", self!.view)
-            }
-            
-            DispatchQueue.main.async {
+                print("STYLiSH 登入失敗!")
                 
-                self?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+                DispatchQueue.main.async {
+                    
+                    self!.btnFail()
+                    
+                    LKProgressHUD.showFailure(text: "STYLiSH 登入失敗!", self!.view)
+                    
+                }
                 
             }
+
         })
     }
     
@@ -171,17 +218,25 @@ class NativeSignUpViewController: UIViewController {
                 
             case .success:
                 
-                LKProgressHUD.showSuccess(text: "STYLiSH 註冊成功", self!.view)
+                print("STYLiSH 註冊成功")
+                
+                DispatchQueue.main.async {
+                    
+                    LKProgressHUD.showSuccess(text: "STYLiSH 註冊成功")
+                    
+                    self?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+                }
                 
             case .failure:
                 
-                LKProgressHUD.showFailure(text: "STYLiSH 註冊失敗!", self!.view)
-            }
-            
-            DispatchQueue.main.async {
+                print("STYLiSH 註冊失敗!")
                 
-                self?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
-
+                DispatchQueue.main.async {
+                    
+                    LKProgressHUD.showFailure(text: "STYLiSH 註冊失敗!", self!.view)
+                }
+                
+                self?.btnFail()
             }
         })
     }
@@ -234,7 +289,7 @@ extension NativeSignUpViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        if isSignUp {
+        if isSignIn {
             
             if userEmailTextField.text != "" &&
                 userPasswordTextField.text != ""

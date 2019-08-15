@@ -21,9 +21,9 @@ class CompareListViewController: UIViewController {
     
     @IBAction func deleteAllCPProduct(_ sender: Any) {
         
-//        CompareListManager.shared.deleteAllProduct(completion: { _ in})
-//        
-//        collectionView.reloadData()
+        CompareListManager.shared.deleteAllProduct(completion: { _ in})
+        
+        compareListProducts = []
     }
     
     @IBAction func goBackPage(_ sender: UIBarButtonItem) {
@@ -31,7 +31,22 @@ class CompareListViewController: UIViewController {
          dismiss(animated: true, completion: nil)
     }
     
-    @IBOutlet weak var coverView: UIView!
+    @IBOutlet weak var coverView: UIView! {
+        didSet {
+            coverViewAnimate()
+        }
+    }
+    
+    func coverViewAnimate() {
+        
+        let bounds = self.coverView.bounds
+        UIView.animate(withDuration: 2, delay: 0.0, usingSpringWithDamping: 0.10, initialSpringVelocity: 50, options: .transitionFlipFromTop
+            , animations: {
+            self.coverView.bounds = CGRect(x: bounds.origin.x, y: bounds.origin.y + 70, width: bounds.size.width, height: bounds.size.height)
+        }, completion: nil)
+    }
+    
+    
     
     var compareListProducts: [CPProduct] = [] {
         
@@ -42,8 +57,12 @@ class CompareListViewController: UIViewController {
             if compareListProducts.count == 0 {
                 
                 coverView.isHidden = false
-                
+                                
                 collectionView.isHidden = true
+                
+                coverViewAnimate()
+                
+                navigationItem.title = "小孩子才做選擇"
                 
 //                checkoutBtn.isEnabled = false
 //
@@ -54,6 +73,10 @@ class CompareListViewController: UIViewController {
                 coverView.isHidden = true
                 
                 collectionView.isHidden = false
+                
+                
+                
+                navigationItem.title = "比較清單"
                 
 //                checkoutBtn.isEnabled = true
 //
@@ -75,13 +98,13 @@ class CompareListViewController: UIViewController {
             
             collectionView.contentInset = UIEdgeInsets(top: 0,
                                                        left: 16,
-                                                       bottom: UIScreen.height - 574 ,
+                                                       bottom: UIScreen.height - 622 ,
                                                        right: 16)
         } else {
             
             collectionView.contentInset = UIEdgeInsets(top: 0,
                                                        left: 16,
-                                                       bottom: UIScreen.height - 516 ,
+                                                       bottom: UIScreen.height - 564 ,
                                                        right: 16)
         }
         
@@ -132,7 +155,7 @@ class CompareListViewController: UIViewController {
                 case .success:
                     
                     compareListProducts.remove(at: index)
-                    
+                                        
                 case .failure:
                     
                     LKProgressHUD.showFailure(text: "刪除資料失敗！")
@@ -166,6 +189,8 @@ extension CompareListViewController: UICollectionViewDelegate, UICollectionViewD
         
         compareCell.materialLabel.text = compareListProducts[indexPath.row].texture
         
+        compareCell.washLabel.text = compareListProducts[indexPath.row].wash
+        print(compareListProducts[indexPath.row])
         compareCell.placeOfProductionLabel.text = compareListProducts[indexPath.row].place
         
         compareCell.touchHandler = { [weak self] in

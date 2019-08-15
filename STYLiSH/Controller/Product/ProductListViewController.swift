@@ -28,6 +28,10 @@ class ProductListViewController: STCompondViewController {
         setupTableView()
         
         setupCollectionView()
+
+        productEffectAnimationOnTableView(timeInterval: 1.5)
+
+        productEffectAnimationOnCollectionView(timeInterval: 1)
     }
 
     // MARK: - Private method
@@ -150,7 +154,7 @@ class ProductListViewController: STCompondViewController {
 
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(
             withIdentifier: String(describing: ProductTableViewCell.self),
             for: indexPath
@@ -216,5 +220,77 @@ class ProductListViewController: STCompondViewController {
 
         showProductDetailViewController(product: product)
     }
+    
+    func makeProduct() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.image = UIImage.asset(.Icons_36px_Catalog_Normal)
+        // 隨機產生 x 座標
+        let randomXPosition = CGFloat(arc4random_uniform(UInt32(view.bounds.width)))
+        // 隨機產生圖片 Size
+        let randomSize = CGFloat(arc4random_uniform(3) + 2) * 15
+        imageView.frame = CGRect(x: randomXPosition, y: view.frame.maxY, width: randomSize, height: randomSize)
+        imageView.alpha = 0.7
+        imageView.tintColor = .white
+        return imageView
+    }
+    
+    func productEffectAnimationOnTableView(timeInterval: TimeInterval) {
+        // 設定定時器
+        Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { (timer) in
+            // 產生氣泡圖片加到畫面中
+            let productImageView = self.makeProduct()
+            self.tableView.addSubview(productImageView)
+            // 隨機動畫持續時間
+            let randomDuration = Double(arc4random_uniform(5) + 1) * 0.8
+            // 動畫設定
+            UIView.animate(withDuration: randomDuration, delay: 0, options: [.curveEaseInOut], animations: {
+                productImageView.center.y -= self.view.bounds.height + productImageView.bounds.height
+                productImageView.alpha = 1
+            }, completion: { (_) in
+                // 動畫結束後將氣泡圖片移除
+                productImageView.removeFromSuperview()
+            })
+        }
+    }
+    
+    func makeProductOnCollectionView() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.image = UIImage.asset(.Icons_36px_Catalog_Normal)
+        // 隨機產生 x 座標
+        let randomXPosition = CGFloat(arc4random_uniform(UInt32(view.bounds.width)))
+        // 隨機產生 y 座標
+        let randomYPosition = CGFloat(arc4random_uniform(UInt32(view.bounds.height)))
+        // 隨機產生圖片 Size
+        let randomSize = CGFloat(arc4random_uniform(3) + 2) * 20
+        imageView.frame = CGRect(x: randomXPosition, y: randomYPosition, width: randomSize, height: randomSize)
+        imageView.alpha = 0.7
+        imageView.tintColor = .white
+        return imageView
+    }
+    
+    func productEffectAnimationOnCollectionView(timeInterval: TimeInterval) {
+        // 設定定時器
+        Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { (timer) in
+            // 產生氣泡圖片加到畫面中
+            let productImageView = self.makeProductOnCollectionView()
+            self.collectionView.addSubview(productImageView)
+            // 隨機動畫持續時間
+            let randomDuration = Double(arc4random_uniform(5) + 1) * 1.0
+            // 動畫設定
+            UIView.animate(withDuration: randomDuration, delay: 0, options: [.curveEaseInOut], animations: {
+                func locationY(_ locationX: CGFloat ) -> CGFloat {
+                    let x = locationX / 100
+                    return (x * x + 2 * x + 1)
+                }
+                productImageView.center.x += self.view.bounds.width - productImageView.bounds.width
+                productImageView.center.y = locationY(productImageView.center.x)
+                productImageView.alpha = 1
+            }, completion: { (_) in
+                // 動畫結束後將氣泡圖片移除
+                productImageView.removeFromSuperview()
+            })
+        }
+    }
+    
 }
 

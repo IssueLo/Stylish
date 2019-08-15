@@ -12,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CompareListCell" id="gTV-IL-0wX" customClass="CompareListCell" customModule="STYLiSH" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="154" height="452"/>
+            <rect key="frame" x="0.0" y="0.0" width="154" height="500"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="154" height="452"/>
+                <rect key="frame" x="0.0" y="0.0" width="154" height="500"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyu-dA-O9C" userLabel="Content View">
-                        <rect key="frame" x="0.0" y="0.0" width="154" height="452"/>
+                        <rect key="frame" x="0.0" y="0.0" width="154" height="500"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="wV1-X5-XHy">
                                 <rect key="frame" x="15.5" y="23" width="123" height="165"/>
@@ -28,8 +28,8 @@
                                     <constraint firstAttribute="width" constant="123" id="zka-DK-Nqc"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="厚實毛呢格子外套" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZh-Li-QX2">
-                                <rect key="frame" x="13" y="212" width="128" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZh-Li-QX2">
+                                <rect key="frame" x="63" y="212" width="28.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="xjb-TA-e1d"/>
                                 </constraints>
@@ -47,6 +47,16 @@
                                 <color key="textColor" red="0.2470588235" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wash" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txa-s7-fPn">
+                                <rect key="frame" x="15.5" y="356" width="123" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="123" id="TBV-n3-74e"/>
+                                    <constraint firstAttribute="height" constant="24" id="lIy-Cb-K2x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <color key="textColor" red="0.2470588235" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="material" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eih-21-xeb">
                                 <rect key="frame" x="15.5" y="308" width="123" height="24"/>
                                 <constraints>
@@ -57,18 +67,8 @@
                                 <color key="textColor" red="0.2470588235" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="place" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctk-a0-MpE">
-                                <rect key="frame" x="15.5" y="356" width="123" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="AsS-sY-o4F"/>
-                                    <constraint firstAttribute="width" constant="123" id="pX7-7N-YEe"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                                <color key="textColor" red="0.2470588235" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xn5-Ha-QFL">
-                                <rect key="frame" x="61" y="404" width="32" height="24"/>
+                                <rect key="frame" x="61" y="452" width="32" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="oqg-EU-hii"/>
                                 </constraints>
@@ -80,22 +80,34 @@
                                     <action selector="didTouchRemoveButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="JHQ-ha-tMf"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="place" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctk-a0-MpE">
+                                <rect key="frame" x="15.5" y="404" width="123" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="AsS-sY-o4F"/>
+                                    <constraint firstAttribute="width" constant="123" id="pX7-7N-YEe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
+                                <color key="textColor" red="0.2470588235" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="452" id="54F-ZI-MH5"/>
+                            <constraint firstItem="Ctk-a0-MpE" firstAttribute="top" secondItem="Txa-s7-fPn" secondAttribute="bottom" constant="24" id="2Fh-l4-2u1"/>
+                            <constraint firstAttribute="height" constant="500" id="54F-ZI-MH5"/>
                             <constraint firstItem="FZh-Li-QX2" firstAttribute="centerX" secondItem="eyu-dA-O9C" secondAttribute="centerX" id="Ewa-fY-SqA"/>
                             <constraint firstItem="wV1-X5-XHy" firstAttribute="centerX" secondItem="eyu-dA-O9C" secondAttribute="centerX" id="Lrg-Kk-OfE"/>
                             <constraint firstItem="SoO-Hp-9Pi" firstAttribute="top" secondItem="FZh-Li-QX2" secondAttribute="bottom" constant="24" id="MdR-bJ-82U"/>
-                            <constraint firstItem="Ctk-a0-MpE" firstAttribute="top" secondItem="Eih-21-xeb" secondAttribute="bottom" constant="24" id="Pmq-LE-Tli"/>
                             <constraint firstItem="Eih-21-xeb" firstAttribute="centerX" secondItem="eyu-dA-O9C" secondAttribute="centerX" id="Q1g-8X-0k6"/>
+                            <constraint firstItem="Txa-s7-fPn" firstAttribute="top" secondItem="Eih-21-xeb" secondAttribute="bottom" constant="24" id="UfC-fn-SUg"/>
                             <constraint firstItem="Ctk-a0-MpE" firstAttribute="centerX" secondItem="eyu-dA-O9C" secondAttribute="centerX" id="W3Z-DZ-9Gl"/>
                             <constraint firstItem="FZh-Li-QX2" firstAttribute="top" secondItem="wV1-X5-XHy" secondAttribute="bottom" constant="24" id="XJw-is-Bpz"/>
                             <constraint firstItem="wV1-X5-XHy" firstAttribute="top" secondItem="eyu-dA-O9C" secondAttribute="top" constant="23" id="Zgx-1I-hvj"/>
                             <constraint firstItem="xn5-Ha-QFL" firstAttribute="centerX" secondItem="eyu-dA-O9C" secondAttribute="centerX" id="cEa-al-jby"/>
-                            <constraint firstItem="xn5-Ha-QFL" firstAttribute="top" secondItem="Ctk-a0-MpE" secondAttribute="bottom" constant="24" id="f4q-73-teb"/>
+                            <constraint firstItem="Txa-s7-fPn" firstAttribute="centerX" secondItem="eyu-dA-O9C" secondAttribute="centerX" id="l9H-do-fKr"/>
                             <constraint firstItem="Eih-21-xeb" firstAttribute="top" secondItem="SoO-Hp-9Pi" secondAttribute="bottom" constant="24" id="qia-A3-ByP"/>
                             <constraint firstItem="SoO-Hp-9Pi" firstAttribute="centerX" secondItem="eyu-dA-O9C" secondAttribute="centerX" id="qwd-mM-7yX"/>
+                            <constraint firstItem="xn5-Ha-QFL" firstAttribute="top" secondItem="Ctk-a0-MpE" secondAttribute="bottom" constant="24" id="vFk-ca-VJC"/>
                             <constraint firstAttribute="width" constant="154" id="yF0-na-tF5"/>
                         </constraints>
                     </view>
@@ -107,7 +119,7 @@
                 <constraint firstItem="eyu-dA-O9C" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Wdz-7l-pkT"/>
                 <constraint firstAttribute="bottom" secondItem="eyu-dA-O9C" secondAttribute="bottom" id="myw-KO-j2u"/>
             </constraints>
-            <size key="customSize" width="154" height="452"/>
+            <size key="customSize" width="154" height="500"/>
             <connections>
                 <outlet property="materialLabel" destination="Eih-21-xeb" id="87K-HY-S7I"/>
                 <outlet property="placeOfProductionLabel" destination="Ctk-a0-MpE" id="ouh-PG-6AZ"/>
@@ -115,8 +127,9 @@
                 <outlet property="productImage" destination="wV1-X5-XHy" id="iXh-UV-KcS"/>
                 <outlet property="removeBtn" destination="xn5-Ha-QFL" id="jXX-OE-yDv"/>
                 <outlet property="titleLabel" destination="FZh-Li-QX2" id="bdw-dc-DED"/>
+                <outlet property="washLabel" destination="Txa-s7-fPn" id="NBo-aC-qcm"/>
             </connections>
-            <point key="canvasLocation" x="205.79710144927537" y="302.67857142857139"/>
+            <point key="canvasLocation" x="205.79710144927537" y="317.41071428571428"/>
         </collectionViewCell>
     </objects>
     <resources>

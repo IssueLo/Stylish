@@ -36,10 +36,15 @@
                                     <outlet property="tableView" destination="VhC-G4-LCp" id="w0Q-Gm-lxp"/>
                                 </connections>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Logo01" translatesAutoresizingMaskIntoConstraints="NO" id="YaR-Xc-LhC">
+                                <rect key="frame" x="60.5" y="314" width="254" height="39"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6a8-g0-zye" firstAttribute="leading" secondItem="q8u-7N-ibt" secondAttribute="leading" id="5RT-4O-LyP"/>
+                            <constraint firstItem="YaR-Xc-LhC" firstAttribute="centerY" secondItem="Poa-jY-7cO" secondAttribute="centerY" id="80E-96-cd0"/>
+                            <constraint firstItem="YaR-Xc-LhC" firstAttribute="centerX" secondItem="Poa-jY-7cO" secondAttribute="centerX" id="PSV-hj-GBo"/>
                             <constraint firstItem="q8u-7N-ibt" firstAttribute="trailing" secondItem="6a8-g0-zye" secondAttribute="trailing" id="aTh-FO-5zA"/>
                             <constraint firstItem="q8u-7N-ibt" firstAttribute="bottom" secondItem="6a8-g0-zye" secondAttribute="bottom" id="afx-aa-n7x"/>
                             <constraint firstItem="6a8-g0-zye" firstAttribute="top" secondItem="q8u-7N-ibt" secondAttribute="top" id="nI1-kc-CQV"/>
@@ -49,6 +54,7 @@
                     <navigationItem key="navigationItem" id="u9J-6C-wET"/>
                     <connections>
                         <outlet property="lobbyView" destination="6a8-g0-zye" id="Fm5-Va-ZGQ"/>
+                        <outlet property="logoImage" destination="YaR-Xc-LhC" id="d8g-uf-CjU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LgU-lM-Hf5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -74,4 +80,7 @@
             <point key="canvasLocation" x="101.59999999999999" y="33.733133433283363"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image_Logo01" width="254" height="39"/>
+    </resources>
 </document>

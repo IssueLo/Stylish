@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    var delegate: ProfileViewControllerDelegate?
+    @IBOutlet weak var profilePhoto: UIImageView!
     
     let orderListProvider = OrderListProvider()
     
@@ -62,8 +62,19 @@ class ProfileViewController: UIViewController {
         
         orderProfileUserID.text = "ID: "
         
-        fetchOrderData()
-        fetchUserProfile()
+        orderTableView.reloadData()
+        
+        backToRoot(completion: {
+            
+            let appdelegate = UIApplication.shared.delegate as? AppDelegate
+            
+            let root = appdelegate?.window?.rootViewController as? STTabBarViewController
+            
+            root?.selectedIndex = 0
+        })
+        
+        LKProgressHUD.showSuccess(text: "登出成功！")
+        
         updateBtn()
         
     }
@@ -156,6 +167,8 @@ class ProfileViewController: UIViewController {
                 self?.orderProfileUserName.text = profile.data.name
                 
                 self?.orderProfileUserID.text = "ID: \(profile.data.id)"
+        
+                self?.profilePhoto.loadImage(profile.data.picture)
                 
             case .failure:
                 
@@ -417,12 +430,5 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         return orderCell
     }
     
-    
-}
-
-
-protocol ProfileViewControllerDelegate {
-    
-    func backToLobby(vc: ProfileViewController)
     
 }

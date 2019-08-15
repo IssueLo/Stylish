@@ -31,7 +31,7 @@ class ProductListViewController: STCompondViewController {
 
         productEffectAnimationOnTableView(timeInterval: 1.5)
 
-        productEffectAnimationOnCollectionView(timeInterval: 1.5)
+        productEffectAnimationOnCollectionView(timeInterval: 1)
     }
 
     // MARK: - Private method
@@ -227,7 +227,7 @@ class ProductListViewController: STCompondViewController {
         // 隨機產生 x 座標
         let randomXPosition = CGFloat(arc4random_uniform(UInt32(view.bounds.width)))
         // 隨機產生圖片 Size
-        let randomSize = CGFloat(arc4random_uniform(3) + 1) * 20
+        let randomSize = CGFloat(arc4random_uniform(3) + 2) * 15
         imageView.frame = CGRect(x: randomXPosition, y: view.frame.maxY, width: randomSize, height: randomSize)
         imageView.alpha = 0.7
         imageView.tintColor = .white
@@ -257,10 +257,12 @@ class ProductListViewController: STCompondViewController {
         let imageView = UIImageView()
         imageView.image = UIImage.asset(.Icons_36px_Catalog_Normal)
         // 隨機產生 x 座標
-        let randomYPosition = CGFloat(arc4random_uniform(UInt32(view.bounds.width)))
+        let randomXPosition = CGFloat(arc4random_uniform(UInt32(view.bounds.width)))
+        // 隨機產生 y 座標
+        let randomYPosition = CGFloat(arc4random_uniform(UInt32(view.bounds.height)))
         // 隨機產生圖片 Size
-        let randomSize = CGFloat(arc4random_uniform(3) + 1) * 20
-        imageView.frame = CGRect(x: 0, y: randomYPosition, width: randomSize, height: randomSize)
+        let randomSize = CGFloat(arc4random_uniform(3) + 2) * 20
+        imageView.frame = CGRect(x: randomXPosition, y: randomYPosition, width: randomSize, height: randomSize)
         imageView.alpha = 0.7
         imageView.tintColor = .white
         return imageView
@@ -276,7 +278,12 @@ class ProductListViewController: STCompondViewController {
             let randomDuration = Double(arc4random_uniform(5) + 1) * 1.0
             // 動畫設定
             UIView.animate(withDuration: randomDuration, delay: 0, options: [.curveEaseInOut], animations: {
+                func locationY(_ locationX: CGFloat ) -> CGFloat {
+                    let x = locationX / 100
+                    return (x * x + 2 * x + 1)
+                }
                 productImageView.center.x += self.view.bounds.width - productImageView.bounds.width
+                productImageView.center.y = locationY(productImageView.center.x)
                 productImageView.alpha = 1
             }, completion: { (_) in
                 // 動畫結束後將氣泡圖片移除

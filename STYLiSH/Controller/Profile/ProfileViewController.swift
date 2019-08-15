@@ -232,10 +232,18 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         orderHeaderView.backgroundColor = UIColor.B2
         
-        // TODO: 待填入正確資訊
-        orderHeaderView.orderNO.text = "123456789"
+        orderHeaderView.orderNO.text = String(orders[section].number)
         orderHeaderView.orderTime.text = "2019/08/12 12:09"
-        orderHeaderView.orderStatus.text = "待出貨"
+        
+        var status = ""
+        
+        if orders[section].status == 0 {
+            status = "待出貨"
+        } else {
+            status = "待付款"
+        }
+        
+        orderHeaderView.orderStatus.text = status
         
         return orderHeaderView
     }
@@ -255,9 +263,10 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                     
                     return nil
         }
-        
-        // TODO: 待填入正確資訊
-        orderFooterView.totalPrice.text = "1999"
+    
+        orderFooterView.totalPrice.text = String(orders[section].details.total)
+        orderFooterView.subTotal.text = String(orders[section].details.subtotal)
+        orderFooterView.freight.text = String(orders[section].details.freight)
         
         return orderFooterView
     }
@@ -290,7 +299,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         let qtn = orders[indexPath.section].details.list[indexPath.row].qty
         
+        let productId = orders[indexPath.section].details.list[indexPath.row].id
+        
         orderCell.selectedQuantity.text = "數量：\(qtn)"
+        
+        orderCell.orderProductImage.loadImage("https://300zombies.com/assets/\(productId)/main.jpg")
         
         orderCell.orderProductBaseView.layoutView(title: title , size: size, price: String(price), color: color)
         

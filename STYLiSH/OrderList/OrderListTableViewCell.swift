@@ -16,9 +16,6 @@ class OrderListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var selectedQuantity: UILabel!
     
-//    func layoutViewFromServer(orderData: OrderList) {
-//        <#function body#>
-//    }
     
     func layoutView(order: LSOrder) {
         

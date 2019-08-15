@@ -10,5 +10,7 @@ import UIKit
 
 class OrderListTableFooterView: UITableViewHeaderFooterView {
     @IBOutlet weak var totalPrice: UILabel!
+    @IBOutlet weak var freight: UILabel!
+    @IBOutlet weak var subTotal: UILabel!
     
 }

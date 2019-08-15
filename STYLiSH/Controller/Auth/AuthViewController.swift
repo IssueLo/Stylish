@@ -94,20 +94,3 @@ class AuthViewController: STBaseViewController {
 
     
 }
-
-
-extension AuthViewController: ProfileViewControllerDelegate {
-    
-    func backToLobby(vc: ProfileViewController) {
-        
-        guard let vc = ProfileViewController() as? ProfileViewController else {return}
-        
-        vc.delegate = self
-        
-        vc.fetchOrderData()
-        vc.fetchUserProfile()
-        vc.orderTableView.reloadData()
-        
-    }
-    
-}

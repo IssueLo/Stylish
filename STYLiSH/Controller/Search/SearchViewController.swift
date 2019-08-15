@@ -50,6 +50,10 @@ class SearchViewController: UIViewController {
         setUpSearchBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        animateTable()
+    }
+    
     private func cpdSetupTableView() {
         
         if tableView == nil {
@@ -125,6 +129,34 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         return productCell
+    }
+    
+    
+//    animateWithDuration(1.5, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: nil, animations: {
+//    cell.transform = CGAffineTransformMakeTranslation(0, 0);
+//    }, completion: nil)
+    func animateTable() {
+        tableView.reloadData()
+        
+        let cells = tableView.visibleCells
+        let tableHeight: CGFloat = tableView.bounds.size.height
+        
+        for i in cells {
+            let cell: UITableViewCell = i as UITableViewCell
+            cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
+        }
+        
+        var index = 0
+        
+        for a in cells {
+            let cell: UITableViewCell = a as UITableViewCell
+            UIView.animate(withDuration: 1.5, delay: 0.05 * Double(index),usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .init(), animations: {
+                cell.transform = CGAffineTransform(translationX: 0, y: 0);
+            }, completion: nil)
+            
+            
+            index += 1
+        }
     }
     
 //    func getAllProductData() {
@@ -253,19 +285,19 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         show(detailVC, sender: nil)
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        // 在動畫效果之前先進行下列操作
-        // 將透明度設為 0，再把 Cell 位移到右下角，並且長寬縮小 0.5 倍。
-        cell.alpha = 0
-        cell.transform = CGAffineTransform(translationX: cell.bounds.width / 2, y: cell.bounds.height / 3).concatenating(CGAffineTransform(scaleX: 0.5, y: 0.5))
-        
-        UIView.animate(withDuration: 0.4) {
-            // 執行動畫效果
-            // 將透明度改回 1，並取消所有的變形效果，回到原樣及位置。
-            cell.alpha = 1
-            cell.transform = CGAffineTransform.identity
-        }
-    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        // 在動畫效果之前先進行下列操作
+//        // 將透明度設為 0，再把 Cell 位移到右下角，並且長寬縮小 0.5 倍。
+//        cell.alpha = 0
+//        cell.transform = CGAffineTransform(translationX: cell.bounds.width / 2, y: cell.bounds.height / 3).concatenating(CGAffineTransform(scaleX: 0.5, y: 0.5))
+//
+//        UIView.animate(withDuration: 0.4) {
+//            // 執行動畫效果
+//            // 將透明度改回 1，並取消所有的變形效果，回到原樣及位置。
+//            cell.alpha = 1
+//            cell.transform = CGAffineTransform.identity
+//        }
+//    }
 }
 
 extension SearchViewController: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {

@@ -237,6 +237,7 @@
                     <navigationItem key="navigationItem" title="個人" id="x05-vx-TQW"/>
                     <connections>
                         <outlet property="collectionView" destination="Rwc-aW-35L" id="zPF-Nk-tPD"/>
+                        <outlet property="logBtn" destination="bes-6w-gPr" id="I37-Ic-9X9"/>
                         <outlet property="orderProfileUserID" destination="mLd-2G-bPc" id="Utn-rr-PeT"/>
                         <outlet property="orderProfileUserName" destination="yNj-wu-sFn" id="9ep-bD-6c4"/>
                         <outlet property="orderTableView" destination="g0W-Gz-1bZ" id="5Ul-WG-1Oz"/>

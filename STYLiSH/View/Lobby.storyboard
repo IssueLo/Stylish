@@ -36,18 +36,26 @@
                                     <outlet property="tableView" destination="VhC-G4-LCp" id="w0Q-Gm-lxp"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sai-hU-tOU">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Logo01" translatesAutoresizingMaskIntoConstraints="NO" id="YaR-Xc-LhC">
                                 <rect key="frame" x="60.5" y="314" width="254" height="39"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="YaR-Xc-LhC" firstAttribute="centerY" secondItem="Poa-jY-7cO" secondAttribute="centerY" id="2Dw-rm-k2y"/>
                             <constraint firstItem="6a8-g0-zye" firstAttribute="leading" secondItem="q8u-7N-ibt" secondAttribute="leading" id="5RT-4O-LyP"/>
-                            <constraint firstItem="YaR-Xc-LhC" firstAttribute="centerY" secondItem="Poa-jY-7cO" secondAttribute="centerY" id="80E-96-cd0"/>
-                            <constraint firstItem="YaR-Xc-LhC" firstAttribute="centerX" secondItem="Poa-jY-7cO" secondAttribute="centerX" id="PSV-hj-GBo"/>
+                            <constraint firstItem="sai-hU-tOU" firstAttribute="trailing" secondItem="q8u-7N-ibt" secondAttribute="trailing" id="RxL-xK-Phq"/>
+                            <constraint firstItem="YaR-Xc-LhC" firstAttribute="centerX" secondItem="Poa-jY-7cO" secondAttribute="centerX" id="Uzg-3r-bUS"/>
                             <constraint firstItem="q8u-7N-ibt" firstAttribute="trailing" secondItem="6a8-g0-zye" secondAttribute="trailing" id="aTh-FO-5zA"/>
                             <constraint firstItem="q8u-7N-ibt" firstAttribute="bottom" secondItem="6a8-g0-zye" secondAttribute="bottom" id="afx-aa-n7x"/>
+                            <constraint firstItem="sai-hU-tOU" firstAttribute="leading" secondItem="q8u-7N-ibt" secondAttribute="leading" id="dY4-eK-zIx"/>
+                            <constraint firstItem="q8u-7N-ibt" firstAttribute="bottom" secondItem="sai-hU-tOU" secondAttribute="bottom" id="dvR-Al-NPn"/>
                             <constraint firstItem="6a8-g0-zye" firstAttribute="top" secondItem="q8u-7N-ibt" secondAttribute="top" id="nI1-kc-CQV"/>
+                            <constraint firstItem="sai-hU-tOU" firstAttribute="top" secondItem="q8u-7N-ibt" secondAttribute="top" id="rvI-oV-l1R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q8u-7N-ibt"/>
                     </view>
@@ -55,6 +63,7 @@
                     <connections>
                         <outlet property="lobbyView" destination="6a8-g0-zye" id="Fm5-Va-ZGQ"/>
                         <outlet property="logoImage" destination="YaR-Xc-LhC" id="d8g-uf-CjU"/>
+                        <outlet property="logoView" destination="sai-hU-tOU" id="95a-4x-WdZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LgU-lM-Hf5" userLabel="First Responder" sceneMemberID="firstResponder"/>

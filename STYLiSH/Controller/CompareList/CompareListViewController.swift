@@ -45,7 +45,7 @@ class CompareListViewController: UIViewController {
                 
                 collectionView.isHidden = true
                 
-                navigationItem.title = "小朋友才做選擇！"
+                navigationItem.title = "小孩子才做選擇"
                 
 //                checkoutBtn.isEnabled = false
 //
@@ -87,7 +87,7 @@ class CompareListViewController: UIViewController {
             
             collectionView.contentInset = UIEdgeInsets(top: 0,
                                                        left: 16,
-                                                       bottom: UIScreen.height - 554 ,
+                                                       bottom: UIScreen.height - 564 ,
                                                        right: 16)
         }
         

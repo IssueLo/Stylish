@@ -144,7 +144,7 @@ class NativeSignUpViewController: UIViewController {
                 
             } else {
                 
-                btnFail()
+                btnPass()
                 
                 LKProgressHUD.showFailure(text: "請確認密碼要跟密碼確認相同喔", self.view)
                 
@@ -181,7 +181,7 @@ class NativeSignUpViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     
-                    self!.btnPass()
+                    self!.btnFail()
                     
                     LKProgressHUD.showSuccess(text: "STYLiSH 登入失敗!", self!.view)
                     

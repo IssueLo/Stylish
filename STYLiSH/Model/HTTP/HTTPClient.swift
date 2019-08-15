@@ -103,6 +103,8 @@ class HTTPClient {
 
                 completion(Result.failure(STHTTPClientError.unexpectedError))
             }
+                
+                print("目前Status:\(statusCode)")
 
         }).resume()
     }

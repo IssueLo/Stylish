@@ -19,13 +19,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(數量)" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwB-bf-g9Z">
-                        <rect key="frame" x="232" y="84" width="42" height="21"/>
+                        <rect key="frame" x="449.33333333333331" y="43" width="41.666666666666686" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" name="B1"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fYO-MZ-KGi">
-                        <rect key="frame" x="16" y="10" width="82" height="110"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image_Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="fYO-MZ-KGi">
+                        <rect key="frame" x="16" y="10" width="41" height="55"/>
                         <color key="backgroundColor" red="0.0" green="0.75294117650000003" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="41" id="4Ei-jo-SBK"/>
@@ -34,7 +34,7 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5cx-kM-eu9" customClass="TrolleyProductBaseView" customModule="STYLiSH" customModuleProvider="target">
-                        <rect key="frame" x="114" y="10" width="369" height="52"/>
+                        <rect key="frame" x="73" y="10" width="341.33333333333331" height="52"/>
                         <color key="backgroundColor" name="G1"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="52" id="mz1-SE-7An"/>
@@ -61,6 +61,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="Image_Placeholder" width="375" height="375"/>
         <namedColor name="B1">
             <color red="0.24705882352941178" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

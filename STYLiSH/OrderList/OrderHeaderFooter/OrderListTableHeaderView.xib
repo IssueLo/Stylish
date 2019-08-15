@@ -25,9 +25,9 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" misplaced="YES" text="(訂單編號)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlK-vd-5MK">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" misplaced="YES" text="(訂單編號)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlK-vd-5MK">
                             <rect key="frame" x="94" y="5" width="49" height="14"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -49,18 +49,38 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCL-lz-eZk">
+                            <rect key="frame" x="0.0" y="0.0" width="16" height="818"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBN-u5-jfb">
+                                    <rect key="frame" x="5" y="401.5" width="6" height="15"/>
+                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="0.38217037671232879" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="FBN-u5-jfb" firstAttribute="centerX" secondItem="CCL-lz-eZk" secondAttribute="centerX" id="ITz-yk-t5o"/>
+                                <constraint firstAttribute="width" constant="16" id="UqS-74-qqm"/>
+                                <constraint firstItem="FBN-u5-jfb" firstAttribute="centerY" secondItem="CCL-lz-eZk" secondAttribute="centerY" id="aPb-1o-ajC"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" name="B2"/>
                     <constraints>
                         <constraint firstItem="XgJ-Gv-BBU" firstAttribute="centerY" secondItem="Qf5-Ix-avG" secondAttribute="centerY" id="3sc-ki-m2w"/>
                         <constraint firstItem="UmZ-jU-nCb" firstAttribute="top" secondItem="Y0m-o9-RpU" secondAttribute="bottom" constant="3" id="9l8-Th-gj1"/>
+                        <constraint firstItem="CCL-lz-eZk" firstAttribute="top" secondItem="Qf5-Ix-avG" secondAttribute="top" id="A3A-GO-ZgV"/>
                         <constraint firstItem="NlK-vd-5MK" firstAttribute="top" secondItem="Qf5-Ix-avG" secondAttribute="top" constant="6" id="Agn-c9-crf"/>
-                        <constraint firstItem="UmZ-jU-nCb" firstAttribute="leading" secondItem="Qf5-Ix-avG" secondAttribute="leading" constant="16" id="E7p-qm-6fN"/>
+                        <constraint firstItem="UmZ-jU-nCb" firstAttribute="leading" secondItem="CCL-lz-eZk" secondAttribute="trailing" constant="16" id="E7p-qm-6fN"/>
                         <constraint firstAttribute="trailing" secondItem="XgJ-Gv-BBU" secondAttribute="trailing" constant="16" id="JrG-bY-avP"/>
                         <constraint firstItem="zpN-iS-ORS" firstAttribute="top" secondItem="NlK-vd-5MK" secondAttribute="bottom" constant="4" id="Mie-wr-iad"/>
                         <constraint firstItem="NlK-vd-5MK" firstAttribute="leading" secondItem="Y0m-o9-RpU" secondAttribute="trailing" constant="1" id="QvN-ut-aFJ"/>
-                        <constraint firstItem="Y0m-o9-RpU" firstAttribute="leading" secondItem="Qf5-Ix-avG" secondAttribute="leading" constant="16" id="RUq-6f-4CJ"/>
+                        <constraint firstItem="Y0m-o9-RpU" firstAttribute="leading" secondItem="CCL-lz-eZk" secondAttribute="trailing" constant="16" id="RUq-6f-4CJ"/>
+                        <constraint firstItem="CCL-lz-eZk" firstAttribute="leading" secondItem="Qf5-Ix-avG" secondAttribute="leading" id="SWw-rn-fa5"/>
                         <constraint firstItem="Y0m-o9-RpU" firstAttribute="top" secondItem="Qf5-Ix-avG" secondAttribute="top" constant="6" id="Svh-uV-bQ5"/>
+                        <constraint firstAttribute="bottom" secondItem="CCL-lz-eZk" secondAttribute="bottom" id="qU3-LP-8Dm"/>
                         <constraint firstItem="zpN-iS-ORS" firstAttribute="leading" secondItem="UmZ-jU-nCb" secondAttribute="trailing" constant="1" id="v8A-Yb-2Qi"/>
                     </constraints>
                 </view>
@@ -74,6 +94,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="orderIndex" destination="FBN-u5-jfb" id="tKO-Zx-VTl"/>
                 <outlet property="orderNO" destination="NlK-vd-5MK" id="6uH-I1-exN"/>
                 <outlet property="orderStatus" destination="XgJ-Gv-BBU" id="VaX-qd-geR"/>
                 <outlet property="orderTime" destination="zpN-iS-ORS" id="MNI-yW-xhy"/>

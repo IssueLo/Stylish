@@ -10,9 +10,16 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    @IBOutlet weak var showEmptyView: UIView!
+    
+    let orderListProvider = OrderListProvider()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        showAllBtn.isHidden = true
+        
+        showEmptyView.isHidden = true
+        
+//        showAllBtn.isHidden = true
         
 //         註冊 cell
         orderTableView.lk_registerCellWithNib(identifier: String(describing: OrderListTableViewCell.self), bundle: nil)
@@ -26,28 +33,51 @@ class ProfileViewController: UIViewController {
         
         orderTableView.register(orderFooterXib, forHeaderFooterViewReuseIdentifier: OrderListTableFooterView.identifier)
 
-        
-        fetchData() // TODO: 之後要改成打一支 GET api ，把所有購買記錄抓下來
+        fetchOrderData()
+        fetchUserProfile()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        fetchData() // TODO: 之後要改成打一支 GET api ，把所有購買記錄抓下來
+        fetchOrderData()
+        fetchUserProfile()
     }
     
+    @IBAction func logOut(_ sender: Any) {
+        
+        KeyChainManager.shared.token = nil
+        
+        if let vc = UIStoryboard.auth.instantiateInitialViewController() {
+            
+            vc.modalPresentationStyle = .overCurrentContext
+            
+            present(vc, animated: false, completion: nil)
+        }
+        
+        orderProfileUserName.text = ""
+        
+        orderProfileUserID.text = "ID: "
+    }
+    
+    @IBOutlet weak var orderProfileUserName: UILabel!
+    
+    @IBOutlet weak var orderProfileUserID: UILabel!
     
     @IBOutlet weak var orderTableView: UITableView! {
         
         didSet {
+            
             orderTableView.delegate = self
+            
             orderTableView.dataSource = self
-            orderTableView.isHidden = true
         }
     
     }
     
-    var orders: [LSOrder] = [] {
+    var profile: UserData = UserData(id: 0, provider: "", name: "", email: "", picture: nil, gender: nil, birth: nil, phone: nil, location: nil)
+    
+    var orders: [OrderList] = [] {
         
         didSet {
             
@@ -57,10 +87,16 @@ class ProfileViewController: UIViewController {
                 
                 orderTableView.isHidden = true
                 
+                showEmptyView.isHidden = false
+    
+                
             } else {
                 
                 orderTableView.isHidden = false
                 
+                showEmptyView.isHidden = true
+                
+                print("===== \(orders.count)")
             }
             
             view.layoutIfNeeded()
@@ -68,21 +104,44 @@ class ProfileViewController: UIViewController {
     }
     
     
-    func fetchData() { // TODO: 之後要改成打一支 GET api ，把所有購買記錄抓下來
+    func fetchOrderData() {
         
-        StorageManager.shared.fetchOrders(completion: { result in
+        orderListProvider.fetchOrderList { [weak self] result in
             
-            switch result {
+            switch result{
                 
             case .success(let orders):
-                
-                self.orders = orders
+                    
+                    self?.orders = orders
                 
             case .failure:
                 
-                LKProgressHUD.showFailure(text: "讀取資料發生錯誤！")
+                LKProgressHUD.showFailure(text: "讀取訂單資料失敗！")
+                
             }
-        })
+        }
+    }
+    
+    func fetchUserProfile() {
+        
+        orderListProvider.fetchOrderProfile { [weak self] result in
+            
+            switch result {
+                
+            case .success(let profile):
+                
+                self?.profile = profile.data
+                
+                self?.orderProfileUserName.text = profile.data.name
+                
+                self?.orderProfileUserID.text = "ID: \(profile.data.id)"
+                
+            case .failure:
+                
+                LKProgressHUD.showFailure(text: "讀取會員資料失敗！")
+                
+            }
+        }
     }
     
 
@@ -97,18 +156,28 @@ class ProfileViewController: UIViewController {
 
 //    let manager = ProfileManager()
     
+    var tabOnBtn = false
+    
     @IBOutlet weak var showAllBtn: UIButton!
     
     @IBAction func showAllOrders(_ sender: Any) {
         
-        //        if orderTableView.isHidden == true {
-        //            orderTableView.isHidden = false
-        //
-        //            showAllBtn.setTitle("收回", for: .normal)
-        //        } else {
-        //            orderTableView.isHidden = true
-        //            showAllBtn.setTitle("查看全部", for: .normal)
-        //        }
+        tabOnBtn = !tabOnBtn
+        
+        orderTableView.reloadData()
+        
+        if tabOnBtn {
+            
+            orderTableView.rowHeight = 0
+            showAllBtn.setTitle("展開訂單詳情", for: .normal)
+            
+        } else {
+            
+            orderTableView.rowHeight = 75
+            showAllBtn.setTitle("收回", for: .normal)
+            
+        }
+        
     }
 
 }
@@ -207,7 +276,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: - Section Count
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 2 // 待改
+        return orders.count
     }
     
     //MARK: - Section Header
@@ -229,10 +298,27 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         orderHeaderView.backgroundColor = UIColor.B2
         
-        // TODO: 待填入正確資訊
-        orderHeaderView.orderNO.text = "123456789"
-        orderHeaderView.orderTime.text = "2019/08/12 12:09"
-        orderHeaderView.orderStatus.text = "待出貨"
+        let orderNum = orders[section].number
+        
+        let orderStatus = orders[section].status
+        
+        orderHeaderView.orderNO.text = String(orderNum)
+        
+        orderHeaderView.orderTime.text = orders[section].time
+        
+        var status = ""
+        
+        if orderStatus == 0 {
+            status = "待出貨"
+        } else {
+            status = "待付款"
+        }
+        
+        orderHeaderView.orderStatus.text = status
+        
+        orderHeaderView.orderIndex.text = String(section + 1)
+            
+        
         
         return orderHeaderView
     }
@@ -240,7 +326,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: - Section Footer
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
 
-        return 25.0
+        return 100.0
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -253,16 +339,25 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                     return nil
         }
         
-        // TODO: 待填入正確資訊
-        orderFooterView.totalPrice.text = "1999"
+        let detail = orders[section].details
+        
+        orderFooterView.totalPrice.text = String(detail.total)
+        orderFooterView.subTotal.text = String(detail.subtotal)
+        orderFooterView.freight.text = String(detail.freight)
+        orderFooterView.recipientName.text = detail.recipient.name
+        orderFooterView.recipientAdd.text = detail.recipient.address
+        orderFooterView.recipientTime.text = detail.recipient.time
+        orderFooterView.payway.text = detail.payment
         
         return orderFooterView
     }
     
     
      //MARK: - Section cell rows
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orders.count
+        
+        return orders[section].details.list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -274,11 +369,27 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let orderCell = cell as? OrderListTableViewCell else { return cell }
         
-        // TODO: 刪第一行，改 show 第二行，並放入正確資料
-        orderCell.layoutView(order: orders[indexPath.row])
-//        orderCell.orderProductBaseView.layoutView(title: "", size: "", price: "", color: "")
-        orderCell.selectedQuantity.text = "數量：\(1)"
+        let details = orders[indexPath.section].details
         
+        let title = details.list[indexPath.row].name
+        
+        let size = details.list[indexPath.row].size
+        
+        let price = details.list[indexPath.row].price
+        
+        let color = details.list[indexPath.row].color
+        
+        let qtn = details.list[indexPath.row].qty
+        
+        let productId = details.list[indexPath.row].id
+        
+        orderCell.selectedQuantity.text = "數量：\(qtn)"
+        
+        orderCell.orderProductImage.loadImage("https://300zombies.com/assets/\(productId)/main.jpg")
+        
+        orderCell.orderProductBaseView.layoutView(title: title , size: size, price: String(price), color: color)
+        
+        orderCell.orderProductBaseView.removeBtn.isHidden = true
         
         return orderCell
     }

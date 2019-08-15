@@ -25,6 +25,7 @@
 		0370114A23041E13002E49A6 /* OrderListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370114923041E13002E49A6 /* OrderListRequest.swift */; };
 		0370114C23042144002E49A6 /* OrderListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370114B23042144002E49A6 /* OrderListProvider.swift */; };
 		0370114E2304226A002E49A6 /* OrderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370114D2304226A002E49A6 /* OrderData.swift */; };
+		037011502304EF18002E49A6 /* UserProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370114F2304EF18002E49A6 /* UserProfileData.swift */; };
 		2D8E54C9BAFD8C9E19868B11 /* Pods_STYLiSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524288A503CA319531F016DA /* Pods_STYLiSH.framework */; };
 		3C09F5122211435B00C5B3E2 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F5112211435B00C5B3E2 /* Lobby.storyboard */; };
 		3C09F514221143A600C5B3E2 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C09F513221143A600C5B3E2 /* Product.storyboard */; };
@@ -169,6 +170,7 @@
 		0370114923041E13002E49A6 /* OrderListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListRequest.swift; sourceTree = "<group>"; };
 		0370114B23042144002E49A6 /* OrderListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListProvider.swift; sourceTree = "<group>"; };
 		0370114D2304226A002E49A6 /* OrderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderData.swift; sourceTree = "<group>"; };
+		0370114F2304EF18002E49A6 /* UserProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileData.swift; sourceTree = "<group>"; };
 		3C09F5112211435B00C5B3E2 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		3C09F513221143A600C5B3E2 /* Product.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
 		3C09F515221143BE00C5B3E2 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				0370114923041E13002E49A6 /* OrderListRequest.swift */,
 				0370114B23042144002E49A6 /* OrderListProvider.swift */,
 				0370114D2304226A002E49A6 /* OrderData.swift */,
+				0370114F2304EF18002E49A6 /* UserProfileData.swift */,
 			);
 			path = OrderList;
 			sourceTree = "<group>";
@@ -1179,6 +1182,7 @@
 				3CEBE07E222F979F0064EF82 /* JGProgressHUDWrapper.swift in Sources */,
 				3CCB3BC6222AAC8300976A1C /* LKGalleryView.swift in Sources */,
 				3C9C0D552215443900595689 /* ProfileManager.swift in Sources */,
+				037011502304EF18002E49A6 /* UserProfileData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

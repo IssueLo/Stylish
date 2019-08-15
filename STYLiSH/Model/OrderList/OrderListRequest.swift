@@ -12,11 +12,17 @@ enum STOrderListRequest: STRequest {
     
     case orderList(token: String)
     
+    case orderProfile(token: String)
+    
     var headers: [String: String] {
         
         switch self {
             
         case .orderList(let token): return [STHTTPHeaderField.auth.rawValue: "Bearer \(token)"]
+            
+        case .orderProfile(let token): return [STHTTPHeaderField.auth.rawValue: "Bearer \(token)"]
+            
+    
             
         }
     }
@@ -27,6 +33,8 @@ enum STOrderListRequest: STRequest {
             
         case .orderList: return nil
             
+        case .orderProfile: return nil
+            
         }
     }
     
@@ -36,6 +44,8 @@ enum STOrderListRequest: STRequest {
             
         case .orderList: return STHTTPMethod.GET.rawValue
             
+        case .orderProfile: return STHTTPMethod.GET.rawValue
+            
         }
     }
     
@@ -44,6 +54,8 @@ enum STOrderListRequest: STRequest {
         switch self {
             
         case .orderList: return "/user/order"
+            
+        case .orderProfile: return "/user/profile"
             
         }
     }

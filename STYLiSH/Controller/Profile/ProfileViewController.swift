@@ -10,10 +10,15 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    @IBOutlet weak var showEmptyView: UIView!
+    
     let orderListProvider = OrderListProvider()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        showEmptyView.isHidden = true
+        
         showAllBtn.isHidden = true
         
 //         註冊 cell
@@ -28,26 +33,49 @@ class ProfileViewController: UIViewController {
         
         orderTableView.register(orderFooterXib, forHeaderFooterViewReuseIdentifier: OrderListTableFooterView.identifier)
 
-        
         fetchOrderData()
+        fetchUserProfile()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         fetchOrderData()
+        fetchUserProfile()
     }
     
+    @IBAction func logOut(_ sender: Any) {
+        
+        KeyChainManager.shared.token = nil
+        
+        if let vc = UIStoryboard.auth.instantiateInitialViewController() {
+            
+            vc.modalPresentationStyle = .overCurrentContext
+            
+            present(vc, animated: false, completion: nil)
+        }
+        
+        orderProfileUserName.text = ""
+        
+        orderProfileUserID.text = "ID: "
+    }
+    
+    @IBOutlet weak var orderProfileUserName: UILabel!
+    
+    @IBOutlet weak var orderProfileUserID: UILabel!
     
     @IBOutlet weak var orderTableView: UITableView! {
         
         didSet {
+            
             orderTableView.delegate = self
+            
             orderTableView.dataSource = self
-            orderTableView.isHidden = true
         }
     
     }
+    
+    var profile: UserData = UserData(id: 0, provider: "", name: "", email: "", picture: nil, gender: nil, birth: nil, phone: nil, location: nil)
     
     var orders: [OrderList] = [] {
         
@@ -59,10 +87,16 @@ class ProfileViewController: UIViewController {
                 
                 orderTableView.isHidden = true
                 
+                showEmptyView.isHidden = false
+    
+                
             } else {
                 
                 orderTableView.isHidden = false
                 
+                showEmptyView.isHidden = true
+                
+                print("===== \(orders.count)")
             }
             
             view.layoutIfNeeded()
@@ -77,12 +111,34 @@ class ProfileViewController: UIViewController {
             switch result{
                 
             case .success(let orders):
-                
-                self?.orders = orders
+                    
+                    self?.orders = orders
                 
             case .failure:
                 
-                LKProgressHUD.showFailure(text: "讀取資料失敗！")
+                LKProgressHUD.showFailure(text: "讀取訂單資料失敗！")
+                
+            }
+        }
+    }
+    
+    func fetchUserProfile() {
+        
+        orderListProvider.fetchOrderProfile { [weak self] result in
+            
+            switch result {
+                
+            case .success(let profile):
+                
+                self?.profile = profile.data
+                
+                self?.orderProfileUserName.text = profile.data.name
+                
+                self?.orderProfileUserID.text = "ID: \(profile.data.id)"
+                
+            case .failure:
+                
+                LKProgressHUD.showFailure(text: "讀取會員資料失敗！")
                 
             }
         }
@@ -232,18 +288,24 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         orderHeaderView.backgroundColor = UIColor.B2
         
-        orderHeaderView.orderNO.text = String(orders[section].number)
+        let orderNum = orders[section].number
+        
+        let orderStatus = orders[section].status
+        
+        orderHeaderView.orderNO.text = String(orderNum)
         orderHeaderView.orderTime.text = "2019/08/12 12:09"
         
         var status = ""
         
-        if orders[section].status == 0 {
+        if orderStatus == 0 {
             status = "待出貨"
         } else {
             status = "待付款"
         }
         
         orderHeaderView.orderStatus.text = status
+            
+        
         
         return orderHeaderView
     }
@@ -263,10 +325,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                     
                     return nil
         }
-    
-        orderFooterView.totalPrice.text = String(orders[section].details.total)
-        orderFooterView.subTotal.text = String(orders[section].details.subtotal)
-        orderFooterView.freight.text = String(orders[section].details.freight)
+        
+        let detail = orders[section].details
+        
+        orderFooterView.totalPrice.text = String(detail.total)
+        orderFooterView.subTotal.text = String(detail.subtotal)
+        orderFooterView.freight.text = String(detail.freight)
         
         return orderFooterView
     }
@@ -286,20 +350,19 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let orderCell = cell as? OrderListTableViewCell else { return cell }
         
-        // TODO: 刪第一行，改 show 第二行，並放入正確資料
-//        orderCell.orderProductBaseView.layoutView(title: "", size: "", price: "", color: "")
+        let details = orders[indexPath.section].details
         
-        let title = orders[indexPath.section].details.list[indexPath.row].name
+        let title = details.list[indexPath.row].name
         
-        let size = orders[indexPath.section].details.list[indexPath.row].size
+        let size = details.list[indexPath.row].size
         
-        let price = orders[indexPath.section].details.list[indexPath.row].price
+        let price = details.list[indexPath.row].price
         
-        let color = orders[indexPath.section].details.list[indexPath.row].color.code
+        let color = details.list[indexPath.row].color.code
         
-        let qtn = orders[indexPath.section].details.list[indexPath.row].qty
+        let qtn = details.list[indexPath.row].qty
         
-        let productId = orders[indexPath.section].details.list[indexPath.row].id
+        let productId = details.list[indexPath.row].id
         
         orderCell.selectedQuantity.text = "數量：\(qtn)"
         

@@ -8,11 +8,18 @@
 
 import Foundation
 
+struct OrderData: Codable {
+    
+    let data: [OrderList]
+}
+
 struct OrderList: Codable {
     
     let id: Int
     
-    let number: Int
+    let number: String
+    
+    let time: String
     
     let status: Int
     
@@ -39,7 +46,7 @@ struct Detail: Codable {
 
 struct List: Codable {
     
-    let id: Int
+    let id: String
     
     let qty: Int
     
@@ -47,7 +54,7 @@ struct List: Codable {
     
     let size: String
     
-    let color: OrderColor
+    let color: String
     
     let price: Int
 

@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController {
         
         showEmptyView.isHidden = true
         
-        showAllBtn.isHidden = true
+//        showAllBtn.isHidden = true
         
 //         註冊 cell
         orderTableView.lk_registerCellWithNib(identifier: String(describing: OrderListTableViewCell.self), bundle: nil)
@@ -156,18 +156,28 @@ class ProfileViewController: UIViewController {
 
 //    let manager = ProfileManager()
     
+    var tabOnBtn = false
+    
     @IBOutlet weak var showAllBtn: UIButton!
     
     @IBAction func showAllOrders(_ sender: Any) {
         
-        //        if orderTableView.isHidden == true {
-        //            orderTableView.isHidden = false
-        //
-        //            showAllBtn.setTitle("收回", for: .normal)
-        //        } else {
-        //            orderTableView.isHidden = true
-        //            showAllBtn.setTitle("查看全部", for: .normal)
-        //        }
+        tabOnBtn = !tabOnBtn
+        
+        orderTableView.reloadData()
+        
+        if tabOnBtn {
+            
+            orderTableView.rowHeight = 0
+            showAllBtn.setTitle("展開訂單詳情", for: .normal)
+            
+        } else {
+            
+            orderTableView.rowHeight = 75
+            showAllBtn.setTitle("收回", for: .normal)
+            
+        }
+        
     }
 
 }
@@ -293,7 +303,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         let orderStatus = orders[section].status
         
         orderHeaderView.orderNO.text = String(orderNum)
-        orderHeaderView.orderTime.text = "2019/08/12 12:09"
+        
+        orderHeaderView.orderTime.text = orders[section].time
         
         var status = ""
         
@@ -304,6 +315,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         orderHeaderView.orderStatus.text = status
+        
+        orderHeaderView.orderIndex.text = String(section + 1)
             
         
         
@@ -313,7 +326,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: - Section Footer
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
 
-        return 25.0
+        return 100.0
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -331,14 +344,20 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         orderFooterView.totalPrice.text = String(detail.total)
         orderFooterView.subTotal.text = String(detail.subtotal)
         orderFooterView.freight.text = String(detail.freight)
+        orderFooterView.recipientName.text = detail.recipient.name
+        orderFooterView.recipientAdd.text = detail.recipient.address
+        orderFooterView.recipientTime.text = detail.recipient.time
+        orderFooterView.payway.text = detail.payment
         
         return orderFooterView
     }
     
     
      //MARK: - Section cell rows
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orders.count
+        
+        return orders[section].details.list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -358,7 +377,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         let price = details.list[indexPath.row].price
         
-        let color = details.list[indexPath.row].color.code
+        let color = details.list[indexPath.row].color
         
         let qtn = details.list[indexPath.row].qty
         

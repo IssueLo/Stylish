@@ -179,6 +179,8 @@ class UserProvider {
             switch result {
 
             case .success(let data):
+                
+                guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {return}
 
                 do {
 

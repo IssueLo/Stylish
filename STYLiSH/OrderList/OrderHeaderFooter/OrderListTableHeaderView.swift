@@ -13,5 +13,6 @@ class OrderListTableHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var orderNO: UILabel!
     @IBOutlet weak var orderTime: UILabel!
     @IBOutlet weak var orderStatus: UILabel!
+    @IBOutlet weak var orderIndex: UILabel!
     
 }

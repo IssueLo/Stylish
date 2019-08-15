@@ -31,7 +31,22 @@ class CompareListViewController: UIViewController {
          dismiss(animated: true, completion: nil)
     }
     
-    @IBOutlet weak var coverView: UIView!
+    @IBOutlet weak var coverView: UIView! {
+        didSet {
+            coverViewAnimate()
+        }
+    }
+    
+    func coverViewAnimate() {
+        
+        let bounds = self.coverView.bounds
+        UIView.animate(withDuration: 2, delay: 0.0, usingSpringWithDamping: 0.15, initialSpringVelocity: 30, options: .transitionFlipFromTop
+            , animations: {
+            self.coverView.bounds = CGRect(x: bounds.origin.x, y: bounds.origin.y + 70, width: bounds.size.width, height: bounds.size.height)
+        }, completion: nil)
+    }
+    
+    
     
     var compareListProducts: [CPProduct] = [] {
         
@@ -42,8 +57,10 @@ class CompareListViewController: UIViewController {
             if compareListProducts.count == 0 {
                 
                 coverView.isHidden = false
-                
+                                
                 collectionView.isHidden = true
+                
+                coverViewAnimate()
                 
                 navigationItem.title = "小孩子才做選擇"
                 

@@ -202,7 +202,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我全都要！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PQ-7b-c16">
-                                        <rect key="frame" x="146" y="321.66666666666669" width="122" height="29"/>
+                                        <rect key="frame" x="146" y="391.66666666666669" width="122" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" name="B1"/>
                                         <nil key="highlightedColor"/>
@@ -210,7 +210,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="6PQ-7b-c16" firstAttribute="centerY" secondItem="PlS-nY-iHq" secondAttribute="centerY" id="gnO-bQ-7or"/>
+                                    <constraint firstItem="6PQ-7b-c16" firstAttribute="centerY" secondItem="PlS-nY-iHq" secondAttribute="centerY" constant="70" id="gnO-bQ-7or"/>
                                     <constraint firstItem="6PQ-7b-c16" firstAttribute="centerX" secondItem="PlS-nY-iHq" secondAttribute="centerX" id="wsG-r4-IWv"/>
                                 </constraints>
                             </view>

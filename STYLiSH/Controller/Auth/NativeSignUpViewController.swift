@@ -32,6 +32,7 @@ class NativeSignUpViewController: UIViewController {
         didSet {
             
             userEmailTextField.delegate = self
+            
         }
     }
     
@@ -74,6 +75,16 @@ class NativeSignUpViewController: UIViewController {
         super.viewWillAppear(animated)
         
 //        userNameTextField.constant -= view.bounds.width
+        
+//        userNameTextField
+        
+//        let xorig = self.view2.center.x
+//        let opts = UIViewAnimationOptions.autoreverse
+//        UIView.animate(withDuration: 1, delay: 0, options: opts, animations: {
+//            self.view2.center.x -= 100
+//        }, completion: { _ in
+//            self.view2.center.x = xorig
+//        })
 
 //        confirmBtn.alpha = 0.0
     }
@@ -183,7 +194,7 @@ class NativeSignUpViewController: UIViewController {
                     
                     self!.btnFail()
                     
-                    LKProgressHUD.showSuccess(text: "STYLiSH 登入失敗!", self!.view)
+                    LKProgressHUD.showFailure(text: "STYLiSH 登入失敗!", self!.view)
                     
                 }
                 

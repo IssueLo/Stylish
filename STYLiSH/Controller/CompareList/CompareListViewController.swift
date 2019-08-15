@@ -40,7 +40,7 @@ class CompareListViewController: UIViewController {
     func coverViewAnimate() {
         
         let bounds = self.coverView.bounds
-        UIView.animate(withDuration: 2, delay: 0.0, usingSpringWithDamping: 0.15, initialSpringVelocity: 30, options: .transitionFlipFromTop
+        UIView.animate(withDuration: 2, delay: 0.0, usingSpringWithDamping: 0.10, initialSpringVelocity: 50, options: .transitionFlipFromTop
             , animations: {
             self.coverView.bounds = CGRect(x: bounds.origin.x, y: bounds.origin.y + 70, width: bounds.size.width, height: bounds.size.height)
         }, completion: nil)

@@ -48,6 +48,8 @@ class SearchViewController: UIViewController {
         getAllProductData()
         
         setUpSearchBar()
+        
+        productEffectAnimation(timeInterval: 0.5)
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
@@ -300,6 +302,39 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             cell.transform = CGAffineTransform.identity
         }
     }
+    
+    func makeProduct() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.image = UIImage.asset(.Icons_36px_Catalog_Normal)
+        // 隨機產生 x 座標
+        let randomXPosition = CGFloat(arc4random_uniform(UInt32(view.bounds.width)))
+        // 隨機產生圖片 Size
+        let randomSize = CGFloat(arc4random_uniform(3) + 1) * 20
+        imageView.frame = CGRect(x: randomXPosition, y: view.frame.maxY, width: randomSize, height: randomSize)
+        imageView.alpha = 0.7
+        imageView.tintColor = .white
+        return imageView
+    }
+    
+    func productEffectAnimation(timeInterval: TimeInterval) {
+        // 設定定時器
+        Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { (timer) in
+            // 產生氣泡圖片加到畫面中
+            let productImageView = self.makeProduct()
+            self.tableView.addSubview(productImageView)
+            // 隨機動畫持續時間
+            let randomDuration = Double(arc4random_uniform(5) + 1) * 0.8
+            // 動畫設定
+            UIView.animate(withDuration: randomDuration, delay: 0, options: [.curveEaseInOut], animations: {
+                productImageView.center.y -= self.view.bounds.height + productImageView.bounds.height
+                productImageView.alpha = 1
+            }, completion: { (_) in
+                // 動畫結束後將氣泡圖片移除
+                productImageView.removeFromSuperview()
+            })
+        }
+    }
+    
 }
 
 extension SearchViewController: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {

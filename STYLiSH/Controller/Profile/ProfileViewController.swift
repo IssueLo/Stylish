@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    var delegate: ProfileViewControllerDelegate?
+    
     let orderListProvider = OrderListProvider()
     
     @IBOutlet weak var showEmptyView: UIView!
@@ -54,13 +56,6 @@ class ProfileViewController: UIViewController {
         
         KeyChainManager.shared.token = nil
         
-        if let vc = UIStoryboard.auth.instantiateInitialViewController() {
-
-            vc.modalPresentationStyle = .overCurrentContext
-
-            present(vc, animated: false, completion: nil)
-        }
-        
         orders = []
         
         orderProfileUserName.text = ""
@@ -92,11 +87,12 @@ class ProfileViewController: UIViewController {
         
         if KeyChainManager.shared.token == nil {
             
-            logBtn.setTitle("登入", for: .normal)
+            logBtn.isHidden = true
             
         } else {
             
             logBtn.setTitle("登出", for: .normal)
+            logBtn.isHidden = false
         }
     }
     
@@ -421,5 +417,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         return orderCell
     }
     
+    
+}
+
+
+protocol ProfileViewControllerDelegate {
+    
+    func backToLobby(vc: ProfileViewController)
     
 }

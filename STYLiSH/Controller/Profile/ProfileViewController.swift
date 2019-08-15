@@ -10,9 +10,11 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    let orderListProvider = OrderListProvider()
+    
     @IBOutlet weak var showEmptyView: UIView!
     
-    let orderListProvider = OrderListProvider()
+    @IBOutlet weak var logBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +37,17 @@ class ProfileViewController: UIViewController {
 
         fetchOrderData()
         fetchUserProfile()
+        updateBtn()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+        orderTableView.reloadData()
+        
         fetchOrderData()
         fetchUserProfile()
+        updateBtn()
     }
     
     @IBAction func logOut(_ sender: Any) {
@@ -49,15 +55,22 @@ class ProfileViewController: UIViewController {
         KeyChainManager.shared.token = nil
         
         if let vc = UIStoryboard.auth.instantiateInitialViewController() {
-            
+
             vc.modalPresentationStyle = .overCurrentContext
-            
+
             present(vc, animated: false, completion: nil)
         }
+        
+        orders = []
         
         orderProfileUserName.text = ""
         
         orderProfileUserID.text = "ID: "
+        
+        fetchOrderData()
+        fetchUserProfile()
+        updateBtn()
+        
     }
     
     @IBOutlet weak var orderProfileUserName: UILabel!
@@ -73,6 +86,18 @@ class ProfileViewController: UIViewController {
             orderTableView.dataSource = self
         }
     
+    }
+    
+    func updateBtn() {
+        
+        if KeyChainManager.shared.token == nil {
+            
+            logBtn.setTitle("登入", for: .normal)
+            
+        } else {
+            
+            logBtn.setTitle("登出", for: .normal)
+        }
     }
     
     var profile: UserData = UserData(id: 0, provider: "", name: "", email: "", picture: nil, gender: nil, birth: nil, phone: nil, location: nil)
@@ -385,7 +410,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         
         orderCell.selectedQuantity.text = "數量：\(qtn)"
         
-        orderCell.orderProductImage.loadImage("https://300zombies.com/assets/\(productId)/main.jpg")
+        DispatchQueue.main.async {
+            orderCell.orderProductImage.loadImage("https://300zombies.com/assets/\(productId)/main.jpg")
+        }
         
         orderCell.orderProductBaseView.layoutView(title: title , size: size, price: String(price), color: color)
         

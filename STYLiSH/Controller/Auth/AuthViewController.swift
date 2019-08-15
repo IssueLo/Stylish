@@ -28,6 +28,10 @@ class AuthViewController: STBaseViewController {
             self?.contentView.isHidden = false
         })
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+    }
 
     @IBAction func dismissView(_ sender: UIButton) {
 
@@ -64,6 +68,7 @@ class AuthViewController: STBaseViewController {
             case .success:
 
                 LKProgressHUD.showSuccess(text: "STYLiSH 登入成功")
+
 
             case .failure:
 

@@ -128,12 +128,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fb-Kk-nRw">
                                 <rect key="frame" x="0.0" y="64" width="375" height="92"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_sticker_placeholder01" translatesAutoresizingMaskIntoConstraints="NO" id="n54-dD-RdY">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_sticker_placeholder01" translatesAutoresizingMaskIntoConstraints="NO" id="n54-dD-RdY">
                                         <rect key="frame" x="16" y="16" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="n54-dD-RdY" secondAttribute="height" id="JdT-QH-3ew"/>
                                             <constraint firstAttribute="width" constant="60" id="o3B-rx-WAr"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AppWorks School" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNj-wu-sFn">
                                         <rect key="frame" x="92" y="30.5" width="148" height="25.5"/>
@@ -237,9 +242,11 @@
                     <navigationItem key="navigationItem" title="個人" id="x05-vx-TQW"/>
                     <connections>
                         <outlet property="collectionView" destination="Rwc-aW-35L" id="zPF-Nk-tPD"/>
+                        <outlet property="logBtn" destination="bes-6w-gPr" id="I37-Ic-9X9"/>
                         <outlet property="orderProfileUserID" destination="mLd-2G-bPc" id="Utn-rr-PeT"/>
                         <outlet property="orderProfileUserName" destination="yNj-wu-sFn" id="9ep-bD-6c4"/>
                         <outlet property="orderTableView" destination="g0W-Gz-1bZ" id="5Ul-WG-1Oz"/>
+                        <outlet property="profilePhoto" destination="n54-dD-RdY" id="EN6-a5-wow"/>
                         <outlet property="showAllBtn" destination="Grz-aq-dsd" id="4lU-F6-daY"/>
                         <outlet property="showEmptyView" destination="bQU-yF-42r" id="Rjn-nk-ACe"/>
                     </connections>

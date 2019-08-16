@@ -24,7 +24,6 @@ class LobbyViewController: STBaseViewController {
         UIView.animate(withDuration: 3) {
             self.logoView.alpha = 0
         }
-        
     }
     
     @IBOutlet weak var lobbyView: LobbyView! {

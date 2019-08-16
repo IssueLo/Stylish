@@ -223,7 +223,7 @@ class ProductListViewController: STCompondViewController {
     
     func makeProduct() -> UIImageView {
         let imageView = UIImageView()
-        imageView.image = UIImage.asset(.Icons_36px_Catalog_Normal)
+        imageView.image = UIImage.asset(.Icons_24px_Starred)
         // 隨機產生 x 座標
         let randomXPosition = CGFloat(arc4random_uniform(UInt32(view.bounds.width)))
         // 隨機產生圖片 Size
@@ -255,15 +255,15 @@ class ProductListViewController: STCompondViewController {
     
     func makeProductOnCollectionView() -> UIImageView {
         let imageView = UIImageView()
-        imageView.image = UIImage.asset(.Icons_36px_Catalog_Normal)
+        imageView.image = UIImage.asset(.Icons_24px_Starred)
         // 隨機產生 x 座標
         let randomXPosition = CGFloat(arc4random_uniform(UInt32(view.bounds.width)))
         // 隨機產生 y 座標
         let randomYPosition = CGFloat(arc4random_uniform(UInt32(view.bounds.height)))
         // 隨機產生圖片 Size
-        let randomSize = CGFloat(arc4random_uniform(3) + 2) * 20
+        let randomSize = CGFloat(arc4random_uniform(3) + 2) * 10
         imageView.frame = CGRect(x: randomXPosition, y: randomYPosition, width: randomSize, height: randomSize)
-        imageView.alpha = 0.7
+        imageView.alpha = 0.5
         imageView.tintColor = .white
         return imageView
     }

@@ -24,6 +24,8 @@ class WishListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        productEffectAnimationOnCollectionView(timeInterval: 0.5)
+        
         fetchWishes()
         setUpFlatCardView()
     }
@@ -125,6 +127,47 @@ class WishListViewController: UIViewController {
         wishListCollectionView.lk_registerCellWithNib(identifier: String(describing: WishListCell.self), bundle: nil)
     }
 
+    func makeProductOnCollectionView() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "icons8-heart-50-2")
+        // 隨機產生 x 座標
+        let randomXPosition = CGFloat(arc4random_uniform(UInt32(view.bounds.width)))
+        // 隨機產生 y 座標
+        let randomYPosition = CGFloat(arc4random_uniform(UInt32(view.bounds.height)))
+        // 隨機產生圖片 Size
+        let randomSize = CGFloat(arc4random_uniform(4) + 2) * 5
+        imageView.frame = CGRect(x: randomXPosition, y: randomYPosition, width: randomSize, height: randomSize)
+        imageView.alpha = 0.1
+        
+        return imageView
+    }
+    
+    func productEffectAnimationOnCollectionView(timeInterval: TimeInterval) {
+        // 設定定時器
+        Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { (timer) in
+            // 產生氣泡圖片加到畫面中
+            let productImageView = self.makeProductOnCollectionView()
+            self.wishListCollectionView.addSubview(productImageView)
+            // 隨機動畫持續時間
+            let randomDuration = Double(arc4random_uniform(5) + 1) * 1.5
+            // 動畫設定
+            UIView.animate(withDuration: randomDuration, delay: 0, options: [.curveEaseInOut], animations: {
+//                func locationY(_ locationX: CGFloat ) -> CGFloat {
+//                    let x = locationX / 100
+//                    return (x * x + 2 * x + 1)
+//                }
+//                productImageView.center.x += self.view.bounds.width - productImageView.bounds.width
+//                productImageView.center.y = locationY(productImageView.center.x)
+                productImageView.center.y -= 280
+                
+                productImageView.alpha = 1
+            }, completion: { (_) in
+                // 動畫結束後將氣泡圖片移除
+                productImageView.removeFromSuperview()
+            })
+        }
+    }
+    
 }
 
 

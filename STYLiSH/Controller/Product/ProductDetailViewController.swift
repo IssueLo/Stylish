@@ -327,7 +327,7 @@ extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
         
         guard let product = product else {return}
         
-        guard let url = URL(string: "https://300zombies.com/product.html?id=\(product.id)") else {return}
+        guard let url = URL(string: "https://this-ting.github.io/Stylish-Web/public/product.html?id=\(product.id)") else {return}
         
         print(url)
         

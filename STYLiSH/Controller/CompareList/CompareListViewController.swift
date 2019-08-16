@@ -201,70 +201,125 @@ extension CompareListViewController: UICollectionViewDelegate, UICollectionViewD
         return compareCell
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        // 在動畫效果之前先進行下列操作
-        // 將透明度設為 0，再把 Cell 位移到右下角，並且長寬縮小 0.5 倍。
-        cell.alpha = 0
-        cell.transform = CGAffineTransform(translationX: cell.bounds.width / 2, y: cell.bounds.height / 3).concatenating(CGAffineTransform(scaleX: 0.5, y: 0.5))
-        
-        UIView.animate(withDuration: 0.4) {
-            // 執行動畫效果
-            // 將透明度改回 1，並取消所有的變形效果，回到原樣及位置。
-            cell.alpha = 1
-            cell.transform = CGAffineTransform.identity
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        // 在動畫效果之前先進行下列操作
+//        // 將透明度設為 0，再把 Cell 位移到右下角，並且長寬縮小 0.5 倍。
+//        cell.alpha = 0
+//        cell.transform = CGAffineTransform(translationX: cell.bounds.width / 2, y: cell.bounds.height / 3).concatenating(CGAffineTransform(scaleX: 0.5, y: 0.5))
+//        
+//        UIView.animate(withDuration: 0.4) {
+//            // 執行動畫效果
+//            // 將透明度改回 1，並取消所有的變形效果，回到原樣及位置。
+//            cell.alpha = 1
+//            cell.transform = CGAffineTransform.identity
+//        }
+//    }
 }
 
-//@IBAction func addToCompareListBtn(_ sender: UIButton) {
-//
-//    if productPickerView.superview == nil {
-//
-//        showProductPickerView()
-//
-//    } else {
-//
-//        guard let product = product else { return }
-//        
-//        CompareListManager.shared.saveCPProduct(
-//            product: product,
-//            completion: { result in
-//
-//                switch result {
-//
-//                case .success:
-//
-//                    LKProgressHUD.showSuccess()
-//
-//                    dismissPicker(pickerViewController!)
-//
-//                case .failure:
-//
-//                    LKProgressHUD.showFailure(text: "儲存失敗！")
-//                }
-//        })
-//    }
-//}
 
 
-//class CompareListFlowLayout: UICollectionViewFlowLayout {
-//    
-//    override var collectionViewContentSize: CGSize {
-//        
-//        let newSize: CGSize = CGSize(width: 3 * 154, height: 404)
-//        return newSize
-//    }
-//    
-//    override var estimatedItemSize: CGSize {
-//        
-//        let newSize: CGSize = CGSize(width: 154, height: 404)
-//        return newSize
-//    }
-//    
-//}
+class CompareListViewControllerViewLayout: UICollectionViewLayout{
+    
+    //    weak var delegate: CollectionViewLayoutDelegate?
+    
+    let itemSize = CGSize(width: 180, height: 500)
+    
+    
+    var angleAtExtreme: CGFloat {
+        return collectionView!.numberOfItems(inSection: 0) > 0 ?
+            -CGFloat(collectionView!.numberOfItems(inSection: 0) - 1) * anglePerItem : 0
+    }
+    var angle: CGFloat {
+        return angleAtExtreme * collectionView!.contentOffset.x / (collectionViewContentSize.width -
+            collectionView!.bounds.size.width)
+    }
+    
+    
+    
+    var radius: CGFloat = 3000 {
+        didSet {
+            invalidateLayout()
+        }
+    }
+    
+    var anglePerItem: CGFloat {
+        return atan(itemSize.width / radius)
+    }
+    
+    override var collectionViewContentSize: CGSize {
+        return CGSize(width: CGFloat(collectionView!.numberOfItems(inSection: 0)) * itemSize.width,
+                      height: collectionView!.bounds.size.height)
+        //        print(collectionViewContentSize)
+    }
+    
+    var layoutAttributesClass: AnyClass {
+        return CompareListViewControllerViewLayout.self
+    }
+    
+    var attributesList = [CompareListViewControllerLayoutAttributes]()
+    
+    override func prepare() {
+        super.prepare()
+        
+        let centerX = collectionView!.contentOffset.x + (collectionView!.bounds.size.width / 2.0)
+        
+        let anchorPointY = ((itemSize.height / 2.0) + radius) / itemSize.height
+        
+        
+        
+        attributesList = (0..<collectionView!.numberOfItems(inSection: 0)).map { (i)
+            -> CompareListViewControllerLayoutAttributes in
+            // 1
+            let attributes = CompareListViewControllerLayoutAttributes(forCellWith: NSIndexPath(item: i,
+                                                                                                section: 0) as IndexPath)
+            attributes.size = self.itemSize
+            // 2
+            attributes.center = CGPoint(x: centerX, y: self.collectionView!.bounds.midY)
+            // 3
+            //            attributes.angle = self.anglePerItem * CGFloat(i)
+            attributes.angle = self.angle + (self.anglePerItem * CGFloat(i))
+            
+            attributes.anchorPoint = CGPoint(x: 0.5, y: anchorPointY)
+            
+            return attributes
+        }
+    }
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        return attributesList
+    }
+    
+    //设置item用到的attribute
+    func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath)
+        -> UICollectionViewLayoutAttributes! {
+            return attributesList[indexPath.row]
+    }
+    
+    
+    
+    
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return true
+    }
+    
+}
 
-
-
-//extension CompareListViewController: UICollectionViewFlowLayout {
-//
-//}
+class CompareListViewControllerLayoutAttributes: UICollectionViewLayoutAttributes {
+    // 1
+    var anchorPoint = CGPoint(x: 0.5, y: 0.5)
+    var angle: CGFloat = 0 {
+        // 2
+        didSet {
+            zIndex = Int(angle * 1000000)
+            transform = CGAffineTransform(rotationAngle: angle)
+        }
+    }
+    // 3
+    override func copy(with zone: NSZone? = nil) -> Any {
+        let copiedAttributes: CompareListViewControllerLayoutAttributes =
+            super.copy(with: zone) as! CompareListViewControllerLayoutAttributes
+        copiedAttributes.anchorPoint = self.anchorPoint
+        copiedAttributes.angle = self.angle
+        return copiedAttributes
+    }
+}

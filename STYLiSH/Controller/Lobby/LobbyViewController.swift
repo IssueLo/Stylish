@@ -15,7 +15,7 @@ class LobbyViewController: STBaseViewController {
     
     @IBOutlet weak var logoImage: UIImageView!
     
-    func logoImageAnimate() {
+    func logoViewAnimate() {
         
         UIView.animate(withDuration: 2.5) {
             self.logoImage.alpha = 0
@@ -49,7 +49,7 @@ class LobbyViewController: STBaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        logoImageAnimate()
+        logoViewAnimate()
     }
     
     override func viewDidLoad() {

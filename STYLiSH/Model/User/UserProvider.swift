@@ -54,6 +54,66 @@ class UserProvider {
 
         })
     }
+    
+    // Add by Kevin
+    func nativeSignUpToSTYLiSH(name: String, email: String, password: String, completion: @escaping (Result<Void>) -> Void) {
+        
+        HTTPClient.shared.request(STUserRequest.signup(name: name, email: email, password: password), completion: { result in
+            
+            switch result {
+                
+            case .success(let data):
+                
+                do {
+                    
+                    let userObject = try JSONDecoder().decode(STSuccessParser<AddUserObject>.self, from: data)
+                    
+                    KeyChainManager.shared.token = userObject.data.accessToken
+                    
+                    completion(Result.success(()))
+                    
+                } catch {
+                    
+                    completion(Result.failure(error))
+                }
+                
+            case .failure(let error):
+                
+                completion(Result.failure(error))
+            }
+            
+        })
+    }
+    
+    // Add by Kevin
+    func nativeSignInToSTYLiSH(email: String, password: String, completion: @escaping (Result<Void>) -> Void) {
+        
+        HTTPClient.shared.request(STUserRequest.nativesignin(email: email, password: password), completion: { result in
+            
+            switch result {
+                
+            case .success(let data):
+                
+                do {
+                    
+                    let userObject = try JSONDecoder().decode(STSuccessParser<UserObject>.self, from: data)
+                    
+                    KeyChainManager.shared.token = userObject.data.accessToken
+                    
+                    completion(Result.success(()))
+                    
+                } catch {
+                    
+                    completion(Result.failure(error))
+                }
+                
+            case .failure(let error):
+                
+                completion(Result.failure(error))
+            }
+            
+        })
+    }
 
     func loginWithFaceBook(from: UIViewController, completion: @escaping FacebookResponse) {
         
@@ -119,6 +179,8 @@ class UserProvider {
             switch result {
 
             case .success(let data):
+                
+                guard let jsonData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {return}
 
                 do {
 

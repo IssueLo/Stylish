@@ -14,4 +14,6 @@ target 'STYLiSH' do
   pod 'JGProgressHUD'
   pod 'KeychainAccess'
   pod 'FBSDKLoginKit'
+  pod 'FacebookShare'
+
 end

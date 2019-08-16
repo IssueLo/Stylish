@@ -9,7 +9,23 @@
 import UIKit
 
 class LobbyViewController: STBaseViewController {
-
+    
+    // MARK: Add by Kevin
+    @IBOutlet weak var logoView: UIView!
+    
+    @IBOutlet weak var logoImage: UIImageView!
+    
+    func logoViewAnimate() {
+        
+        UIView.animate(withDuration: 2.5) {
+            self.logoImage.alpha = 0
+        }
+        
+        UIView.animate(withDuration: 3) {
+            self.logoView.alpha = 0
+        }
+    }
+    
     @IBOutlet weak var lobbyView: LobbyView! {
 
         didSet {
@@ -29,6 +45,13 @@ class LobbyViewController: STBaseViewController {
     let marketProvider = MarketProvider()
 
     //MARK: - View Life Cycle
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        logoViewAnimate()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

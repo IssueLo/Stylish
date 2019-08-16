@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F203" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CPColor" representedClassName="CPColor" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CPProduct" inverseName="colors" inverseEntity="CPProduct" syncable="YES"/>
+    </entity>
+    <entity name="CPProduct" representedClassName="CPProduct" syncable="YES" codeGenerationType="class">
+        <attribute name="mainImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sizes" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="texture" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wash" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="colors" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CPColor" inverseName="product" inverseEntity="CPColor" syncable="YES"/>
+    </entity>
     <entity name="LSColor" representedClassName="LSColor" syncable="YES" codeGenerationType="class">
         <attribute name="code" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
@@ -11,6 +26,7 @@
         <attribute name="seletedColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="seletedSize" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LSProduct" inverseName="order" inverseEntity="LSProduct" syncable="YES"/>
+        <relationship name="wishProduct" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WishProduct" inverseName="order" inverseEntity="WishProduct" syncable="YES"/>
     </entity>
     <entity name="LSProduct" representedClassName="LSProduct" syncable="YES" codeGenerationType="class">
         <attribute name="detail" attributeType="String" syncable="YES"/>
@@ -35,10 +51,43 @@
         <attribute name="stocks" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LSProduct" inverseName="variants" inverseEntity="LSProduct" syncable="YES"/>
     </entity>
+    <entity name="WishColor" representedClassName="WishColor" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WishProduct" inverseName="colors" inverseEntity="WishProduct" syncable="YES"/>
+    </entity>
+    <entity name="WishProduct" representedClassName="WishProduct" syncable="YES" codeGenerationType="class">
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="images" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="mainImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sizes" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="story" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="texture" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wash" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="colors" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WishColor" inverseName="product" inverseEntity="WishColor" syncable="YES"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LSOrder" inverseName="wishProduct" inverseEntity="LSOrder" syncable="YES"/>
+        <relationship name="variants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WishVariant" inverseName="product" inverseEntity="WishVariant" syncable="YES"/>
+    </entity>
+    <entity name="WishVariant" representedClassName="WishVariant" syncable="YES" codeGenerationType="class">
+        <attribute name="colorCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stocks" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WishProduct" inverseName="variants" inverseEntity="WishProduct" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="LSProduct" positionX="-63" positionY="-18" width="128" height="270"/>
-        <element name="LSOrder" positionX="-54" positionY="-9" width="128" height="120"/>
+        <element name="CPColor" positionX="-45" positionY="99" width="128" height="90"/>
+        <element name="CPProduct" positionX="-36" positionY="108" width="128" height="165"/>
         <element name="LSColor" positionX="-36" positionY="72" width="128" height="90"/>
+        <element name="LSOrder" positionX="-54" positionY="-9" width="128" height="135"/>
+        <element name="LSProduct" positionX="-63" positionY="-18" width="128" height="270"/>
         <element name="LSVariant" positionX="-18" positionY="99" width="128" height="105"/>
+        <element name="WishProduct" positionX="-45" positionY="117" width="128" height="270"/>
+        <element name="WishColor" positionX="-27" positionY="135" width="128" height="90"/>
+        <element name="WishVariant" positionX="-18" positionY="162" width="128" height="105"/>
     </elements>
 </model>

@@ -7,9 +7,21 @@
 //
 
 import UIKit
+import FacebookShare
+import FBSDKShareKit
 
 class ProductDetailViewController: STBaseViewController, UITableViewDataSource, UITableViewDelegate {
-
+   
+//    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+//        return product?.mainImage
+//    }
+//
+//    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+//        return product?.mainImage
+//    }
+    
+    @IBOutlet weak var popBackBtn: UIButton!
+    
     private struct Segue {
 
         static let picker = "SeguePicker"
@@ -54,6 +66,8 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
         .description, .color, .size, .stock, .texture, .washing, .placeOfProduction, .remarks
     ]
 
+    var wishProductID: Int64?
+    
     var product: Product? {
 
         didSet {
@@ -89,6 +103,7 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
             String(describing: ProductDescriptionTableViewCell.self),
                                          bundle: nil
         )
+        
 
         tableView.lk_registerCellWithNib(identifier:
             ProductDetailCell.color,
@@ -100,6 +115,8 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
                                          bundle: nil
         )
     }
+    
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
@@ -116,6 +133,7 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
 
     // MARK: - Action
     @IBAction func didTouchAddToCarBtn(_ sender: UIButton) {
+        
 
         if productPickerView.superview == nil {
 
@@ -137,13 +155,13 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
 
                     case .success:
 
-                        LKProgressHUD.showSuccess()
+                        LKProgressHUD.showSuccess(text: "成功加入購物車", self.view)
 
                         dismissPicker(pickerViewController!)
 
                     case .failure:
 
-                        LKProgressHUD.showFailure(text: "儲存失敗！")
+                        LKProgressHUD.showFailure(text: "儲存失敗！", self.view)
                     }
                 })
         }
@@ -205,8 +223,19 @@ class ProductDetailViewController: STBaseViewController, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         guard let product = product else { return UITableViewCell() }
-
-        return datas[indexPath.row].cellForIndexPath(indexPath, tableView: tableView, data: product)
+        
+        guard let descriptCell = datas[0].cellForIndexPath(indexPath, tableView: tableView, data: product) as? ProductDescriptionTableViewCell else {return UITableViewCell()}
+        
+        descriptCell.delegate = self
+        
+        if indexPath.row == 0 {
+            
+            return descriptCell
+            
+        } else {
+        
+            return datas[indexPath.row].cellForIndexPath(indexPath, tableView: tableView, data: product)
+        }
     }
 
     // MARK: - UITableViewDelegate
@@ -259,5 +288,157 @@ extension ProductDetailViewController: ProductPickerControllerDelegate {
         }
 
         isEnableAddToCarBtn(true)
+    }
+}
+
+extension ProductDetailViewController: ProductDescriptionTableViewCellDelegate {
+
+    // 以 iOS 內建 UIActivityVC 分享
+    func showSharingPage() {
+        
+//        let storyBoard = UIStoryboard(name: "ProductShare", bundle: nil)
+//        let controller = storyBoard.instantiateViewController(withIdentifier: "ProductShareViewController")
+//        controller.modalPresentationStyle = .overCurrentContext
+//        self.present(controller, animated: false, completion: nil)
+        
+        guard let product = product else {
+            print("獲取資料失敗，請重新進入畫面")
+            return
+        }
+        
+        let items = [product.title, URL(string: product.mainImage) ?? "圖片網址", "NT$ \(product.price)"] as [Any]
+        
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+        
+        
+        print("delegate 分享")
+    }
+    
+    
+    // 以 FBSDK 方式分享
+    func showShareDialog<C: SharingContent>(_ content: C, mode: ShareDialog.Mode = .automatic) {
+        let dialog = ShareDialog(fromViewController: self, content: content, delegate: self as? SharingDelegate)
+        dialog.mode = mode
+        dialog.show()
+    }
+    
+    func shareToFB() {
+        
+        guard let product = product else {return}
+        
+        guard let url = URL(string: "https://this-ting.github.io/Stylish-Web/public/product.html?id=\(product.id)") else {return}
+        
+        print(url)
+        
+        let content = ShareLinkContent()
+        content.contentURL = url
+        content.quote = "\(product.title)  #STYLiSH"
+        content.placeID = "296758097659999"
+        
+        showShareDialog(content, mode: .automatic)
+        print("delegate FBSDK 分享")
+        
+    }
+    
+    // Add By Kevin
+    func addToCompareList() {
+        
+        guard let product = product else { return }
+        
+        CompareListManager.shared.saveCPProduct(
+            product: product,
+            completion: { result in
+                
+                switch result {
+                    
+                case .success:
+                    
+                    LKProgressHUD.showSuccess(text: "成功加入比較清單", self.view)
+                    
+                case .failure:
+                    
+                    LKProgressHUD.showFailure(text: "儲存失敗！", self.view)
+                }
+        })
+    }
+    
+    // 加入 wish list
+    func addToWishList() {
+        
+        WishListManager.shared.fetchWishProducts()
+        
+        guard let product = product else { return }
+        
+        let id = Int64(product.id)
+        
+        let wishesDone = WishListManager.shared.wishListProducts
+        
+        print("wishDone: \(wishesDone.count)")
+        
+        if  wishesDone.count == 0 {
+            
+            WishListManager.shared.saveWishProduct(product: product, completion: { (saveresult) in
+                
+                switch saveresult {
+                    
+                case .success:
+                    
+                    LKProgressHUD.showSuccess(text: "許願成功！")
+                    
+                case .failure:
+                    
+                    LKProgressHUD.showFailure(text: "許願失敗")
+                }
+            })
+            
+        } else if wishesDone.count != 0 {
+            
+            if wishProductID != nil {
+                
+                LKProgressHUD.showSuccess(text: "已經許願過囉")
+                
+                print("從 wish 除重成功")
+        
+            } else if wishProductID == nil {
+                
+                var wisheBeforeidArray: [Int64] = []
+                
+                for wishBefore in wishesDone {
+                    
+                    wisheBeforeidArray.append(wishBefore.id)
+                }
+    
+                if wisheBeforeidArray.contains(id) {
+                        
+                        LKProgressHUD.showSuccess(text: "已經許願過囉")
+                        
+                        print("除重成功")
+                        
+                        
+                } else {
+                        
+                        WishListManager.shared.saveWishProduct(product: product, completion: { (saveresult) in
+                            
+                            switch saveresult {
+                                
+                            case .success:
+                                
+                                LKProgressHUD.showSuccess(text: "許願成功！")
+                                print("存進願望")
+                                
+                                
+                            case .failure:
+                                
+                                LKProgressHUD.showFailure(text: "許願失敗")
+                            }
+                        })
+                        
+                    }
+                    
+                }
+                
+            }
+        
     }
 }

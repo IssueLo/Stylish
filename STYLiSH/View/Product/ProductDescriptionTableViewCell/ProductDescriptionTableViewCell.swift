@@ -10,6 +10,8 @@ import UIKit
 
 class ProductDescriptionTableViewCell: ProductBasicCell {
 
+    @IBOutlet weak var addToWishBtn: UIButton!
+    
     @IBOutlet weak var titleLbl: UILabel!
 
     @IBOutlet weak var priceLbl: UILabel!
@@ -18,6 +20,34 @@ class ProductDescriptionTableViewCell: ProductBasicCell {
 
     @IBOutlet weak var detailLbl: UILabel!
 
+    @IBAction func sharingBtnPressed(_ sender: Any) {
+        
+//        delegate?.showSharingPage()
+        delegate?.shareToFB()
+    }
+    
+    // Add By Kevin
+    @IBOutlet weak var addToCompareListBtn: UIButton!
+    
+    @IBAction func addToCompareList(_ sender: Any) {
+        
+        delegate?.addToCompareList()
+        
+        addToCompareListBtn.isEnabled = false
+    }
+    
+    // Add By Sylvia
+    @IBAction func addToWishList(_ sender: Any) {
+        
+        delegate?.addToWishList()
+        
+        addToWishBtn.isEnabled = false
+        
+        addToWishBtn.setImage(UIImage(named: "icons8-in-love-24"), for: .init())
+        // icons8-in-love-50-2
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,4 +63,13 @@ class ProductDescriptionTableViewCell: ProductBasicCell {
 
         detailLbl.text = product.story
     }
+    
+    weak var delegate: ProductDescriptionTableViewCellDelegate?
+}
+
+protocol ProductDescriptionTableViewCellDelegate: AnyObject {
+    func showSharingPage()
+    func shareToFB()
+    func addToCompareList()
+    func addToWishList()
 }

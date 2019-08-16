@@ -8,6 +8,7 @@
 
 import UIKit
 
+// 設定 tab bar items
 private enum Tab {
 
     case lobby
@@ -17,6 +18,8 @@ private enum Tab {
     case profile
 
     case trolley
+    
+    case wishList
 
     func controller() -> UIViewController {
 
@@ -31,6 +34,8 @@ private enum Tab {
         case .profile: controller = UIStoryboard.profile.instantiateInitialViewController()!
 
         case .trolley: controller = UIStoryboard.trolley.instantiateInitialViewController()!
+            
+        case .wishList: controller = UIStoryboard.wishList.instantiateInitialViewController()!
 
         }
 
@@ -72,15 +77,25 @@ private enum Tab {
                 image: UIImage.asset(.Icons_36px_Profile_Normal),
                 selectedImage: UIImage.asset(.Icons_36px_Profile_Selected)
             )
+            
+        case .wishList:
+            return UITabBarItem(
+                title: nil,
+                image:
+                UIImage(named: "icons8-heart-50"),
+                selectedImage: UIImage(named: "icons8-heart-50-2")
+            )
         }
     }
 }
 
 class STTabBarViewController: UITabBarController, UITabBarControllerDelegate {
 
-    private let tabs: [Tab] = [.lobby, .product, .trolley, .profile]
+    private let tabs: [Tab] = [.lobby, .product, .trolley, .profile , .wishList]
     
     var trolleyTabBarItem: UITabBarItem!
+    
+    var wishListTabBarItem: UITabBarItem!
     
     var orderObserver: NSKeyValueObservation!
 
@@ -88,6 +103,9 @@ class STTabBarViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
 
         viewControllers = tabs.map({ $0.controller() })
+        
+        self.tabBar.tintColor = .brown
+        self.tabBar.unselectedItemTintColor = UIColor.B4
 
         trolleyTabBarItem = viewControllers?[2].tabBarItem
         

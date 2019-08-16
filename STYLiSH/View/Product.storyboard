@@ -18,6 +18,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovl-mw-pYu">
+                                <rect key="frame" x="0.0" y="44" width="414" height="1"/>
+                                <color key="backgroundColor" name="B4"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="W6Q-Hz-gpD"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iT1-40-Gaf">
+                                <rect key="frame" x="0.0" y="44" width="138" height="1"/>
+                                <color key="backgroundColor" name="B1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Gb5-n1-hO0"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wo4-r2-uEs">
+                                <rect key="frame" x="0.0" y="45" width="414" height="729"/>
+                                <connections>
+                                    <segue destination="0fW-Bv-nO2" kind="embed" identifier="SegueMen" id="fLF-VF-2VV"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nzb-lH-MQR">
+                                <rect key="frame" x="0.0" y="45" width="414" height="729"/>
+                                <connections>
+                                    <segue destination="z7y-xk-zwK" kind="embed" identifier="SegueAccessories" id="YtP-im-DMZ"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EzC-7D-T5k">
+                                <rect key="frame" x="0.0" y="45" width="414" height="729"/>
+                                <connections>
+                                    <segue destination="iS0-b9-T4S" kind="embed" identifier="SegueWomen" id="cAL-Qr-2Xg"/>
+                                </connections>
+                            </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Mfk-Mn-LZ1">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <subviews>
@@ -65,38 +97,6 @@
                                     <constraint firstAttribute="height" constant="44" id="vQB-Oq-8gF"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovl-mw-pYu">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1"/>
-                                <color key="backgroundColor" name="B4"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="W6Q-Hz-gpD"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iT1-40-Gaf">
-                                <rect key="frame" x="0.0" y="44" width="138" height="1"/>
-                                <color key="backgroundColor" name="B1"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="Gb5-n1-hO0"/>
-                                </constraints>
-                            </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wo4-r2-uEs">
-                                <rect key="frame" x="0.0" y="45" width="414" height="729"/>
-                                <connections>
-                                    <segue destination="0fW-Bv-nO2" kind="embed" identifier="SegueMen" id="fLF-VF-2VV"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nzb-lH-MQR">
-                                <rect key="frame" x="0.0" y="45" width="414" height="729"/>
-                                <connections>
-                                    <segue destination="z7y-xk-zwK" kind="embed" identifier="SegueAccessories" id="YtP-im-DMZ"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EzC-7D-T5k">
-                                <rect key="frame" x="0.0" y="45" width="414" height="729"/>
-                                <connections>
-                                    <segue destination="iS0-b9-T4S" kind="embed" identifier="SegueWomen" id="cAL-Qr-2Xg"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -119,12 +119,25 @@
                             <constraint firstItem="ovl-mw-pYu" firstAttribute="leading" secondItem="ssr-DQ-tiu" secondAttribute="leading" id="daG-WE-OWY"/>
                             <constraint firstItem="ovl-mw-pYu" firstAttribute="top" secondItem="Mfk-Mn-LZ1" secondAttribute="bottom" id="fuD-N3-kAl"/>
                             <constraint firstItem="ssr-DQ-tiu" firstAttribute="bottom" secondItem="Wo4-r2-uEs" secondAttribute="bottom" id="oQa-xf-BEh"/>
-                            <constraint firstItem="Mfk-Mn-LZ1" firstAttribute="top" secondItem="ssr-DQ-tiu" secondAttribute="top" id="t6S-Gg-3bM"/>
+                            <constraint firstItem="Mfk-Mn-LZ1" firstAttribute="top" secondItem="ssr-DQ-tiu" secondAttribute="top" id="rfY-ag-0FD"/>
                             <constraint firstItem="EzC-7D-T5k" firstAttribute="trailing" secondItem="nzb-lH-MQR" secondAttribute="trailing" id="wDo-4k-BjJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssr-DQ-tiu"/>
                     </view>
                     <navigationItem key="navigationItem" title="型錄" id="dI3-PV-yB4">
+                        <leftBarButtonItems>
+                            <barButtonItem image="Icons_search" id="UzU-Xk-YWq">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="toSearchVC:" destination="Yka-na-vga" id="0gJ-JI-5Sr"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="Icons_24px_Exchange" id="BJ4-cm-KTe">
+                                <connections>
+                                    <action selector="toCompareList:" destination="Yka-na-vga" id="DaL-Cc-8aA"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="Icons_24px_ListView" id="fMg-rv-MfI">
                             <connections>
                                 <action selector="onChangeLayoutType:" destination="Yka-na-vga" id="PF2-93-Z2f"/>
@@ -145,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atF-IO-8C8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1737" y="3"/>
+            <point key="canvasLocation" x="1736.2318840579712" y="2.6785714285714284"/>
         </scene>
         <!--No Underline Navigation Controller-->
         <scene sceneID="EBx-ly-Xbs">
@@ -292,6 +305,7 @@
                         <outlet property="addToCarBtn" destination="Vgc-kd-UhY" id="iBJ-r3-ftg"/>
                         <outlet property="baseView" destination="jBF-Qv-Z58" id="6ch-lG-Boi"/>
                         <outlet property="galleryView" destination="171-NO-oAQ" id="YgB-uE-CdA"/>
+                        <outlet property="popBackBtn" destination="bz7-Xk-k2r" id="5fp-mF-U6h"/>
                         <outlet property="productPickerView" destination="baA-ET-avg" id="2VK-4g-FEk"/>
                         <outlet property="tableView" destination="JNy-Dd-FWj" id="pBt-qQ-smn"/>
                     </connections>
@@ -325,7 +339,7 @@
         <!--Product Picker Controller-->
         <scene sceneID="tIe-uh-6xT">
             <objects>
-                <viewController id="BkW-zv-DWw" customClass="ProductPickerController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductPickerController" id="BkW-zv-DWw" customClass="ProductPickerController" customModule="STYLiSH" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BOQ-w2-OZ5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -417,8 +431,10 @@
     </scenes>
     <resources>
         <image name="Icons_24px_Close" width="24" height="24"/>
+        <image name="Icons_24px_Exchange" width="24" height="24"/>
         <image name="Icons_24px_ListView" width="24" height="24"/>
         <image name="Icons_44px_Back01" width="44" height="44"/>
+        <image name="Icons_search" width="20" height="20"/>
         <namedColor name="B1">
             <color red="0.24705882352941178" green="0.22745098039215686" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

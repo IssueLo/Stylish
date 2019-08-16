@@ -64,6 +64,8 @@ class CheckoutViewController: STBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("ORDER長這樣")
+        print(orderProvider.order)
         
     }
     
@@ -121,6 +123,8 @@ class CheckoutViewController: STBaseViewController {
         
         StorageManager.shared.deleteAllProduct(completion: { _ in })
         
+        // TODO: 要在這裡打 API 儲存訂單資訊(貨到付款) -> 改成在 ProfileVC 打 API
+        
         performSegue(withIdentifier: Segue.success, sender: nil)
     }
     
@@ -157,6 +161,7 @@ class CheckoutViewController: STBaseViewController {
                         case .failure(let error):
                             
                             //TODO
+                            print("＝＝＝＝＝結帳失敗========")
                             print(error)
                         }
                 })
@@ -168,6 +173,9 @@ class CheckoutViewController: STBaseViewController {
                 print(error)
             }
         })
+        
+        // TODO: 要在這裡打 API 儲存訂單資訊 (信用卡)/ 或寫一個 function 把過程包在裡面，放這裡 and checkoutWithCash() -> 改成在 ProfileVC 打 API
+
     }
     
     func canCheckout() -> Bool {
@@ -222,6 +230,8 @@ extension CheckoutViewController: UITableViewDataSource, UITableViewDelegate {
         
         return String.empty
     }
+    
+    
 
     //MARK: - Section Row
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

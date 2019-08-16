@@ -36,7 +36,9 @@
                                     <outlet property="tableView" destination="VhC-G4-LCp" id="w0Q-Gm-lxp"/>
                                 </connections>
                             </view>
+
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sai-hU-tOU">
+
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -48,6 +50,7 @@
                         <constraints>
                             <constraint firstItem="YaR-Xc-LhC" firstAttribute="centerY" secondItem="Poa-jY-7cO" secondAttribute="centerY" id="2Dw-rm-k2y"/>
                             <constraint firstItem="6a8-g0-zye" firstAttribute="leading" secondItem="q8u-7N-ibt" secondAttribute="leading" id="5RT-4O-LyP"/>
+
                             <constraint firstItem="sai-hU-tOU" firstAttribute="trailing" secondItem="q8u-7N-ibt" secondAttribute="trailing" id="RxL-xK-Phq"/>
                             <constraint firstItem="YaR-Xc-LhC" firstAttribute="centerX" secondItem="Poa-jY-7cO" secondAttribute="centerX" id="Uzg-3r-bUS"/>
                             <constraint firstItem="q8u-7N-ibt" firstAttribute="trailing" secondItem="6a8-g0-zye" secondAttribute="trailing" id="aTh-FO-5zA"/>
@@ -62,6 +65,7 @@
                     <navigationItem key="navigationItem" id="u9J-6C-wET"/>
                     <connections>
                         <outlet property="lobbyView" destination="6a8-g0-zye" id="Fm5-Va-ZGQ"/>
+
                         <outlet property="logoImage" destination="YaR-Xc-LhC" id="d8g-uf-CjU"/>
                         <outlet property="logoView" destination="sai-hU-tOU" id="95a-4x-WdZ"/>
                     </connections>

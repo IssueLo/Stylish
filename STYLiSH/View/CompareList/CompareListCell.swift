@@ -10,6 +10,15 @@ import UIKit
 
 class CompareListCell: UICollectionViewCell {
     
+    @IBOutlet weak var backView: UIView! {
+        didSet{
+            backView.layer.borderColor = UIColor.black.cgColor
+            backView.layer.borderWidth = 1
+            backView.layer.cornerRadius = 5
+            backView.clipsToBounds = true
+        }
+    }
+    
     @IBOutlet weak var productImage: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -49,6 +58,13 @@ class CompareListCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes!) {
+        super.apply(layoutAttributes)
+        let circularlayoutAttributes = layoutAttributes as! CompareListViewControllerLayoutAttributes
+        self.layer.anchorPoint = circularlayoutAttributes.anchorPoint
+        self.center.y += (circularlayoutAttributes.anchorPoint.y - 0.5) * self.bounds.size.height
     }
 
 }

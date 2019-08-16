@@ -71,7 +71,7 @@
                                     <color key="textColor" name="B3"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收件地址：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61v-pU-Law">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="收件地址：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61v-pU-Law">
                                     <rect key="frame" x="32" y="29" width="72" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" name="B3"/>
@@ -95,8 +95,8 @@
                                     <color key="textColor" name="B2"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(adresssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3k-uH-zt3">
-                                    <rect key="frame" x="105" y="29" width="469" height="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(adresssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3k-uH-zt3">
+                                    <rect key="frame" x="105" y="29" width="299" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" name="B2"/>
                                     <nil key="highlightedColor"/>
@@ -118,6 +118,7 @@
                             <constraints>
                                 <constraint firstItem="eD1-su-9o5" firstAttribute="leading" secondItem="0up-Dt-CNl" secondAttribute="leading" constant="32" id="55P-Ji-vgH"/>
                                 <constraint firstItem="v51-wg-1RH" firstAttribute="leading" secondItem="eD1-su-9o5" secondAttribute="trailing" constant="1" id="ChW-J6-c8p"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="P3k-uH-zt3" secondAttribute="trailing" constant="10" id="EH2-3W-Hrx"/>
                                 <constraint firstItem="61v-pU-Law" firstAttribute="top" secondItem="pve-e4-GBL" secondAttribute="bottom" constant="6" id="JIx-fh-JNM"/>
                                 <constraint firstAttribute="bottom" secondItem="gJz-Zy-bf5" secondAttribute="bottom" constant="6" id="Jnv-6e-Uq8"/>
                                 <constraint firstItem="pve-e4-GBL" firstAttribute="top" secondItem="0up-Dt-CNl" secondAttribute="top" constant="6" id="Krz-UD-byf"/>

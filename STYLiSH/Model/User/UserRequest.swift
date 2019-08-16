@@ -59,6 +59,8 @@ enum STUserRequest: STRequest {
         case .checkout(_, let body):
 
             return body
+            print("========CHECKOUT BODY======")
+            print(body)
             
             
         case .signup(let name, let email, let password):

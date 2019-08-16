@@ -64,6 +64,8 @@ class CheckoutViewController: STBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("ORDER長這樣")
+        print(orderProvider.order)
         
     }
     
@@ -159,6 +161,7 @@ class CheckoutViewController: STBaseViewController {
                         case .failure(let error):
                             
                             //TODO
+                            print("＝＝＝＝＝結帳失敗========")
                             print(error)
                         }
                 })

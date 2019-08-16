@@ -269,11 +269,22 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard
-            let product = allProductDatas[indexPath.row] as? Product
-        else { return }
-        
-        showProductDetailViewController(product: product)
+        if shouldShowSearchResults {
+            
+            guard
+                let product = searchedArray[indexPath.row] as? Product
+                else { return }
+            
+            showProductDetailViewController(product: product)
+            
+        } else {
+            
+            guard
+                let product = allProductDatas[indexPath.row] as? Product
+                else { return }
+            
+            showProductDetailViewController(product: product)
+        }
     }
     
     private func showProductDetailViewController(product: Product) {

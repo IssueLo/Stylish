@@ -1,6 +1,5 @@
 # STYLiSH - iOS
 
-### Facebook Login Test Account
-**Account:** open_zigmhrh_user@tfbnw.net
+### 基本說明
 
-**Password:** AppWorksSchool123
+STYLiSH 為一個服飾相關的電商服務平台，基於原有功能，我們幾位 iOS 和 Web 前、後端的工程共同討論開發新功能，此過程為期一個禮拜。

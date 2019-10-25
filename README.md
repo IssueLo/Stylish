@@ -1,5 +1,9 @@
-# STYLiSH - iOS
+# Stylish - A clothes E-commerce shopping platform
 
-### 基本說明
-
-STYLiSH 為一個服飾相關的電商服務平台，基於原有功能，我們幾位 iOS 工程師和 Web 前、後端的工程師共同討論開發新功能，開發時間為一個禮拜。
+- Passed values from view to controller with Delegate
+- Handled JSON data with Codable and RESTful APIs with URLRequest and URLSession
+- Saved shopping cart product list in local SQLite Database by CoreData
+- Established payment flow with TapPay SDK
+- Adjusted UI in different iOS device with Auto Layout
+- Updated tab bar badge value immediately when shopping cart had changed with Notification Center
+- Supported Localization for both Chinese and English.
